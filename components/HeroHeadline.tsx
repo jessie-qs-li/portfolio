@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import TextCursorProximity from "@/components/ui/text-cursor-proximity"
+import { GradientText } from "@/components/ui/gradient-text"
 
 export default function HeroHeadline() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -31,24 +32,21 @@ export default function HeroHeadline() {
         falloff="gaussian"
         className="block"
       />
-      {/* "AI and storytelling." stays gradient like before */}
-      <TextCursorProximity
-        label="AI and storytelling."
-        styles={{
-          transform: {
-            from: "scale(1)" as string,
-            to: "scale(1.3)" as string,
-          },
-          color: {
-            from: "#dc143c",
-            to: "#a855f7",
-          },
-        }}
-        containerRef={containerRef}
-        radius={140}
-        falloff="gaussian"
-        className="block"
-      />
+      <GradientText as="div" className="hero-gradient-text block">
+        <TextCursorProximity
+          label="AI and storytelling"
+          styles={{
+            transform: {
+              from: "scale(1)" as string,
+              to: "scale(1.3)" as string,
+            },
+          }}
+          containerRef={containerRef}
+          radius={140}
+          falloff="gaussian"
+          className="block"
+        />
+      </GradientText>
     </div>
   )
 }

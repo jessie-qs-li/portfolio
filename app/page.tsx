@@ -36,9 +36,7 @@ export default function Home() {
 
       {/* HERO */}
       <section className="hero">
-        <div className="hero-orb hero-orb-1"></div>
-        <div className="hero-orb hero-orb-2"></div>
-        <div className="hero-orb hero-orb-3"></div>
+
         <div className="hero-content">
           <div className="hero-eyebrow">
             CS &amp; Film @ <a href="https://www.columbia.edu" target="_blank" rel="noopener">Columbia</a>
@@ -58,34 +56,34 @@ export default function Home() {
               <div className="col-heading">what I think about</div>
               <div className="thinking-item">
                 <span className="thinking-num">01</span>
-                <p>how to create engaging, novel, and interesting digital experiences in the age of AI slop.</p>
+                <p>how to create engaging, novel, and interesting digital experiences in the age of AI slop</p>
               </div>
               <div className="thinking-item">
                 <span className="thinking-num">02</span>
-                <p>how to make education inspiring and fun, especially in a multimodal way.</p>
+                <p>how to make education inspiring and fun, especially in a multimodal way</p>
               </div>
               <div className="thinking-item">
                 <span className="thinking-num">03</span>
-                <p>how to use tech to support the discovery of films, books, and other content that enrich and inspire.</p>
+                <p>how to use tech to support the discovery of films, books, and other content that enrich and inspire</p>
               </div>
             </div>
             <div className="fade-in" style={{ transitionDelay: "0.15s" }}>
               <div className="col-heading">currently</div>
               <div className="currently-item">
                 <div className="currently-dot"></div>
-                <p>building a film discovery product (stealth).</p>
+                <p>building a film discovery product (stealth)</p>
               </div>
               <div className="currently-item">
                 <div className="currently-dot"></div>
-                <p>researching with the Columbia Digital Storytelling Lab.</p>
+                <p>researching with the Columbia Digital Storytelling Lab</p>
               </div>
               <div className="currently-item">
                 <div className="currently-dot"></div>
-                <p>designing products and leading UX research across early-stage startups.</p>
+                <p>designing products and leading UX research across early-stage startups</p>
               </div>
               <div className="currently-item">
                 <div className="currently-dot"></div>
-                <p>mentoring students ~6 hours/week through <a href="https://li-tutors.figma.site/" target="_blank" rel="noopener">Li Tutors</a>, the tutoring company I founded with my twin brother <a href="https://www.linkedin.com/in/ethan-li-121121121121121121121/" target="_blank" rel="noopener">Ethan</a>.</p>
+                <p>mentoring students ~6 hours/week through <a href="https://li-tutors.figma.site/" target="_blank" rel="noopener">Li Tutors</a>, the tutoring company I founded with my twin brother <a href="https://www.linkedin.com/in/ethan-li-121121121121121121121/" target="_blank" rel="noopener">Ethan</a></p>
               </div>
             </div>
           </div>
@@ -312,36 +310,36 @@ export default function Home() {
             <a href="https://www.doubleexposurecu.com/post/panoptic-patriarchy-in-raise-the-red-lantern" target="_blank" rel="noopener" className="writing-card pinned fade-in">
               <div className="writing-accent"></div>
               <div>
-                <div className="writing-badge">Winner, Annie Hall Award</div>
-                <div className="writing-title">Panoptic Patriarchy in Raise the Red Lantern</div>
-                <div className="writing-desc">An analysis of how Zhang Yimou constructs surveillance-as-architecture to visualize patriarchal control.</div>
-                <span className="writing-link">Read on Double Exposure →</span>
+                <div className="writing-badge">WINNER, ANNIE HALL AWARD</div>
+                <div className="writing-title">panoptic patriarchy in raise the red lantern</div>
+                <div className="writing-desc">an analysis of how Zhang Yimou constructs surveillance-as-architecture to visualize patriarchal control</div>
+                <span className="writing-link">READ ON DOUBLE EXPOSURE →</span>
               </div>
             </a>
             <a href="https://letterboxd.com/qishan_li/lists/" target="_blank" rel="noopener" className="writing-card fade-in">
-              <div className="writing-badge">Film Lists</div>
-              <div className="writing-title">Curated film lists</div>
-              <div className="writing-desc">I keep curated film lists on Letterboxd.</div>
-              <span className="writing-link">Browse on Letterboxd →</span>
+              <div className="writing-badge">FILM LISTS</div>
+              <div className="writing-title">curated film lists</div>
+              <div className="writing-desc">I keep curated film lists on Letterboxd</div>
+              <span className="writing-link">BROWSE ON LETTERBOXD →</span>
             </a>
             <div className="writing-card fade-in" style={{ opacity: 0.6 }}>
-              <div className="writing-badge">Coming Soon</div>
-              <div className="writing-title">More writing</div>
-              <div className="writing-desc">Film reviews, articles, and other thoughts. Stay tuned.</div>
+              <div className="writing-badge">COMING SOON</div>
+              <div className="writing-title">more writing</div>
+              <div className="writing-desc">film reviews, articles, and other thoughts — stay tuned</div>
             </div>
           </div>
           <div className="more-grid fade-in">
             <div className="more-chip">
-              <div className="more-chip-title">Videography</div>
-              <div className="more-chip-desc">Coming soon.</div>
+              <div className="more-chip-title">videography</div>
+              <div className="more-chip-desc">coming soon</div>
             </div>
             <div className="more-chip">
-              <div className="more-chip-title">Mock Trial</div>
-              <div className="more-chip-desc">I used to compete seriously. Coming soon.</div>
+              <div className="more-chip-title">mock trial</div>
+              <div className="more-chip-desc">I used to compete seriously — coming soon</div>
             </div>
             <div className="more-chip">
-              <div className="more-chip-title">Travel</div>
-              <div className="more-chip-desc">5 continents and counting.</div>
+              <div className="more-chip-title">travel</div>
+              <div className="more-chip-desc">5 continents and counting</div>
             </div>
           </div>
         </div>

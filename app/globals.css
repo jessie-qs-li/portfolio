@@ -24,6 +24,38 @@
   --font-display: var(--font-syne), sans-serif;
   --font-body: var(--font-outfit), sans-serif;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --color-1: 22 100% 60%;   /* warm orange */
+  --color-2: 300 80% 60%;   /* violet */
+  --color-3: 340 90% 55%;   /* hot pink */
+  --color-4: 45 100% 65%;   /* amber */
+  --color-5: 270 80% 60%;   /* purple */
+}
+
+@keyframes gradient-border {
+  0%, 100% { border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%; }
+  25%       { border-radius: 47% 29% 39% 49% / 61% 19% 66% 26%; }
+  50%       { border-radius: 57% 23% 47% 72% / 63% 17% 66% 33%; }
+  75%       { border-radius: 28% 49% 29% 100% / 93% 20% 64% 25%; }
+}
+@keyframes gradient-1 {
+  0%, 100% { top: 0; right: 0; }
+  50%       { top: 50%; right: 25%; }
+  75%       { top: 25%; right: 50%; }
+}
+@keyframes gradient-2 {
+  0%, 100% { top: 0; left: 0; }
+  60%       { top: 75%; left: 25%; }
+  85%       { top: 50%; left: 50%; }
+}
+@keyframes gradient-3 {
+  0%, 100% { bottom: 0; left: 0; }
+  40%       { bottom: 50%; left: 25%; }
+  65%       { bottom: 25%; left: 50%; }
+}
+@keyframes gradient-4 {
+  0%, 100% { bottom: 0; right: 0; }
+  50%       { bottom: 25%; right: 40%; }
+  90%       { bottom: 50%; right: 25%; }
 }
 
 [data-theme="dark"] {
@@ -101,6 +133,12 @@ section { padding: 100px 0; position: relative; }
 .hero-eyebrow a:hover { color: var(--text); text-decoration-color: var(--text); }
 .hero-headline { font-family: var(--font-display); font-weight: 800; font-size: clamp(36px, 6vw, 64px); line-height: 1.0; letter-spacing: -0.04em; margin-bottom: 28px; opacity: 0; animation: fadeUp 0.8s ease-out 0.4s forwards; }
 .hero-headline .gradient-text { background: var(--grad-spectrum); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* GradientText: light mode uses lighten (colorizes dark text on light bg), dark mode uses darken (colorizes light text on dark bg) */
+.gradient-text-glow-layer { mix-blend-mode: lighten; }
+[data-theme="dark"] .gradient-text-glow-layer { mix-blend-mode: darken; }
+/* Prevent descender clipping from overflow:hidden on GradientText wrapper */
+.hero-gradient-text { padding-bottom: 0.2em; margin-bottom: -0.2em; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 .btn-primary { font-family: var(--font-display); font-size: 12px; font-weight: 700; padding: 14px 32px; border-radius: 6px; border: none; background: var(--text); color: var(--bg); cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em; transition: all var(--transition); display: inline-flex; align-items: center; gap: 8px; opacity: 0; animation: fadeUp 0.8s ease-out 0.8s forwards; }
@@ -185,7 +223,7 @@ section { padding: 100px 0; position: relative; }
 .exp-row { border-bottom: 1px solid var(--border); transition: background var(--transition); }
 .exp-row:hover { background: var(--bg2); }
 .exp-row td { padding: 18px 0; vertical-align: top; }
-.exp-role { font-family: var(--font-display); font-size: 15px; font-weight: 600; letter-spacing: -0.01em; width: 40%; }
+.exp-role { font-family: var(--font-display); font-size: 15px; font-weight: 600; letter-spacing: -0.01em; width: 40%; padding-left: 12px; }
 .exp-org { font-size: 14px; color: var(--text2); font-weight: 300; width: 35%; }
 .exp-org a { color: inherit; text-decoration: underline; text-decoration-color: var(--text3); text-underline-offset: 2px; transition: color var(--transition), text-decoration-color var(--transition); }
 .exp-org a:hover { color: var(--text); text-decoration-color: var(--text); }
