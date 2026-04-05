@@ -256,42 +256,42 @@ export default function Home() {
           <table className="exp-table">
             <tbody>
               <tr className="exp-row fade-in">
-                <td className="exp-role">AI/ML Fellow</td>
+                <td className="exp-role">&nbsp;&nbsp;AI/ML Fellow</td>
                 <td className="exp-org"><a href="https://www.breakthroughtech.org/" target="_blank" rel="noopener">Break Through Tech</a></td>
                 <td className="exp-date">Mar 2026 – Present<span className="exp-present"></span></td>
               </tr>
               <tr className="exp-row fade-in">
-                <td className="exp-role">Undergraduate Researcher</td>
+                <td className="exp-role">&nbsp;&nbsp;Undergraduate Researcher</td>
                 <td className="exp-org"><a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a></td>
                 <td className="exp-date">Jan 2026 – Present<span className="exp-present"></span></td>
               </tr>
               <tr className="exp-row fade-in">
-                <td className="exp-role">Product Designer</td>
+                <td className="exp-role">&nbsp;&nbsp;Product Designer</td>
                 <td className="exp-org"><a href="https://www.columbiaspectator.com/" target="_blank" rel="noopener">The Columbia Spectator</a></td>
                 <td className="exp-date">Sep 2025 – Present<span className="exp-present"></span></td>
               </tr>
               <tr className="exp-row fade-in">
-                <td className="exp-role">Founder &amp; Head Tutor</td>
+                <td className="exp-role">&nbsp;&nbsp;Founder &amp; Head Tutor</td>
                 <td className="exp-org"><a href="https://li-tutors.figma.site/" target="_blank" rel="noopener">Li Tutors</a></td>
                 <td className="exp-date">Apr 2024 – Present<span className="exp-present"></span></td>
               </tr>
               <tr className="exp-row fade-in">
-                <td className="exp-role">Product Engineering Intern</td>
+                <td className="exp-role">&nbsp;&nbsp;Product Engineering Intern</td>
                 <td className="exp-org"><a href="https://flevy.com/" target="_blank" rel="noopener">Flevy</a></td>
                 <td className="exp-date">Nov – Dec 2025</td>
               </tr>
               <tr className="exp-row fade-in">
-                <td className="exp-role">Product Research Intern</td>
+                <td className="exp-role">&nbsp;&nbsp;Product Research Intern</td>
                 <td className="exp-org"><a href="http://apply7.ai/" target="_blank" rel="noopener">Apply7.ai</a></td>
                 <td className="exp-date">Jul – Aug 2025</td>
               </tr>
               <tr className="exp-row fade-in">
-                <td className="exp-role">Events &amp; Liaison Intern</td>
+                <td className="exp-role">&nbsp;&nbsp;Events &amp; Liaison Intern</td>
                 <td className="exp-org"><a href="https://www.siff.com/english/" target="_blank" rel="noopener">Shanghai International Film Festival</a></td>
                 <td className="exp-date">May – Jun 2025</td>
               </tr>
               <tr className="exp-row fade-in">
-                <td className="exp-role">Research Assistant</td>
+                <td className="exp-role">&nbsp;&nbsp;Research Assistant</td>
                 <td className="exp-org"><a href="https://filmandmedia.emory.edu/" target="_blank" rel="noopener">Emory Dept. of Film and Media</a></td>
                 <td className="exp-date">Jan – Apr 2025</td>
               </tr>
@@ -352,8 +352,8 @@ export default function Home() {
         <div className="contact-orb contact-orb-1"></div>
         <div className="contact-orb contact-orb-2"></div>
         <div className="container">
-          <h2 className="contact-headline fade-in">Let&apos;s talk.</h2>
-          <p className="contact-body fade-in">I&apos;m always happy to chat about design, film, AI, education, or whatever else is on your mind. If you&apos;re working on something interesting or want to work on something together, please feel free to reach out.</p>
+          <h2 className="contact-headline fade-in">let&apos;s talk.</h2>
+          <p className="contact-body fade-in">i&apos;m always happy to chat about design, film, AI, education, or whatever else is on your mind. if you&apos;re working on something interesting or want to work on something together, please feel free to reach out</p>
           <a href="mailto:hello@jessieli.com" className="btn-gradient fade-in">Get in touch →</a>
         </div>
       </section>
