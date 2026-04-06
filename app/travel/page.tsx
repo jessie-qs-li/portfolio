@@ -81,11 +81,10 @@ export default function TravelGallery() {
         </Link>
 
         <div style={{ marginTop: 48, marginBottom: 48 }}>
-          <div className="section-label">Travel</div>
           <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(36px, 6vw, 64px)", letterSpacing: "-0.04em", lineHeight: 1.0, marginBottom: 12 }}>
             travel gallery
           </h1>
-          </div>
+        </div>
 
         <div className="divider" style={{ marginBottom: 48 }} />
 

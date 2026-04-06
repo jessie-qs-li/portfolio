@@ -179,6 +179,7 @@ export default function Home() {
                     <span className="tag">Research</span>
                     <span className="tag">Creativity</span>
                   </div>
+                  <a href="https://partygame-ten.vercel.app/" target="_blank" rel="noopener" className="project-link">imposter ↗</a>
                 </div>
               </div>
             </div>
