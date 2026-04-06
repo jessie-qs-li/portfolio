@@ -192,7 +192,7 @@ export default function Home() {
                 <div className="project-name">Noodle</div>
                 <div className="project-tagline">AI that hands kids the pen</div>
                 <div className="project-award">Best Use of ElevenLabs, <a href="https://devpost.com/software/noodle-2aotw6" target="_blank" rel="noopener">DevFest 2025</a></div>
-                <div className="project-desc">An AI drawing buddy for kids ages 4–6. As children draw and talk through their ideas, Noodle listens, cheers them on, and asks questions that spark new ideas. Turning every scribble into a story.</div>
+                <div className="project-desc">An AI drawing buddy for kids ages 4–6. As children draw and talk through their ideas, Noodle listens, cheers them on, and asks questions that spark new ideas.</div>
                 <div className="project-footer">
                   <div className="project-tags">
                     <span className="tag">AI</span>
@@ -231,7 +231,7 @@ export default function Home() {
               <div className="project-card-body">
                 <div className="project-name">Pet Pomodoro</div>
                 <div className="project-tagline">A pomodoro timer with feelings</div>
-                <div className="project-desc">A focus timer with a cute avatar that turns sad whenever you break your flow. Productivity through gentle emotional manipulation.</div>
+                <div className="project-desc">A focus timer with a cute avatar that turns sad whenever you break your flow.</div>
                 <div className="project-footer">
                   <div className="project-tags">
                     <span className="tag">UI Design</span>
