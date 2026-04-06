@@ -16,25 +16,19 @@ export default function HeroHeadline() {
 
   return (
     <div ref={containerRef} className="hero-headline cursor-default select-none">
-      <TextCursorProximity
-        label="design engineer building"
-        styles={sharedStyles}
-        containerRef={containerRef}
-        radius={120}
-        falloff="gaussian"
-        className="block"
-      />
-      <TextCursorProximity
-        label="at the intersection of"
-        styles={sharedStyles}
-        containerRef={containerRef}
-        radius={120}
-        falloff="gaussian"
-        className="block"
-      />
+      <span style={{ display: "block", paddingBottom: "0.15em" }}>
+        <TextCursorProximity
+          label="jessie li"
+          styles={sharedStyles}
+          containerRef={containerRef}
+          radius={120}
+          falloff="gaussian"
+          className="block"
+        />
+      </span>
       <GradientText as="div" className="hero-gradient-text block">
         <TextCursorProximity
-          label="AI and storytelling"
+          label="design engineer"
           styles={{
             transform: {
               from: "scale(1)" as string,

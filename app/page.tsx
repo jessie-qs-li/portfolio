@@ -1,6 +1,9 @@
 import Image from "next/image"
 import HeroHeadline from "@/components/HeroHeadline"
 import ClientScripts from "@/components/ClientScripts"
+import TravelGlobe from "@/components/TravelGlobe"
+import LetterboxdRecent from "@/components/LetterboxdRecent"
+import HeroMouseTrail from "@/components/HeroMouseTrail"
 
 export default function Home() {
   return (
@@ -17,7 +20,7 @@ export default function Home() {
             <a href="#contact">Contact</a>
           </div>
           <button className="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-            <span id="theme-icon">☾</span>
+            <span id="theme-icon"></span>
           </button>
           <button className="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -36,13 +39,13 @@ export default function Home() {
 
       {/* HERO */}
       <section className="hero">
-
+        <HeroMouseTrail />
         <div className="hero-content">
           <div className="hero-eyebrow">
             CS &amp; Film @ <a href="https://www.columbia.edu" target="_blank" rel="noopener">Columbia</a>
           </div>
           <HeroHeadline />
-          <a href="#work" className="btn-primary">See my work →</a>
+          <a href="#work" className="btn-primary" style={{ marginTop: 30 }}>See my work →</a>
         </div>
       </section>
 
@@ -52,7 +55,7 @@ export default function Home() {
       <section id="about">
         <div className="container">
           <div className="two-col">
-            <div className="fade-in">
+            <div className="fade-in" id="thinking-section">
               <div className="col-heading">what I think about</div>
               <div className="thinking-item">
                 <span className="thinking-num">01</span>
@@ -67,7 +70,7 @@ export default function Home() {
                 <p>how to use tech to support the discovery of films, books, and other content that enrich and inspire</p>
               </div>
             </div>
-            <div className="fade-in" style={{ transitionDelay: "0.15s" }}>
+            <div className="fade-in" id="currently-section" style={{ transitionDelay: "0.15s" }}>
               <div className="col-heading">currently</div>
               <div className="currently-item">
                 <div className="currently-dot"></div>
@@ -75,7 +78,7 @@ export default function Home() {
               </div>
               <div className="currently-item">
                 <div className="currently-dot"></div>
-                <p>researching with the Columbia Digital Storytelling Lab</p>
+                <p>conducting HCI research with the <a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a></p>
               </div>
               <div className="currently-item">
                 <div className="currently-dot"></div>
@@ -95,7 +98,7 @@ export default function Home() {
       {/* PROJECTS */}
       <section id="work">
         <div className="container">
-          <div className="section-label fade-in">Selected Projects</div>
+          <div className="col-heading fade-in">selected projects</div>
           <div className="projects-grid">
 
             {/* Wonder (featured) */}
@@ -138,9 +141,37 @@ export default function Home() {
               </div>
               <div className="project-card-body">
                 <div className="project-name">The Turing Gallery</div>
-                <div className="project-tagline">Art with an imposter</div>
+                <div className="project-tagline">You&apos;ll know it when you see it. Or will you?</div>
                 <div className="project-award"><a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a></div>
-                <div className="project-desc">What makes human creativity recognizably human? In this multiuser creative turing test, every player creates something about a shared human theme. One creation is made by AI. The group&apos;s job is to figure out which one!</div>
+                <div className="project-desc">A mixed-methods study probing the limits of human perception. Participants move through a curated gallery of text, audio, and visual media — some human, some AI — while behavioral metrics capture exactly where our instincts break down.</div>
+                <div className="project-footer">
+                  <div className="project-tags">
+                    <span className="tag">AI</span>
+                    <span className="tag">Games</span>
+                    <span className="tag">Research</span>
+                    <span className="tag">Creativity</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Imposter */}
+            <div className="project-card project-card--imposter fade-in">
+              <div className="project-card-gradient project-card-gradient--imposter">
+                <Image
+                  className="imposter-preview-img"
+                  src="/imposter-party-game.png"
+                  alt="Imposter: A Party Game — menu to host or join a room"
+                  width={1024}
+                  height={550}
+                  loading="lazy"
+                />
+              </div>
+              <div className="project-card-body">
+                <div className="project-name">Imposter: A Party Game</div>
+                <div className="project-tagline">The AI is in the room</div>
+                <div className="project-award"><a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a></div>
+                <div className="project-desc">What makes human creativity recognizably human? In this multiuser creative turing test, every player writes something about a shared human theme. One piece is made by AI. The group&apos;s job is to figure out which one!</div>
                 <div className="project-footer">
                   <div className="project-tags">
                     <span className="tag">AI</span>
@@ -252,47 +283,143 @@ export default function Home() {
       {/* EXPERIENCE */}
       <section id="experience">
         <div className="container">
-          <div className="section-label fade-in">Experience</div>
+          <div className="col-heading fade-in">experience</div>
           <table className="exp-table">
             <tbody>
               <tr className="exp-row fade-in">
                 <td className="exp-role">&nbsp;&nbsp;AI/ML Fellow</td>
-                <td className="exp-org"><a href="https://www.breakthroughtech.org/" target="_blank" rel="noopener">Break Through Tech</a></td>
+                <td className="exp-org">
+                  <a href="https://www.breakthroughtech.org/" target="_blank" rel="noopener" className="exp-org-with-logo">
+                    <Image
+                      src="/logos/break-through-tech.png"
+                      alt=""
+                      width={22}
+                      height={22}
+                      className="exp-org-logo"
+                      aria-hidden
+                    />
+                    <span className="exp-org-link-text">Break Through Tech</span>
+                  </a>
+                </td>
                 <td className="exp-date">Mar 2026 – Present<span className="exp-present"></span></td>
               </tr>
               <tr className="exp-row fade-in">
                 <td className="exp-role">&nbsp;&nbsp;Undergraduate Researcher</td>
-                <td className="exp-org"><a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a></td>
+                <td className="exp-org">
+                  <a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener" className="exp-org-with-logo">
+                    <Image
+                      src="/logos/columbia-dsl.png"
+                      alt=""
+                      width={200}
+                      height={40}
+                      className="exp-org-logo"
+                      aria-hidden
+                    />
+                    <span className="exp-org-link-text">Columbia Digital Storytelling Lab</span>
+                  </a>
+                </td>
                 <td className="exp-date">Jan 2026 – Present<span className="exp-present"></span></td>
               </tr>
               <tr className="exp-row fade-in">
                 <td className="exp-role">&nbsp;&nbsp;Product Designer</td>
-                <td className="exp-org"><a href="https://www.columbiaspectator.com/" target="_blank" rel="noopener">The Columbia Spectator</a></td>
+                <td className="exp-org">
+                  <a href="https://www.columbiaspectator.com/" target="_blank" rel="noopener" className="exp-org-with-logo">
+                    <Image
+                      src="/logos/columbia-spectator.png"
+                      alt=""
+                      width={22}
+                      height={22}
+                      className="exp-org-logo"
+                      aria-hidden
+                    />
+                    <span className="exp-org-link-text">The Columbia Spectator</span>
+                  </a>
+                </td>
                 <td className="exp-date">Sep 2025 – Present<span className="exp-present"></span></td>
               </tr>
               <tr className="exp-row fade-in">
                 <td className="exp-role">&nbsp;&nbsp;Founder &amp; Head Tutor</td>
-                <td className="exp-org"><a href="https://li-tutors.figma.site/" target="_blank" rel="noopener">Li Tutors</a></td>
+                <td className="exp-org">
+                  <a href="https://li-tutors.figma.site/" target="_blank" rel="noopener" className="exp-org-with-logo">
+                    <Image
+                      src="/logos/li-tutors.png"
+                      alt=""
+                      width={22}
+                      height={22}
+                      className="exp-org-logo"
+                      aria-hidden
+                    />
+                    <span className="exp-org-link-text">Li Tutors</span>
+                  </a>
+                </td>
                 <td className="exp-date">Apr 2024 – Present<span className="exp-present"></span></td>
               </tr>
               <tr className="exp-row fade-in">
                 <td className="exp-role">&nbsp;&nbsp;Product Engineering Intern</td>
-                <td className="exp-org"><a href="https://flevy.com/" target="_blank" rel="noopener">Flevy</a></td>
+                <td className="exp-org">
+                  <a href="https://flevy.com/" target="_blank" rel="noopener" className="exp-org-with-logo">
+                    <Image
+                      src="/logos/flevy.png"
+                      alt=""
+                      width={200}
+                      height={200}
+                      className="exp-org-logo"
+                      aria-hidden
+                    />
+                    <span className="exp-org-link-text">Flevy</span>
+                  </a>
+                </td>
                 <td className="exp-date">Nov – Dec 2025</td>
               </tr>
               <tr className="exp-row fade-in">
                 <td className="exp-role">&nbsp;&nbsp;Product Research Intern</td>
-                <td className="exp-org"><a href="http://apply7.ai/" target="_blank" rel="noopener">Apply7.ai</a></td>
+                <td className="exp-org">
+                  <a href="http://apply7.ai/" target="_blank" rel="noopener" className="exp-org-with-logo">
+                    <Image
+                      src="/logos/apply7.png"
+                      alt=""
+                      width={200}
+                      height={200}
+                      className="exp-org-logo"
+                      aria-hidden
+                    />
+                    <span className="exp-org-link-text">Apply7.ai</span>
+                  </a>
+                </td>
                 <td className="exp-date">Jul – Aug 2025</td>
               </tr>
               <tr className="exp-row fade-in">
                 <td className="exp-role">&nbsp;&nbsp;Events &amp; Liaison Intern</td>
-                <td className="exp-org"><a href="https://www.siff.com/english/" target="_blank" rel="noopener">Shanghai International Film Festival</a></td>
+                <td className="exp-org">
+                  <a href="https://www.siff.com/english/" target="_blank" rel="noopener" className="exp-org-with-logo">
+                    <Image
+                      src="/logos/shanghai-international-film-festival.png"
+                      alt=""
+                      width={330}
+                      height={330}
+                      className="exp-org-logo"
+                      aria-hidden
+                    />
+                    <span className="exp-org-link-text">Shanghai International Film Festival</span>
+                  </a>
+                </td>
                 <td className="exp-date">May – Jun 2025</td>
               </tr>
               <tr className="exp-row fade-in">
                 <td className="exp-role">&nbsp;&nbsp;Research Assistant</td>
-                <td className="exp-org"><a href="https://filmandmedia.emory.edu/" target="_blank" rel="noopener">Emory Dept. of Film and Media</a></td>
+                <td className="exp-org">
+                  <a href="https://filmandmedia.emory.edu/" target="_blank" rel="noopener" className="exp-org-with-logo">
+                    <Image
+                      src="/logos/emory-film-media.png"
+                      alt=""
+                      width={918}
+                      height={908}
+                      className="exp-org-logo"
+                      aria-hidden
+                    />
+                    <span className="exp-org-link-text">Emory Dept. of Film and Media</span>
+                  </a>
+                </td>
                 <td className="exp-date">Jan – Apr 2025</td>
               </tr>
             </tbody>
@@ -305,41 +432,54 @@ export default function Home() {
       {/* WRITING */}
       <section id="writing">
         <div className="container">
-          <div className="section-label fade-in">Writing &amp; Film</div>
+          <div className="col-heading fade-in">other</div>
           <div className="writing-grid">
-            <a href="https://www.doubleexposurecu.com/post/panoptic-patriarchy-in-raise-the-red-lantern" target="_blank" rel="noopener" className="writing-card pinned fade-in">
-              <div className="writing-accent"></div>
-              <div>
-                <div className="writing-badge">WINNER, ANNIE HALL AWARD</div>
-                <div className="writing-title">panoptic patriarchy in raise the red lantern</div>
-                <div className="writing-desc">an analysis of how Zhang Yimou constructs surveillance-as-architecture to visualize patriarchal control</div>
-                <span className="writing-link">READ ON DOUBLE EXPOSURE →</span>
-              </div>
+            <a href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener" className="writing-card fade-in" id="other-letterboxd">
+              <div className="writing-title">letterboxd</div>
+              <div className="writing-desc">i&apos;m a huge cinephile! i watch and review ~120 films per year</div>
+              <div className="letterboxd-recent-label">recent watches:</div>
+              <LetterboxdRecent />
+              <span className="writing-link">MY LETTERBOXD →</span>
             </a>
-            <a href="https://letterboxd.com/qishan_li/lists/" target="_blank" rel="noopener" className="writing-card fade-in">
-              <div className="writing-badge">FILM LISTS</div>
-              <div className="writing-title">curated film lists</div>
-              <div className="writing-desc">I keep curated film lists on Letterboxd</div>
-              <span className="writing-link">BROWSE ON LETTERBOXD →</span>
-            </a>
-            <div className="writing-card fade-in" style={{ opacity: 0.6 }}>
-              <div className="writing-badge">COMING SOON</div>
-              <div className="writing-title">more writing</div>
-              <div className="writing-desc">film reviews, articles, and other thoughts — stay tuned</div>
+            <div className="writing-card fade-in" id="other-writing">
+              <div className="writing-title">writing</div>
+              <div className="writing-desc" style={{ marginBottom: 12 }}>film reviews, articles, and other thoughts</div>
+              <div className="letterboxd-recent-label" style={{ marginBottom: 8 }}>recent pieces:</div>
+              <a href="https://www.doubleexposurecu.com/post/panoptic-patriarchy-in-raise-the-red-lantern" target="_blank" rel="noopener" style={{ display: "block", fontSize: 13, color: "var(--text2)", textDecoration: "underline", textUnderlineOffset: 3, marginBottom: 6 }}>
+                panoptic patriarchy in raise the red lantern — WINNER, ANNIE HALL AWARD
+              </a>
             </div>
           </div>
           <div className="more-grid fade-in">
-            <div className="more-chip">
+            <div className="more-chip" id="other-videography">
               <div className="more-chip-title">videography</div>
-              <div className="more-chip-desc">coming soon</div>
+              <div className="more-chip-desc" style={{ marginBottom: "12px" }}>i use final cut pro. sample work:</div>
+              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", borderRadius: "8px" }}>
+                <iframe
+                  src="https://www.youtube.com/embed/u2D_fjru0j0"
+                  title="Videography sample"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                />
+              </div>
             </div>
-            <div className="more-chip">
+            <div className="more-chip" id="other-mocktrial">
               <div className="more-chip-title">mock trial</div>
-              <div className="more-chip-desc">I used to compete seriously — coming soon</div>
+              <div className="more-chip-desc" style={{ marginBottom: "12px" }}>i used to compete with the #4 ranked team in the country!</div>
+              <div className="mock-trial-carousel">
+                <div className="mock-trial-window" id="mockTrialWindow">
+                  <img src="/mock-trial-1.jpg" alt="Mock trial competition" className="mock-trial-img active" data-index="0" />
+                  <img src="/mock-trial-2.jpg" alt="Mock trial team" className="mock-trial-img" data-index="1" />
+                </div>
+                <button className="mock-trial-arrow mock-trial-prev" id="mockTrialPrev" aria-label="Previous">&#8592;</button>
+                <button className="mock-trial-arrow mock-trial-next" id="mockTrialNext" aria-label="Next">&#8594;</button>
+              </div>
             </div>
-            <div className="more-chip">
+            <div className="more-chip" id="other-travel">
               <div className="more-chip-title">travel</div>
-              <div className="more-chip-desc">5 continents and counting</div>
+              <div className="more-chip-desc">5 continents and counting — <a href="/travel" style={{ textDecoration: "underline", color: "inherit" }}>travel gallery</a></div>
+              <TravelGlobe />
             </div>
           </div>
         </div>
@@ -352,9 +492,9 @@ export default function Home() {
         <div className="contact-orb contact-orb-1"></div>
         <div className="contact-orb contact-orb-2"></div>
         <div className="container">
-          <h2 className="contact-headline fade-in">let&apos;s talk.</h2>
+          <h2 className="contact-headline fade-in">let&apos;s talk!</h2>
           <p className="contact-body fade-in">i&apos;m always happy to chat about design, film, AI, education, or whatever else is on your mind. if you&apos;re working on something interesting or want to work on something together, please feel free to reach out</p>
-          <a href="mailto:hello@jessieli.com" className="btn-gradient fade-in">Get in touch →</a>
+          <a href="mailto:jql2104@columbia.edu" className="btn-gradient fade-in">Get in touch →</a>
         </div>
       </section>
 
@@ -362,22 +502,20 @@ export default function Home() {
       <footer>
         <div className="container">
           <div className="footer-inner">
-            <div className="footer-left">Jessie Li · Design Engineer</div>
             <div className="social-links">
               <a href="https://github.com/jessie-qs-li" target="_blank" rel="noopener" className="social-link" aria-label="GitHub">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
               </a>
-              <a href="https://www.linkedin.com/in/jessie-li-columbia/" target="_blank" rel="noopener" className="social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/jessie-qi-shan-li/" target="_blank" rel="noopener" className="social-link" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
               <a href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener" className="social-link" aria-label="Letterboxd">
                 <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/><ellipse cx="12" cy="12" rx="2.5" ry="4"/></svg>
               </a>
-              <a href="mailto:hello@jessieli.com" className="social-link" aria-label="Email">
+              <a href="mailto:jql2104@columbia.edu" className="social-link" aria-label="Email">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </a>
             </div>
-            <div className="footer-right">Columbia University · CS &amp; Film</div>
           </div>
         </div>
       </footer>

@@ -8,9 +8,12 @@ export default function ClientScripts() {
     const toggleBtn = document.getElementById("theme-toggle")
     const themeIcon = document.getElementById("theme-icon")
 
+    const sunSVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`
+    const moonSVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`
+
     function applyThemeIcon() {
       const isDark = document.documentElement.getAttribute("data-theme") === "dark"
-      if (themeIcon) themeIcon.textContent = isDark ? "☀" : "☾"
+      if (themeIcon) themeIcon.innerHTML = isDark ? sunSVG : moonSVG
     }
 
     applyThemeIcon()
@@ -112,9 +115,93 @@ export default function ClientScripts() {
       armTimer()
     }
 
+    // Mock trial carousel
+    const window_ = document.getElementById("mockTrialWindow")
+    const prevBtn = document.getElementById("mockTrialPrev")
+    const nextBtn = document.getElementById("mockTrialNext")
+    if (window_) {
+      const slides = Array.from(window_.querySelectorAll<HTMLElement>(".mock-trial-img"))
+      const total = slides.length
+      let current = 0
+      let animating = false
+      const go = (dir: "next" | "prev") => {
+        if (animating) return
+        animating = true
+        const next = dir === "next" ? (current + 1) % total : (current - 1 + total) % total
+        const incoming = dir === "next" ? "slide-in-right" : "slide-in-left"
+        const outgoing = dir === "next" ? "slide-out-left" : "slide-out-right"
+        slides[next].classList.remove("active")
+        slides[next].classList.add(incoming)
+        slides[current].classList.add(outgoing)
+        slides[current].classList.remove("active")
+        const cleanup = () => {
+          slides[current].classList.remove(outgoing)
+          slides[next].classList.remove(incoming)
+          slides[next].classList.add("active")
+          current = next
+          animating = false
+        }
+        slides[next].addEventListener("animationend", cleanup, { once: true })
+      }
+      prevBtn?.addEventListener("click", () => go("prev"))
+      nextBtn?.addEventListener("click", () => go("next"))
+    }
+
+    // Custom emoji cursors
+    const cursor = document.createElement("div")
+    cursor.id = "custom-emoji-cursor"
+    document.body.appendChild(cursor)
+
+    const emojiSections: { id: string; emoji: string; small?: boolean }[] = [
+      { id: "thinking-section", emoji: "💭" },
+      { id: "currently-section", emoji: "📌" },
+      { id: "other-letterboxd", emoji: "🎬", small: true },
+      { id: "other-writing", emoji: "✍️", small: true },
+      { id: "other-videography", emoji: "🎥", small: true },
+      { id: "other-mocktrial", emoji: "⚖️", small: true },
+      { id: "other-travel", emoji: "✈️", small: true },
+    ]
+
+    let activeSection: HTMLElement | null = null
+
+    const moveCursor = (e: MouseEvent) => {
+      cursor.style.left = e.clientX + "px"
+      cursor.style.top = e.clientY + "px"
+    }
+
+    emojiSections.forEach(({ id, emoji, small }) => {
+      const el = document.getElementById(id)
+      el?.addEventListener("mouseenter", (e) => {
+        activeSection = el
+        cursor.textContent = emoji
+        cursor.style.left = (e as MouseEvent).clientX + "px"
+        cursor.style.top = (e as MouseEvent).clientY + "px"
+        el.style.cursor = "none"
+        cursor.classList.toggle("small", !!small)
+        cursor.classList.remove("pop-out")
+        void cursor.offsetWidth
+        cursor.classList.add("pop-in")
+      })
+      el?.addEventListener("mouseleave", () => {
+        activeSection = null
+        el.style.cursor = ""
+        cursor.classList.remove("pop-in")
+        void cursor.offsetWidth
+        cursor.classList.add("pop-out")
+      })
+    })
+
+    window.addEventListener("mousemove", moveCursor)
+
     return () => {
       observer.disconnect()
       window.removeEventListener("scroll", updateActive)
+      window.removeEventListener("mousemove", moveCursor)
+      cursor.remove()
+      emojiSections.forEach(({ id }) => {
+        const el = document.getElementById(id)
+        if (el) el.style.cursor = ""
+      })
     }
   }, [])
 
