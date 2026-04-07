@@ -143,7 +143,7 @@ export default function Home() {
                 <div className="project-name">The Turing Gallery</div>
                 <div className="project-tagline">You&apos;ll know it when you see it. Or will you?</div>
                 <div className="project-award"><a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a></div>
-                <div className="project-desc">A mixed-methods study probing the limits of human perception. Participants move through a curated gallery of text, audio, and visual media — some human, some AI — while behavioral metrics capture exactly where our instincts break down.</div>
+                <div className="project-desc">A mixed-methods study probing the limits of human perception. Participants move through a curated gallery of text, audio, and visual media — some human, some AI — while behavioral data capture exactly where our judgement slips.</div>
                 <div className="project-footer">
                   <div className="project-tags">
                     <span className="tag">AI</span>
@@ -151,6 +151,7 @@ export default function Home() {
                     <span className="tag">Research</span>
                     <span className="tag">Creativity</span>
                   </div>
+                  <a href="https://turing-gallery.vercel.app/" target="_blank" rel="noopener" className="project-link">view study ↗</a>
                 </div>
               </div>
             </div>
