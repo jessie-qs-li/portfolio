@@ -121,7 +121,7 @@ export default function Home() {
               <div className="project-card-body">
                 <div className="project-name">Wonder</div>
                 <div className="project-tagline">Explore the world in a different way</div>
-                <div className="project-award">2nd place, <a href="https://devpost.com/jessie1201li" target="_blank" rel="noopener">YHacks 2026 Social Impact Track</a></div>
+                <div className="project-award">2nd Place Social Impact, <a href="https://devpost.com/software/wonder-the-new-way-to-explore-the-world" target="_blank" rel="noopener">Yale Hackathon (YHack 2026)</a></div>
                 <div className="project-desc">Location-based AI voice chats that let kids talk to famous historical figures right where history happened.</div>
                 <div className="project-footer">
                   <div className="project-tags">
@@ -193,7 +193,7 @@ export default function Home() {
               <div className="project-card-body">
                 <div className="project-name">Noodle</div>
                 <div className="project-tagline">AI that hands kids the pen</div>
-                <div className="project-award">Best Use of ElevenLabs, <a href="https://devpost.com/software/noodle-2aotw6" target="_blank" rel="noopener">DevFest 2025</a></div>
+                <div className="project-award">Best Use of ElevenLabs, <a href="https://devpost.com/software/noodle-2aotw6" target="_blank" rel="noopener">Columbia Hackathon (DevFest 2026)</a></div>
                 <div className="project-desc">An AI drawing buddy for kids ages 4–6. As children draw and talk through their ideas, Noodle listens, cheers them on, and asks questions that spark new ideas.</div>
                 <div className="project-footer">
                   <div className="project-tags">
