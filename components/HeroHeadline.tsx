@@ -28,7 +28,7 @@ export default function HeroHeadline() {
       </span>
       <GradientText as="div" className="hero-gradient-text block">
         <TextCursorProximity
-          label="design engineer"
+          label="design engineer & product manager"
           styles={{
             transform: {
               from: "scale(1)" as string,
