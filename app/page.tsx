@@ -18,6 +18,7 @@ export default function Home() {
             <a href="#experience">Experience</a>
             <a href="#writing">Writing</a>
             <a href="#contact">Contact</a>
+            <a href="/jessie-li-resume.pdf" download="Jessie-Li-resume.pdf">Resume</a>
           </div>
           <button className="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
             <span id="theme-icon"></span>
@@ -35,6 +36,7 @@ export default function Home() {
         <a href="#experience" className="mobile-nav-link">Experience</a>
         <a href="#writing" className="mobile-nav-link">Writing</a>
         <a href="#contact" className="mobile-nav-link">Contact</a>
+        <a href="/jessie-li-resume.pdf" download="Jessie-Li-resume.pdf" className="mobile-nav-link">Resume</a>
       </div>
 
       {/* HERO */}
@@ -449,6 +451,9 @@ export default function Home() {
               <div className="letterboxd-recent-label" style={{ marginBottom: 8 }}>recent pieces:</div>
               <a href="https://www.doubleexposurecu.com/post/panoptic-patriarchy-in-raise-the-red-lantern" target="_blank" rel="noopener" style={{ display: "block", fontSize: 13, color: "var(--text2)", textDecoration: "underline", textUnderlineOffset: 3, marginBottom: 6 }}>
                 panoptic patriarchy in raise the red lantern — WINNER, ANNIE HALL AWARD
+              </a>
+              <a href="https://www.doubleexposurecu.com/post/the-birth-of-a-noir-consciousness-in-the-night-of-the-hunter" target="_blank" rel="noopener" style={{ display: "block", fontSize: 13, color: "var(--text2)", textDecoration: "underline", textUnderlineOffset: 3, marginBottom: 6 }}>
+                the birth of a noir consciousness in the night of the hunter
               </a>
             </div>
           </div>
