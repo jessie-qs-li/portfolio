@@ -3,7 +3,6 @@ import HeroHeadline from "@/components/HeroHeadline"
 import ClientScripts from "@/components/ClientScripts"
 import TravelGlobe from "@/components/TravelGlobe"
 import LetterboxdRecent from "@/components/LetterboxdRecent"
-import HeroMouseTrail from "@/components/HeroMouseTrail"
 
 export default function Home() {
   return (
@@ -18,7 +17,6 @@ export default function Home() {
             <a href="#experience">Experience</a>
             <a href="#writing">Writing</a>
             <a href="#contact">Contact</a>
-            <a href="/jessie-li-resume.pdf" download="Jessie-Li-resume.pdf">Resume</a>
           </div>
           <button className="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
             <span id="theme-icon"></span>
@@ -36,12 +34,10 @@ export default function Home() {
         <a href="#experience" className="mobile-nav-link">Experience</a>
         <a href="#writing" className="mobile-nav-link">Writing</a>
         <a href="#contact" className="mobile-nav-link">Contact</a>
-        <a href="/jessie-li-resume.pdf" download="Jessie-Li-resume.pdf" className="mobile-nav-link">Resume</a>
       </div>
 
       {/* HERO */}
       <section className="hero">
-        <HeroMouseTrail />
         <div className="hero-content">
           <div className="hero-eyebrow">
             CS &amp; Film @ <a href="https://www.columbia.edu" target="_blank" rel="noopener">Columbia</a>
@@ -242,6 +238,23 @@ export default function Home() {
                     <span className="tag">Fun</span>
                   </div>
                   <a href="https://petpomodoro-draft.figma.site/" target="_blank" rel="noopener" className="project-link">petpomodoro ↗</a>
+                </div>
+              </div>
+            </div>
+
+            {/* VibeLens */}
+            <div className="project-card project-card--no-preview fade-in">
+              <div className="project-card-body">
+                <div className="project-name">VibeLens</div>
+                <div className="project-tagline">Learn to see how the camera moves</div>
+                <div className="project-desc">A self-paced web app that teaches casual moviegoers to identify camera movements in film. Built with Laura Avila.</div>
+                <div className="project-footer">
+                  <div className="project-tags">
+                    <span className="tag">Film</span>
+                    <span className="tag">Education</span>
+                    <span className="tag">UX</span>
+                  </div>
+                  <a href="https://github.com/jessie-qs-li/uidesign-filmmovements" target="_blank" rel="noopener" className="project-link">github ↗</a>
                 </div>
               </div>
             </div>
@@ -496,12 +509,10 @@ export default function Home() {
 
       {/* CONTACT */}
       <section id="contact" className="contact-section">
-        <div className="contact-orb contact-orb-1"></div>
-        <div className="contact-orb contact-orb-2"></div>
         <div className="container">
           <h2 className="contact-headline fade-in">let&apos;s talk!</h2>
           <p className="contact-body fade-in">i&apos;m always happy to chat about design, film, AI, education, or whatever else is on your mind. if you&apos;re working on something interesting or want to work on something together, please feel free to reach out</p>
-          <a href="mailto:jql2104@columbia.edu" className="btn-gradient fade-in">Get in touch →</a>
+          <a href="mailto:jql2104@columbia.edu" className="btn-primary fade-in">Get in touch →</a>
         </div>
       </section>
 

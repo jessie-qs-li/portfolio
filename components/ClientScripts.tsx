@@ -32,8 +32,8 @@ export default function ClientScripts() {
     )
     document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el))
 
-    // Smooth nav click
-    document.querySelectorAll(".nav-links a").forEach((link) => {
+    // Smooth nav click (hash links only)
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault()
         const target = document.querySelector((link as HTMLAnchorElement).getAttribute("href")!)
@@ -147,61 +147,9 @@ export default function ClientScripts() {
       nextBtn?.addEventListener("click", () => go("next"))
     }
 
-    // Custom emoji cursors
-    const cursor = document.createElement("div")
-    cursor.id = "custom-emoji-cursor"
-    document.body.appendChild(cursor)
-
-    const emojiSections: { id: string; emoji: string; small?: boolean }[] = [
-      { id: "thinking-section", emoji: "💭" },
-      { id: "currently-section", emoji: "📌" },
-      { id: "other-letterboxd", emoji: "🎬", small: true },
-      { id: "other-writing", emoji: "✍️", small: true },
-      { id: "other-videography", emoji: "🎥", small: true },
-      { id: "other-mocktrial", emoji: "⚖️", small: true },
-      { id: "other-travel", emoji: "✈️", small: true },
-    ]
-
-    let activeSection: HTMLElement | null = null
-
-    const moveCursor = (e: MouseEvent) => {
-      cursor.style.left = e.clientX + "px"
-      cursor.style.top = e.clientY + "px"
-    }
-
-    emojiSections.forEach(({ id, emoji, small }) => {
-      const el = document.getElementById(id)
-      el?.addEventListener("mouseenter", (e) => {
-        activeSection = el
-        cursor.textContent = emoji
-        cursor.style.left = (e as MouseEvent).clientX + "px"
-        cursor.style.top = (e as MouseEvent).clientY + "px"
-        el.style.cursor = "none"
-        cursor.classList.toggle("small", !!small)
-        cursor.classList.remove("pop-out")
-        void cursor.offsetWidth
-        cursor.classList.add("pop-in")
-      })
-      el?.addEventListener("mouseleave", () => {
-        activeSection = null
-        el.style.cursor = ""
-        cursor.classList.remove("pop-in")
-        void cursor.offsetWidth
-        cursor.classList.add("pop-out")
-      })
-    })
-
-    window.addEventListener("mousemove", moveCursor)
-
     return () => {
       observer.disconnect()
       window.removeEventListener("scroll", updateActive)
-      window.removeEventListener("mousemove", moveCursor)
-      cursor.remove()
-      emojiSections.forEach(({ id }) => {
-        const el = document.getElementById(id)
-        if (el) el.style.cursor = ""
-      })
     }
   }, [])
 
