@@ -3,7 +3,7 @@ import ClientScripts from "@/components/ClientScripts"
 import LetterboxdRecent from "@/components/LetterboxdRecent"
 
 const EXPERIENCE = [
-  { role: "Product & Growth", org: "BoldVoice", url: "https://www.boldvoice.com/", logo: "/logos/boldvoice.png", date: "2026 – Present" },
+  { role: "Product & Growth", org: "BoldVoice", url: "https://www.boldvoice.com/", logo: "/logos/boldvoice-tile.png", date: "2026 – Present" },
   { role: "AI/ML Fellow", org: "Break Through Tech", url: "https://www.breakthroughtech.org/", logo: "/logos/break-through-tech.png", date: "Mar 2026 – Present" },
   { role: "Undergraduate Researcher", org: "Columbia Digital Storytelling Lab", url: "https://www.digitalstorytellinglab.com/", logo: "/logos/columbia-dsl.png", date: "Jan 2026 – Present" },
   { role: "Product Manager", org: "The Columbia Spectator", url: "https://www.columbiaspectator.com/", logo: "/logos/columbia-spectator.png", date: "Sep 2025 – Present" },
@@ -93,9 +93,6 @@ export default function Home() {
                 a lot about how stories move people. I&apos;m hoping to extend that curiosity into spatial
                 and multimodal experiences, especially in XR.
               </p>
-              <p>
-                I am always happy to connect and can be reached directly at jql2104 [at] columbia [dot] edu.
-              </p>
             </div>
           </section>
 
@@ -111,7 +108,7 @@ export default function Home() {
             <div className="row-list">
               {EXPERIENCE.map(e => (
                 <div className="cv-row" key={e.role + e.org}>
-                  <Image className="row-logo" src={e.logo} alt="" width={34} height={34} aria-hidden />
+                  <Image className="row-logo" src={e.logo} alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
                   <div className="row-body">
                     <div className="row-title"><a href={e.url} target="_blank" rel="noopener">{e.org}</a></div>
                     <div className="row-sub">{e.role}</div>
@@ -147,7 +144,7 @@ export default function Home() {
             <span className="section-chip">Education</span>
             <div className="row-list">
               <div className="cv-row">
-                <Image className="row-logo" src="/logos/columbia-crown.png" alt="" width={34} height={34} aria-hidden />
+                <Image className="row-logo" src="/logos/columbia-crown.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
                 <div className="row-body">
                   <div className="row-title">Columbia University</div>
                   <div className="row-sub">Computer Science &amp; Film</div>
