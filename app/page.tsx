@@ -14,15 +14,11 @@ const EXPERIENCE = [
 ]
 
 const PROJECTS = [
-  { name: "Wonder", desc: "Location-based AI voice chats that let kids talk to famous historical figures right where history happened.", award: "2nd Place Social Impact — YHack 2026", url: "https://www.yourwonder.us/", link: "yourwonder.us" },
-  { name: "Noodle", desc: "An AI drawing buddy for kids ages 4–6 that listens, cheers them on, and asks questions that spark new ideas.", award: "Best Use of ElevenLabs — DevFest 2026", url: "https://devpost.com/software/noodle-2aotw6", link: "Devpost" },
-  { name: "The Turing Gallery", desc: "A mixed-methods study probing where human judgement slips between human and AI-made media.", award: "Columbia Digital Storytelling Lab", url: "https://turing-gallery.vercel.app/", link: "View study" },
-  { name: "Imposter: A Party Game", desc: "A multiuser creative Turing test — everyone writes on a shared theme, one entry is AI. Find it.", award: "Columbia Digital Storytelling Lab", url: "https://partygame-ten.vercel.app/", link: "Play" },
-  { name: "VibeLens", desc: "A self-paced web app that teaches casual moviegoers to identify camera movements in film. Built with Laura Avila.", url: "https://github.com/jessie-qs-li/uidesign-filmmovements", link: "GitHub" },
-  { name: "Liondine", desc: "Dietary filters and UI improvements for Columbia's dining platform, with The Columbia Spectator.", url: "https://apps.apple.com/us/app/columbia-spectator/id6470171397", link: "App Store" },
-  { name: "Pet Pomodoro", desc: "A focus timer with a cute avatar that turns sad whenever you break your flow.", url: "https://petpomodoro-draft.figma.site/", link: "Try it" },
-  { name: "Li Tutors", desc: "Brand and website for the tutoring company I founded with my twin brother.", url: "https://li-tutors.figma.site/", link: "Site" },
-  { name: "OptiBuy", desc: "A tool that tracks prices across e-commerce platforms so you can buy at the right time.", url: "https://www.optibuy.compare/", link: "optibuy.compare" },
+  { name: "TheShaft", desc: "3D dorm room reconstruction and ideation with WorldLabs.", award: "1st Place @ NYC Intern Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7476655026405412864/", link: "LinkedIn" },
+  { name: "SuperStore", desc: "AI agents to simulate shopper behavior.", award: "1st Place @ NYU EEG x Vercel Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7457816648155099136/", link: "LinkedIn" },
+  { name: "Grey Matter", desc: "TRIBE V2 brain data rendered as ad insights.", award: "2nd Place @ Columbia x NYU Claude Hackathon 2026", url: "https://devpost.com/software/grey-matter-l3e4ap", link: "Devpost" },
+  { name: "Wonder", desc: "Interactive map where kids voice-chat with AI historical figures at 50 global landmarks.", award: "2nd Place Social Impact @ Yale Hackathon (YHack) 2026", url: "https://www.yourwonder.us/", link: "yourwonder.us" },
+  { name: "Noodle", desc: "AI drawing companion that watches kids' canvases and asks questions that spark visual creativity.", award: "Best Use of ElevenLabs @ Columbia Hackathon (DevFest) 2026", url: "https://devpost.com/software/noodle-2aotw6", link: "Devpost" },
 ]
 
 const SKILLS = [
@@ -31,6 +27,9 @@ const SKILLS = [
 ]
 
 const RECOGNITION = [
+  { title: "1st Place", org: "NYC Intern Hackathon (TheShaft)", year: "2026" },
+  { title: "1st Place", org: "NYU EEG x Vercel Hackathon (SuperStore)", year: "2026" },
+  { title: "2nd Place", org: "Columbia x NYU Claude Hackathon (Grey Matter)", year: "2026" },
   { title: "2nd Place, Social Impact", org: "YHack — Yale Hackathon (Wonder)", year: "2026" },
   { title: "Best Use of ElevenLabs", org: "DevFest — Columbia Hackathon (Noodle)", year: "2026" },
   { title: "Annie Hall Award", org: "Double Exposure — film writing", year: "" },
