@@ -47,7 +47,7 @@ export default function Home() {
         {/* SIDEBAR */}
         <aside className="cv-side">
           <div className="side-card fade-in">
-            <Image className="profile-photo" src="/hero-portrait.png" alt="Portrait of Jessie Li" width={600} height={600} priority />
+            <Image className="profile-photo" src="/hero-portrait.jpg" alt="Jessie Li on the Brooklyn Bridge at dusk" width={1200} height={1200} priority />
             <h1 className="profile-name">Hello, I&apos;m<br /><span>Jessie Li</span></h1>
             <p className="profile-role">Design engineer &amp; product manager. CS &amp; Film @ <a href="https://www.columbia.edu" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>Columbia</a>.</p>
             <div className="avail-pill">Open to collaborations</div>
