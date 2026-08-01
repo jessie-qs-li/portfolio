@@ -2,14 +2,12 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
 
-const creato = localFont({
+const siteFont = localFont({
   src: [
-    { path: "./fonts/CreatoDisplay-Regular.otf", weight: "400", style: "normal" },
-    { path: "./fonts/CreatoDisplay-Medium.otf", weight: "500", style: "normal" },
-    { path: "./fonts/CreatoDisplay-Bold.otf", weight: "700", style: "normal" },
-    { path: "./fonts/CreatoDisplay-ExtraBold.otf", weight: "800", style: "normal" },
+    { path: "./fonts/LiberationSans-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/LiberationSans-Bold.ttf", weight: "700", style: "normal" },
   ],
-  variable: "--font-creato",
+  variable: "--font-site",
   display: "swap",
 })
 
@@ -20,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={creato.variable}>
+    <html lang="en" suppressHydrationWarning className={siteFont.variable}>
       <head>
         <script
           dangerouslySetInnerHTML={{
