@@ -154,6 +154,7 @@ a.contact-row:hover { color: var(--text); }
   width: 34px; height: 34px; border-radius: 8px; object-fit: contain;
   flex-shrink: 0;
 }
+.row-icon { width: 19px; height: 19px; color: var(--text3); flex-shrink: 0; }
 .row-body { min-width: 0; flex: 1; }
 .row-title { font-size: 14.5px; font-weight: 600; letter-spacing: 0.01em; line-height: 1.35; }
 .row-title a:hover { text-decoration: underline; text-underline-offset: 3px; }

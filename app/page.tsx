@@ -26,15 +26,6 @@ const SKILLS = [
   "React & Next.js", "Figma", "AI Products", "Final Cut Pro", "Film Writing",
 ]
 
-const RECOGNITION = [
-  { title: "1st Place", org: "NYC Intern Hackathon (TheShaft)", year: "2026" },
-  { title: "1st Place", org: "NYU EEG x Vercel Hackathon (SuperStore)", year: "2026" },
-  { title: "2nd Place", org: "Columbia x NYU Claude Hackathon (Grey Matter)", year: "2026" },
-  { title: "2nd Place, Social Impact", org: "YHack — Yale Hackathon (Wonder)", year: "2026" },
-  { title: "Best Use of ElevenLabs", org: "DevFest — Columbia Hackathon (Noodle)", year: "2026" },
-  { title: "Annie Hall Award", org: "Double Exposure — film writing", year: "" },
-]
-
 export default function Home() {
   return (
     <>
@@ -148,6 +139,7 @@ export default function Home() {
             <span className="section-chip">Education</span>
             <div className="row-list">
               <div className="cv-row">
+                <Image className="row-logo" src="/logos/columbia.png" alt="" width={34} height={34} aria-hidden />
                 <div className="row-body">
                   <div className="row-title">Columbia University</div>
                   <div className="row-sub">Computer Science &amp; Film</div>
@@ -157,25 +149,11 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="cv-section fade-in" id="recognition">
-            <span className="section-chip">Recognition</span>
-            <div className="row-list">
-              {RECOGNITION.map(r => (
-                <div className="cv-row" key={r.title + r.org}>
-                  <div className="row-body">
-                    <div className="row-title">{r.title}</div>
-                    <div className="row-sub">{r.org}</div>
-                  </div>
-                  {r.year && <div className="row-right">{r.year}</div>}
-                </div>
-              ))}
-            </div>
-          </section>
-
           <section className="cv-section fade-in" id="beyond">
             <span className="section-chip">Beyond work</span>
             <div className="row-list">
               <div className="cv-row">
+                <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
                 <div className="row-body">
                   <div className="row-title">Film</div>
                   <div className="row-sub">Huge cinephile — I watch and review ~120 films per year</div>
@@ -183,6 +161,7 @@ export default function Home() {
                 <a className="row-right" href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener">Letterboxd ↗</a>
               </div>
               <div className="cv-row">
+                <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                 <div className="row-body">
                   <div className="row-title">Writing</div>
                   <div className="row-sub">
@@ -193,6 +172,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="cv-row">
+                <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
                 <div className="row-body">
                   <div className="row-title">Videography</div>
                   <div className="row-sub">I shoot and cut in Final Cut Pro</div>
@@ -200,6 +180,7 @@ export default function Home() {
                 <a className="row-right" href="https://www.youtube.com/watch?v=u2D_fjru0j0" target="_blank" rel="noopener">Sample ↗</a>
               </div>
               <div className="cv-row">
+                <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                 <div className="row-body">
                   <div className="row-title">Travel</div>
                   <div className="row-sub">5 continents and counting</div>
@@ -207,6 +188,7 @@ export default function Home() {
                 <a className="row-right" href="/travel">Gallery ↗</a>
               </div>
               <div className="cv-row">
+                <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
                 <div className="row-body">
                   <div className="row-title">Mock trial</div>
                   <div className="row-sub">Competed with the #4 ranked team in the country</div>
