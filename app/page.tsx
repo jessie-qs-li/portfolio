@@ -21,11 +21,6 @@ const PROJECTS = [
   { name: "Noodle", desc: "AI drawing companion that watches kids' canvases and asks questions that spark visual creativity.", award: "Best Use of ElevenLabs @ Columbia Hackathon (DevFest) 2026", url: "https://devpost.com/software/noodle-2aotw6", link: "View more" },
 ]
 
-const SKILLS = [
-  "Product Design", "UX Research", "Design Engineering", "Prototyping",
-  "React & Next.js", "Figma", "AI Products", "Final Cut Pro", "Film Writing",
-]
-
 export default function Home() {
   return (
     <>
@@ -93,13 +88,6 @@ export default function Home() {
                 a lot about how stories move people. I&apos;m hoping to extend that curiosity into spatial
                 and multimodal experiences, especially in XR.
               </p>
-            </div>
-          </section>
-
-          <section className="cv-section fade-in" id="skills">
-            <span className="section-chip">Skills</span>
-            <div className="skill-chips">
-              {SKILLS.map(s => <span className="skill-chip" key={s}>{s}</span>)}
             </div>
           </section>
 
