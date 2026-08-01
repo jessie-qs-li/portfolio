@@ -1,18 +1,11 @@
 import type { Metadata } from "next"
-import { Syne, Outfit } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
 
-const syne = Syne({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-syne",
-  display: "swap",
-})
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-outfit",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
   display: "swap",
 })
 
@@ -31,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className={`${syne.variable} ${outfit.variable}`}>{children}</body>
+      <body className={inter.variable}>{children}</body>
     </html>
   )
 }

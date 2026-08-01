@@ -1,537 +1,241 @@
 import Image from "next/image"
-import HeroHeadline from "@/components/HeroHeadline"
 import ClientScripts from "@/components/ClientScripts"
-import TravelGlobe from "@/components/TravelGlobe"
 import LetterboxdRecent from "@/components/LetterboxdRecent"
+
+const EXPERIENCE = [
+  { role: "AI/ML Fellow", org: "Break Through Tech", url: "https://www.breakthroughtech.org/", logo: "/logos/break-through-tech.png", date: "Mar 2026 – Present" },
+  { role: "Undergraduate Researcher", org: "Columbia Digital Storytelling Lab", url: "https://www.digitalstorytellinglab.com/", logo: "/logos/columbia-dsl.png", date: "Jan 2026 – Present" },
+  { role: "Product Designer", org: "The Columbia Spectator", url: "https://www.columbiaspectator.com/", logo: "/logos/columbia-spectator.png", date: "Sep 2025 – Present" },
+  { role: "Founder & Head Tutor", org: "Li Tutors", url: "https://li-tutors.figma.site/", logo: "/logos/li-tutors.png", date: "Apr 2024 – Present" },
+  { role: "Product Engineering Intern", org: "Flevy", url: "https://flevy.com/", logo: "/logos/flevy.png", date: "Nov – Dec 2025" },
+  { role: "Product Research Intern", org: "Apply7.ai", url: "http://apply7.ai/", logo: "/logos/apply7.png", date: "Jul – Aug 2025" },
+  { role: "Events & Liaison Intern", org: "Shanghai International Film Festival", url: "https://www.siff.com/english/", logo: "/logos/shanghai-international-film-festival.png", date: "May – Jun 2025" },
+  { role: "Research Assistant", org: "Emory Dept. of Film and Media", url: "https://filmandmedia.emory.edu/", logo: "/logos/emory-film-media.png", date: "Jan – Apr 2025" },
+]
+
+const PROJECTS = [
+  { name: "Wonder", desc: "Location-based AI voice chats that let kids talk to famous historical figures right where history happened.", award: "2nd Place Social Impact — YHack 2026", url: "https://www.yourwonder.us/", link: "yourwonder.us" },
+  { name: "Noodle", desc: "An AI drawing buddy for kids ages 4–6 that listens, cheers them on, and asks questions that spark new ideas.", award: "Best Use of ElevenLabs — DevFest 2026", url: "https://devpost.com/software/noodle-2aotw6", link: "devpost" },
+  { name: "The Turing Gallery", desc: "A mixed-methods study probing where human judgement slips between human and AI-made media.", award: "Columbia Digital Storytelling Lab", url: "https://turing-gallery.vercel.app/", link: "view study" },
+  { name: "Imposter: A Party Game", desc: "A multiuser creative Turing test — everyone writes on a shared theme, one entry is AI. Find it.", award: "Columbia Digital Storytelling Lab", url: "https://partygame-ten.vercel.app/", link: "play" },
+  { name: "VibeLens", desc: "A self-paced web app that teaches casual moviegoers to identify camera movements in film. Built with Laura Avila.", url: "https://github.com/jessie-qs-li/uidesign-filmmovements", link: "github" },
+  { name: "Liondine", desc: "Dietary filters and UI improvements for Columbia's dining platform, with The Columbia Spectator.", url: "https://apps.apple.com/us/app/columbia-spectator/id6470171397", link: "App Store" },
+  { name: "Pet Pomodoro", desc: "A focus timer with a cute avatar that turns sad whenever you break your flow.", url: "https://petpomodoro-draft.figma.site/", link: "try it" },
+  { name: "Li Tutors", desc: "Brand and website for the tutoring company I founded with my twin brother.", url: "https://li-tutors.figma.site/", link: "site" },
+  { name: "OptiBuy", desc: "A tool that tracks prices across e-commerce platforms so you can buy at the right time.", url: "https://www.optibuy.compare/", link: "optibuy.compare" },
+]
+
+const SKILLS = [
+  "Product Design", "UX Research", "Design Engineering", "Prototyping",
+  "React & Next.js", "Figma", "AI Products", "Final Cut Pro", "Film Writing",
+]
+
+const RECOGNITION = [
+  { title: "2nd Place, Social Impact", org: "YHack — Yale Hackathon (Wonder)", year: "2026" },
+  { title: "Best Use of ElevenLabs", org: "DevFest — Columbia Hackathon (Noodle)", year: "2026" },
+  { title: "Annie Hall Award", org: "Double Exposure — film writing", year: "" },
+]
 
 export default function Home() {
   return (
     <>
-      {/* NAV */}
-      <nav>
-        <a href="#" className="nav-logo">Jessie Li</a>
-        <div className="nav-right">
-          <div className="nav-links">
-            <a href="#about">About</a>
-            <a href="#work">Work</a>
-            <a href="#experience">Experience</a>
-            <a href="#writing">Writing</a>
-            <a href="#contact">Contact</a>
-          </div>
-          <button className="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-            <span id="theme-icon"></span>
-          </button>
-          <button className="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </nav>
+      <button className="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <span id="theme-icon"></span>
+      </button>
 
-      {/* MOBILE NAV */}
-      <div className="mobile-nav" id="mobile-nav" aria-hidden="true">
-        <a href="#about" className="mobile-nav-link">About</a>
-        <a href="#work" className="mobile-nav-link">Work</a>
-        <a href="#experience" className="mobile-nav-link">Experience</a>
-        <a href="#writing" className="mobile-nav-link">Writing</a>
-        <a href="#contact" className="mobile-nav-link">Contact</a>
+      <div className="cv-shell">
+        {/* SIDEBAR */}
+        <aside className="cv-side">
+          <div className="side-card fade-in">
+            <Image className="profile-photo" src="/hero-portrait.png" alt="Portrait of Jessie Li" width={600} height={600} priority />
+            <h1 className="profile-name">Hello, I&apos;m<br /><span>Jessie Li</span></h1>
+            <p className="profile-role">Design engineer &amp; product manager. CS &amp; Film @ <a href="https://www.columbia.edu" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>Columbia</a>.</p>
+            <div className="avail-pill">Open to collaborations</div>
+            <div className="profile-loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              New York, NY
+            </div>
+          </div>
+
+          <div className="side-card fade-in">
+            <div className="contact-list">
+              <a className="contact-row" href="mailto:jql2104@columbia.edu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                jql2104@columbia.edu
+              </a>
+              <a className="contact-row" href="https://www.linkedin.com/in/jessie-qi-shan-li/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                linkedin.com/in/jessie-qi-shan-li
+              </a>
+              <a className="contact-row" href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/><ellipse cx="12" cy="12" rx="2.5" ry="4"/></svg>
+                letterboxd.com/qishan_li
+              </a>
+            </div>
+            <a href="mailto:jql2104@columbia.edu" className="btn btn-dark">Contact me</a>
+            <a href="https://www.linkedin.com/in/jessie-qi-shan-li/" target="_blank" rel="noopener" className="btn btn-light">LinkedIn</a>
+          </div>
+        </aside>
+
+        {/* MAIN */}
+        <main className="cv-main">
+          <section className="cv-section fade-in" id="about">
+            <span className="section-chip">About</span>
+            <div className="about-text">
+              <p>
+                I&apos;m a design engineer and product manager studying CS &amp; Film at Columbia. I build
+                products at the intersection of AI, film, and education — and I think a lot about how to
+                create engaging, novel digital experiences in the age of AI slop.
+              </p>
+              <p>
+                Right now I&apos;m building a film discovery product (stealth), conducting HCI research with
+                the <a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a>,
+                and mentoring students through <a href="https://li-tutors.figma.site/" target="_blank" rel="noopener">Li Tutors</a>,
+                the tutoring company I founded with my twin brother Ethan.
+              </p>
+            </div>
+          </section>
+
+          <section className="cv-section fade-in" id="skills">
+            <span className="section-chip">Skills</span>
+            <div className="skill-chips">
+              {SKILLS.map(s => <span className="skill-chip" key={s}>{s}</span>)}
+            </div>
+          </section>
+
+          <section className="cv-section fade-in" id="experience">
+            <span className="section-chip">Experience</span>
+            <div className="row-list">
+              {EXPERIENCE.map(e => (
+                <div className="cv-row" key={e.role + e.org}>
+                  <Image className="row-logo" src={e.logo} alt="" width={34} height={34} aria-hidden />
+                  <div className="row-body">
+                    <div className="row-title"><a href={e.url} target="_blank" rel="noopener">{e.org}</a></div>
+                    <div className="row-sub">{e.role}</div>
+                  </div>
+                  <div className="row-right">{e.date}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="cv-section fade-in" id="projects">
+            <span className="section-chip">Projects</span>
+            <div className="row-list">
+              {PROJECTS.map(p => (
+                <div className="cv-row" key={p.name}>
+                  <div className="row-body">
+                    <div className="row-title"><a href={p.url} target="_blank" rel="noopener">{p.name}</a></div>
+                    {p.award && <div className="row-award">{p.award}</div>}
+                    <div className="row-sub">{p.desc}</div>
+                  </div>
+                  <a className="row-right" href={p.url} target="_blank" rel="noopener">{p.link} ↗</a>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="cv-section fade-in" id="education">
+            <span className="section-chip">Education</span>
+            <div className="row-list">
+              <div className="cv-row">
+                <div className="row-body">
+                  <div className="row-title">Columbia University</div>
+                  <div className="row-sub">Computer Science &amp; Film</div>
+                </div>
+                <div className="row-right">Present</div>
+              </div>
+            </div>
+          </section>
+
+          <section className="cv-section fade-in" id="recognition">
+            <span className="section-chip">Recognition</span>
+            <div className="row-list">
+              {RECOGNITION.map(r => (
+                <div className="cv-row" key={r.title}>
+                  <div className="row-body">
+                    <div className="row-title">{r.title}</div>
+                    <div className="row-sub">{r.org}</div>
+                  </div>
+                  {r.year && <div className="row-right">{r.year}</div>}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="cv-section fade-in" id="beyond">
+            <span className="section-chip">Beyond work</span>
+            <div className="row-list">
+              <div className="cv-row">
+                <div className="row-body">
+                  <div className="row-title">Film</div>
+                  <div className="row-sub">huge cinephile — i watch and review ~120 films per year</div>
+                </div>
+                <a className="row-right" href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener">letterboxd ↗</a>
+              </div>
+              <div className="cv-row">
+                <div className="row-body">
+                  <div className="row-title">Writing</div>
+                  <div className="row-sub">
+                    <a href="https://www.doubleexposurecu.com/post/panoptic-patriarchy-in-raise-the-red-lantern" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>panoptic patriarchy in raise the red lantern</a>
+                    {" · "}
+                    <a href="https://www.doubleexposurecu.com/post/the-birth-of-a-noir-consciousness-in-the-night-of-the-hunter" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>a noir consciousness in the night of the hunter</a>
+                  </div>
+                </div>
+              </div>
+              <div className="cv-row">
+                <div className="row-body">
+                  <div className="row-title">Videography</div>
+                  <div className="row-sub">i shoot and cut in final cut pro</div>
+                </div>
+                <a className="row-right" href="https://www.youtube.com/watch?v=u2D_fjru0j0" target="_blank" rel="noopener">sample ↗</a>
+              </div>
+              <div className="cv-row">
+                <div className="row-body">
+                  <div className="row-title">Travel</div>
+                  <div className="row-sub">5 continents and counting</div>
+                </div>
+                <a className="row-right" href="/travel">gallery ↗</a>
+              </div>
+              <div className="cv-row">
+                <div className="row-body">
+                  <div className="row-title">Mock trial</div>
+                  <div className="row-sub">competed with the #4 ranked team in the country</div>
+                </div>
+              </div>
+            </div>
+            <div className="letterboxd-block">
+              <div className="letterboxd-recent-label">recent watches</div>
+              <LetterboxdRecent />
+            </div>
+          </section>
+
+          <section className="cv-section fade-in" id="contact">
+            <span className="section-chip">Contact</span>
+            <p className="contact-blurb">
+              i&apos;m always happy to chat about design, film, AI, education, or whatever else is on your
+              mind. if you&apos;re working on something interesting or want to build something together,
+              reach out.
+            </p>
+            <div className="contact-actions">
+              <a href="mailto:jql2104@columbia.edu" className="btn btn-dark">Get in touch →</a>
+            </div>
+          </section>
+        </main>
       </div>
 
-      {/* HERO */}
-      <section className="hero">
-        <div className="hero-content">
-          <div className="hero-eyebrow">
-            CS &amp; Film @ <a href="https://www.columbia.edu" target="_blank" rel="noopener">Columbia</a>
-          </div>
-          <HeroHeadline />
-          <a href="#work" className="btn-primary" style={{ marginTop: 30 }}>See my work →</a>
-        </div>
-      </section>
-
-      <div className="container"><div className="divider"></div></div>
-
-      {/* ABOUT */}
-      <section id="about">
-        <div className="container">
-          <div className="two-col">
-            <div className="fade-in" id="thinking-section">
-              <div className="col-heading">what I think about</div>
-              <div className="currently-item">
-                <div className="currently-dot"></div>
-                <p>how to create engaging, novel, and interesting digital experiences in the age of AI slop</p>
-              </div>
-              <div className="currently-item">
-                <div className="currently-dot"></div>
-                <p>how to make education inspiring and fun, especially in a multimodal way</p>
-              </div>
-              <div className="currently-item">
-                <div className="currently-dot"></div>
-                <p>how to use tech to support the discovery of films, books, and other content that enrich and inspire</p>
-              </div>
-            </div>
-            <div className="fade-in" id="currently-section" style={{ transitionDelay: "0.15s" }}>
-              <div className="col-heading">currently</div>
-              <div className="currently-item">
-                <div className="currently-dot"></div>
-                <p>building a film discovery product (stealth)</p>
-              </div>
-              <div className="currently-item">
-                <div className="currently-dot"></div>
-                <p>conducting HCI research with the <a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a></p>
-              </div>
-              <div className="currently-item">
-                <div className="currently-dot"></div>
-                <p>designing products and leading UX research across early-stage startups</p>
-              </div>
-              <div className="currently-item">
-                <div className="currently-dot"></div>
-                <p>mentoring students ~6 hours/week through <a href="https://li-tutors.figma.site/" target="_blank" rel="noopener">Li Tutors</a>, the tutoring company I founded with my twin brother <a href="https://www.linkedin.com/in/ethan-li-121121121121121121121/" target="_blank" rel="noopener">Ethan</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="container"><div className="divider"></div></div>
-
-      {/* PROJECTS */}
-      <section id="work">
-        <div className="container">
-          <div className="col-heading fade-in">selected projects</div>
-          <div className="projects-grid">
-
-            {/* Wonder (featured) */}
-            <div className="project-card featured fade-in">
-              <div
-                className="project-card-gradient project-card-gradient--wonder wonder-slideshow"
-                data-wonder-slideshow=""
-                data-slide="0"
-                role="region"
-                aria-roledescription="carousel"
-                aria-label="Wonder screenshots"
-              >
-                <Image className="wonder-slide wonder-slide-a" src="/wonder-map.png" alt="" width={1200} height={675} loading="lazy" aria-hidden="true" />
-                <Image className="wonder-slide wonder-slide-b" src="/wonder-detail.png" alt="" width={1200} height={675} loading="lazy" aria-hidden="true" />
-                <div className="wonder-slideshow-arrows">
-                  <button type="button" className="wonder-arrow wonder-arrow-prev" aria-label="Previous screenshot"><span aria-hidden="true">‹</span></button>
-                  <button type="button" className="wonder-arrow wonder-arrow-next" aria-label="Next screenshot"><span aria-hidden="true">›</span></button>
-                </div>
-              </div>
-              <div className="project-card-body">
-                <div className="project-name">Wonder</div>
-                <div className="project-tagline">Explore the world in a different way</div>
-                <div className="project-award">2nd Place Social Impact, <a href="https://devpost.com/software/wonder-the-new-way-to-explore-the-world" target="_blank" rel="noopener">Yale Hackathon (YHack 2026)</a></div>
-                <div className="project-desc">Location-based AI voice chats that let kids talk to famous historical figures right where history happened.</div>
-                <div className="project-footer">
-                  <div className="project-tags">
-                    <span className="tag">AI</span>
-                    <span className="tag">Voice</span>
-                    <span className="tag">Education</span>
-                  </div>
-                  <a href="https://www.yourwonder.us/" target="_blank" rel="noopener" className="project-link">yourwonder.us ↗</a>
-                </div>
-              </div>
-            </div>
-
-            {/* Turing Gallery */}
-            <div className="project-card project-card--turing fade-in">
-              <div className="project-card-gradient project-card-gradient--turing">
-                <Image className="turing-preview-img" src="/turing-gallery.png" alt="The Turing Gallery UI" width={1600} height={900} loading="lazy" />
-              </div>
-              <div className="project-card-body">
-                <div className="project-name">The Turing Gallery</div>
-                <div className="project-tagline">You&apos;ll know it when you see it. Or will you?</div>
-                <div className="project-award"><a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a></div>
-                <div className="project-desc">A mixed-methods study probing the limits of human perception. Participants move through a curated gallery of text, audio, and visual media — some human, some AI — while behavioral data capture exactly where our judgement slips.</div>
-                <div className="project-footer">
-                  <div className="project-tags">
-                    <span className="tag">AI</span>
-                    <span className="tag">Games</span>
-                    <span className="tag">Research</span>
-                    <span className="tag">Creativity</span>
-                  </div>
-                  <a href="https://turing-gallery.vercel.app/" target="_blank" rel="noopener" className="project-link">view study ↗</a>
-                </div>
-              </div>
-            </div>
-
-            {/* Imposter */}
-            <div className="project-card project-card--imposter fade-in">
-              <div className="project-card-gradient project-card-gradient--imposter">
-                <Image
-                  className="imposter-preview-img"
-                  src="/imposter-party-game.png"
-                  alt="Imposter: A Party Game — menu to host or join a room"
-                  width={1024}
-                  height={550}
-                  loading="lazy"
-                />
-              </div>
-              <div className="project-card-body">
-                <div className="project-name">Imposter: A Party Game</div>
-                <div className="project-tagline">The AI is in the room</div>
-                <div className="project-award"><a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a></div>
-                <div className="project-desc">What makes human creativity recognizably human? In this multiuser creative turing test, every player writes something about a shared human theme. One piece is made by AI. The group&apos;s job is to figure out which one!</div>
-                <div className="project-footer">
-                  <div className="project-tags">
-                    <span className="tag">AI</span>
-                    <span className="tag">Games</span>
-                    <span className="tag">Research</span>
-                    <span className="tag">Creativity</span>
-                  </div>
-                  <a href="https://partygame-ten.vercel.app/" target="_blank" rel="noopener" className="project-link">imposter ↗</a>
-                </div>
-              </div>
-            </div>
-
-            {/* Noodle */}
-            <div className="project-card project-card--noodle fade-in">
-              <div className="project-card-gradient project-card-gradient--noodle">
-                <Image className="noodle-preview-img" src="/noodle.png" alt="Noodle drawing app" width={1600} height={900} loading="lazy" />
-              </div>
-              <div className="project-card-body">
-                <div className="project-name">Noodle</div>
-                <div className="project-tagline">AI that hands kids the pen</div>
-                <div className="project-award">Best Use of ElevenLabs, <a href="https://devpost.com/software/noodle-2aotw6" target="_blank" rel="noopener">Columbia Hackathon (DevFest 2026)</a></div>
-                <div className="project-desc">An AI drawing buddy for kids ages 4–6. As children draw and talk through their ideas, Noodle listens, cheers them on, and asks questions that spark new ideas.</div>
-                <div className="project-footer">
-                  <div className="project-tags">
-                    <span className="tag">AI</span>
-                    <span className="tag">Education</span>
-                    <span className="tag">Creative Tools</span>
-                  </div>
-                  <a href="https://devpost.com/software/noodle-2aotw6" target="_blank" rel="noopener" className="project-link">devpost ↗</a>
-                </div>
-              </div>
-            </div>
-
-            {/* Liondine */}
-            <div className="project-card project-card--liondine fade-in">
-              <div className="project-card-gradient project-card-gradient--liondine">
-                <Image className="liondine-preview-img" src="/liondine.png" alt="Liondine dining app" width={1200} height={2600} loading="lazy" />
-              </div>
-              <div className="project-card-body">
-                <div className="project-name">Liondine</div>
-                <div className="project-tagline">The Columbia Spectator</div>
-                <div className="project-desc">Designed dietary information filters and UI improvements for Columbia&apos;s dining platform, making it easier for students to find food that works for them.</div>
-                <div className="project-footer">
-                  <div className="project-tags">
-                    <span className="tag">Product Design</span>
-                    <span className="tag">UX</span>
-                  </div>
-                  <a href="https://apps.apple.com/us/app/columbia-spectator/id6470171397" target="_blank" rel="noopener" className="project-link">App Store ↗</a>
-                </div>
-              </div>
-            </div>
-
-            {/* Pet Pomodoro */}
-            <div className="project-card project-card--petpomodoro fade-in">
-              <div className="project-card-gradient project-card-gradient--petpomodoro">
-                <Image className="petpomodoro-preview-img" src="/pet-pomodoro.png" alt="Pet Pomodoro timer" width={1200} height={900} loading="lazy" />
-              </div>
-              <div className="project-card-body">
-                <div className="project-name">Pet Pomodoro</div>
-                <div className="project-tagline">A pomodoro timer with feelings</div>
-                <div className="project-desc">A focus timer with a cute avatar that turns sad whenever you break your flow.</div>
-                <div className="project-footer">
-                  <div className="project-tags">
-                    <span className="tag">UI Design</span>
-                    <span className="tag">Fun</span>
-                  </div>
-                  <a href="https://petpomodoro-draft.figma.site/" target="_blank" rel="noopener" className="project-link">petpomodoro ↗</a>
-                </div>
-              </div>
-            </div>
-
-            {/* VibeLens */}
-            <div className="project-card project-card--no-preview fade-in">
-              <div className="project-card-body">
-                <div className="project-name">VibeLens</div>
-                <div className="project-tagline">Learn to see how the camera moves</div>
-                <div className="project-desc">A self-paced web app that teaches casual moviegoers to identify camera movements in film. Built with Laura Avila.</div>
-                <div className="project-footer">
-                  <div className="project-tags">
-                    <span className="tag">Film</span>
-                    <span className="tag">Education</span>
-                    <span className="tag">UX</span>
-                  </div>
-                  <a href="https://github.com/jessie-qs-li/uidesign-filmmovements" target="_blank" rel="noopener" className="project-link">github ↗</a>
-                </div>
-              </div>
-            </div>
-
-            {/* Li Tutors */}
-            <div className="project-card project-card--no-preview fade-in">
-              <div className="project-card-body">
-                <div className="project-name">Li Tutors</div>
-                <div className="project-tagline">Website for my tutoring company</div>
-                <div className="project-desc">Designed and built the site for Li Tutors, my tutoring company where I teach and mentor students across subjects.</div>
-                <div className="project-footer">
-                  <div className="project-tags">
-                    <span className="tag">Web Design</span>
-                    <span className="tag">Branding</span>
-                  </div>
-                  <a href="https://li-tutors.figma.site/" target="_blank" rel="noopener" className="project-link">li-tutors.figma.site ↗</a>
-                </div>
-              </div>
-            </div>
-
-            {/* OptiBuy */}
-            <div className="project-card project-card--no-preview fade-in">
-              <div className="project-card-body">
-                <div className="project-name">OptiBuy</div>
-                <div className="project-tagline">Price tracker for e-commerce products</div>
-                <div className="project-desc">A tool that tracks prices across e-commerce platforms so you can buy at the right time.</div>
-                <div className="project-footer">
-                  <div className="project-tags">
-                    <span className="tag">Web App</span>
-                    <span className="tag">Utility</span>
-                  </div>
-                  <a href="https://www.optibuy.compare/" target="_blank" rel="noopener" className="project-link">optibuy.compare ↗</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <div className="container"><div className="divider"></div></div>
-
-      {/* EXPERIENCE */}
-      <section id="experience">
-        <div className="container">
-          <div className="col-heading fade-in">experience</div>
-          <table className="exp-table">
-            <tbody>
-              <tr className="exp-row fade-in">
-                <td className="exp-role">&nbsp;&nbsp;AI/ML Fellow</td>
-                <td className="exp-org">
-                  <a href="https://www.breakthroughtech.org/" target="_blank" rel="noopener" className="exp-org-with-logo">
-                    <Image
-                      src="/logos/break-through-tech.png"
-                      alt=""
-                      width={22}
-                      height={22}
-                      className="exp-org-logo"
-                      aria-hidden
-                    />
-                    <span className="exp-org-link-text">Break Through Tech</span>
-                  </a>
-                </td>
-                <td className="exp-date">Mar 2026 – Present<span className="exp-present"></span></td>
-              </tr>
-              <tr className="exp-row fade-in">
-                <td className="exp-role">&nbsp;&nbsp;Undergraduate Researcher</td>
-                <td className="exp-org">
-                  <a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener" className="exp-org-with-logo">
-                    <Image
-                      src="/logos/columbia-dsl.png"
-                      alt=""
-                      width={200}
-                      height={40}
-                      className="exp-org-logo"
-                      aria-hidden
-                    />
-                    <span className="exp-org-link-text">Columbia Digital Storytelling Lab</span>
-                  </a>
-                </td>
-                <td className="exp-date">Jan 2026 – Present<span className="exp-present"></span></td>
-              </tr>
-              <tr className="exp-row fade-in">
-                <td className="exp-role">&nbsp;&nbsp;Product Designer</td>
-                <td className="exp-org">
-                  <a href="https://www.columbiaspectator.com/" target="_blank" rel="noopener" className="exp-org-with-logo">
-                    <Image
-                      src="/logos/columbia-spectator.png"
-                      alt=""
-                      width={22}
-                      height={22}
-                      className="exp-org-logo"
-                      aria-hidden
-                    />
-                    <span className="exp-org-link-text">The Columbia Spectator</span>
-                  </a>
-                </td>
-                <td className="exp-date">Sep 2025 – Present<span className="exp-present"></span></td>
-              </tr>
-              <tr className="exp-row fade-in">
-                <td className="exp-role">&nbsp;&nbsp;Founder &amp; Head Tutor</td>
-                <td className="exp-org">
-                  <a href="https://li-tutors.figma.site/" target="_blank" rel="noopener" className="exp-org-with-logo">
-                    <Image
-                      src="/logos/li-tutors.png"
-                      alt=""
-                      width={22}
-                      height={22}
-                      className="exp-org-logo"
-                      aria-hidden
-                    />
-                    <span className="exp-org-link-text">Li Tutors</span>
-                  </a>
-                </td>
-                <td className="exp-date">Apr 2024 – Present<span className="exp-present"></span></td>
-              </tr>
-              <tr className="exp-row fade-in">
-                <td className="exp-role">&nbsp;&nbsp;Product Engineering Intern</td>
-                <td className="exp-org">
-                  <a href="https://flevy.com/" target="_blank" rel="noopener" className="exp-org-with-logo">
-                    <Image
-                      src="/logos/flevy.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                      className="exp-org-logo"
-                      aria-hidden
-                    />
-                    <span className="exp-org-link-text">Flevy</span>
-                  </a>
-                </td>
-                <td className="exp-date">Nov – Dec 2025</td>
-              </tr>
-              <tr className="exp-row fade-in">
-                <td className="exp-role">&nbsp;&nbsp;Product Research Intern</td>
-                <td className="exp-org">
-                  <a href="http://apply7.ai/" target="_blank" rel="noopener" className="exp-org-with-logo">
-                    <Image
-                      src="/logos/apply7.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                      className="exp-org-logo"
-                      aria-hidden
-                    />
-                    <span className="exp-org-link-text">Apply7.ai</span>
-                  </a>
-                </td>
-                <td className="exp-date">Jul – Aug 2025</td>
-              </tr>
-              <tr className="exp-row fade-in">
-                <td className="exp-role">&nbsp;&nbsp;Events &amp; Liaison Intern</td>
-                <td className="exp-org">
-                  <a href="https://www.siff.com/english/" target="_blank" rel="noopener" className="exp-org-with-logo">
-                    <Image
-                      src="/logos/shanghai-international-film-festival.png"
-                      alt=""
-                      width={330}
-                      height={330}
-                      className="exp-org-logo"
-                      aria-hidden
-                    />
-                    <span className="exp-org-link-text">Shanghai International Film Festival</span>
-                  </a>
-                </td>
-                <td className="exp-date">May – Jun 2025</td>
-              </tr>
-              <tr className="exp-row fade-in">
-                <td className="exp-role">&nbsp;&nbsp;Research Assistant</td>
-                <td className="exp-org">
-                  <a href="https://filmandmedia.emory.edu/" target="_blank" rel="noopener" className="exp-org-with-logo">
-                    <Image
-                      src="/logos/emory-film-media.png"
-                      alt=""
-                      width={918}
-                      height={908}
-                      className="exp-org-logo"
-                      aria-hidden
-                    />
-                    <span className="exp-org-link-text">Emory Dept. of Film and Media</span>
-                  </a>
-                </td>
-                <td className="exp-date">Jan – Apr 2025</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <div className="container"><div className="divider"></div></div>
-
-      {/* WRITING */}
-      <section id="writing">
-        <div className="container">
-          <div className="col-heading fade-in">other</div>
-          <div className="writing-grid">
-            <a href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener" className="writing-card fade-in" id="other-letterboxd">
-              <div className="writing-title">letterboxd</div>
-              <div className="writing-desc">i&apos;m a huge cinephile! i watch and review ~120 films per year</div>
-              <div className="letterboxd-recent-label">recent watches:</div>
-              <LetterboxdRecent />
-              <span className="writing-link">MY LETTERBOXD →</span>
-            </a>
-            <div className="writing-card fade-in" id="other-writing">
-              <div className="writing-title">writing</div>
-              <div className="writing-desc" style={{ marginBottom: 12 }}>film reviews, articles, and other thoughts</div>
-              <div className="letterboxd-recent-label" style={{ marginBottom: 8 }}>recent pieces:</div>
-              <a href="https://www.doubleexposurecu.com/post/panoptic-patriarchy-in-raise-the-red-lantern" target="_blank" rel="noopener" style={{ display: "block", fontSize: 13, color: "var(--text2)", textDecoration: "underline", textUnderlineOffset: 3, marginBottom: 6 }}>
-                panoptic patriarchy in raise the red lantern — WINNER, ANNIE HALL AWARD
-              </a>
-              <a href="https://www.doubleexposurecu.com/post/the-birth-of-a-noir-consciousness-in-the-night-of-the-hunter" target="_blank" rel="noopener" style={{ display: "block", fontSize: 13, color: "var(--text2)", textDecoration: "underline", textUnderlineOffset: 3, marginBottom: 6 }}>
-                the birth of a noir consciousness in the night of the hunter
-              </a>
-            </div>
-          </div>
-          <div className="more-grid fade-in">
-            <div className="more-chip" id="other-videography">
-              <div className="more-chip-title">videography</div>
-              <div className="more-chip-desc" style={{ marginBottom: "12px" }}>i use final cut pro. sample work:</div>
-              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", borderRadius: "8px" }}>
-                <iframe
-                  src="https://www.youtube.com/embed/u2D_fjru0j0"
-                  title="Videography sample"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-                />
-              </div>
-            </div>
-            <div className="more-chip" id="other-mocktrial">
-              <div className="more-chip-title">mock trial</div>
-              <div className="more-chip-desc" style={{ marginBottom: "12px" }}>i used to compete with the #4 ranked team in the country!</div>
-              <div className="mock-trial-carousel">
-                <div className="mock-trial-window" id="mockTrialWindow">
-                  <img src="/mock-trial-1.jpg" alt="Mock trial competition" className="mock-trial-img active" data-index="0" />
-                  <img src="/mock-trial-2.jpg" alt="Mock trial team" className="mock-trial-img" data-index="1" />
-                </div>
-                <button className="mock-trial-arrow mock-trial-prev" id="mockTrialPrev" aria-label="Previous">&#8592;</button>
-                <button className="mock-trial-arrow mock-trial-next" id="mockTrialNext" aria-label="Next">&#8594;</button>
-              </div>
-            </div>
-            <div className="more-chip" id="other-travel">
-              <div className="more-chip-title">travel</div>
-              <div className="more-chip-desc">5 continents and counting — <a href="/travel" style={{ textDecoration: "underline", color: "inherit" }}>travel gallery</a></div>
-              <TravelGlobe />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="container"><div className="divider"></div></div>
-
-      {/* CONTACT */}
-      <section id="contact" className="contact-section">
-        <div className="container">
-          <h2 className="contact-headline fade-in">let&apos;s talk!</h2>
-          <p className="contact-body fade-in">i&apos;m always happy to chat about design, film, AI, education, or whatever else is on your mind. if you&apos;re working on something interesting or want to work on something together, please feel free to reach out</p>
-          <a href="mailto:jql2104@columbia.edu" className="btn-primary fade-in">Get in touch →</a>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer>
-        <div className="container">
-          <div className="footer-inner">
-            <div className="social-links">
-<a href="https://www.linkedin.com/in/jessie-qi-shan-li/" target="_blank" rel="noopener" className="social-link" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              </a>
-              <a href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener" className="social-link" aria-label="Letterboxd">
-                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/><ellipse cx="12" cy="12" rx="2.5" ry="4"/></svg>
-              </a>
-              <a href="mailto:jql2104@columbia.edu" className="social-link" aria-label="Email">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </a>
-            </div>
-          </div>
+      <footer className="cv-footer">
+        <span>© Jessie Li {new Date().getFullYear()}</span>
+        <div className="social-links">
+          <a href="https://www.linkedin.com/in/jessie-qi-shan-li/" target="_blank" rel="noopener" className="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener" className="social-link" aria-label="Letterboxd">
+            <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/><ellipse cx="12" cy="12" rx="2.5" ry="4"/></svg>
+          </a>
+          <a href="mailto:jql2104@columbia.edu" className="social-link" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
         </div>
       </footer>
 
