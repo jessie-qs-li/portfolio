@@ -85,7 +85,6 @@ export default function Home() {
               <a className="photo-card" key={p.src} href={p.url} target="_blank" rel="noopener">
                 <Image src={p.src} alt={p.caption} width={700} height={933} style={p.pos ? { objectPosition: p.pos } : undefined} />
                 <span className="photo-caption">{p.caption}</span>
-                <span className="photo-caption-top" aria-hidden>{p.caption}</span>
               </a>
             ))}
           </div>
