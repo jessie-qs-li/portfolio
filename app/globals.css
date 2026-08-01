@@ -200,6 +200,19 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
 .social-link:hover { color: var(--text); border-color: var(--border-dash); }
 .social-link svg { width: 13px; height: 13px; }
 
+/* ========== TRAVEL GALLERY ========== */
+.gallery-shell { max-width: 1060px; margin: 0 auto; padding: 48px clamp(16px, 4vw, 40px) 80px; }
+.back-link { display: inline-block; font-size: 13.5px; font-weight: 500; color: var(--text2); margin-bottom: 32px; transition: color var(--transition); }
+.back-link:hover { color: var(--text); }
+.gallery-head { margin-bottom: 28px; display: flex; flex-direction: column; }
+.gallery-sub { font-size: 15px; color: var(--text2); margin-top: -6px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.gallery-card { margin: 0; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.gallery-frame { position: relative; aspect-ratio: 3 / 4; width: 100%; overflow: hidden; border-radius: 10px; }
+.gallery-caption { margin-top: 10px; padding: 0 2px 4px; font-size: 12.5px; font-weight: 500; color: var(--text2); }
+@media (max-width: 860px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .gallery-grid { grid-template-columns: 1fr; } }
+
 /* ========== SCROLL ANIMATIONS ========== */
 .fade-in { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
