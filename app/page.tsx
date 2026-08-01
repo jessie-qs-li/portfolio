@@ -159,12 +159,12 @@ export default function Home() {
             <span className="section-chip hover-fill">Beyond work</span>
             <div className="row-list">
               <div className="cv-row">
-                <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+                <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                 <div className="row-body">
-                  <div className="row-title">Film</div>
-                  <div className="row-sub">I&apos;m a huge cinephile! I used to watch and review ~120 films per year</div>
+                  <div className="row-title">Travel</div>
+                  <div className="row-sub">5 continents and counting</div>
                 </div>
-                <a className="row-right" href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener">Letterboxd ↗</a>
+                <a className="row-right" href="/travel">Gallery ↗</a>
               </div>
               <div className="cv-row">
                 <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
@@ -183,20 +183,20 @@ export default function Home() {
                 <a className="row-right" href="https://www.youtube.com/watch?v=u2D_fjru0j0" target="_blank" rel="noopener">Sample ↗</a>
               </div>
               <div className="cv-row">
-                <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                <div className="row-body">
-                  <div className="row-title">Travel</div>
-                  <div className="row-sub">5 continents and counting</div>
-                </div>
-                <a className="row-right" href="/travel">Gallery ↗</a>
-              </div>
-              <div className="cv-row">
                 <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
                 <div className="row-body">
                   <div className="row-title">Mock trial</div>
                   <div className="row-sub">Competed with the #4 ranked team in the country</div>
                 </div>
                 <a className="row-right" href="https://www.instagram.com/p/DAwwBkyPLXY/" target="_blank" rel="noopener">Photos ↗</a>
+              </div>
+              <div className="cv-row">
+                <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+                <div className="row-body">
+                  <div className="row-title">Film</div>
+                  <div className="row-sub">I&apos;m a huge cinephile! I used to watch and review ~120 films per year</div>
+                </div>
+                <a className="row-right" href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener">Letterboxd ↗</a>
               </div>
             </div>
             <div className="letterboxd-block">
