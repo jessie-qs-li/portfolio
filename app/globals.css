@@ -160,13 +160,11 @@ a.contact-row:hover { color: var(--text); }
 .row-title a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .row-sub { font-size: 13px; color: var(--text2); line-height: 1.5; }
 .row-award {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: flex; align-items: center; gap: 6px;
   font-size: 12.5px; color: var(--accent); font-weight: 600;
-  background: color-mix(in srgb, var(--accent) 11%, transparent);
-  border-radius: 999px; padding: 3px 11px;
-  margin: 4px 0 6px;
+  margin: 2px 0 4px;
 }
-.row-award::before { content: '✦'; font-size: 11px; }
+.row-award svg { width: 13px; height: 13px; flex-shrink: 0; }
 .row-award a { color: inherit; }
 .row-award a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .row-right { font-size: 12.5px; color: var(--text3); white-space: nowrap; margin-left: auto; padding-left: 12px; }

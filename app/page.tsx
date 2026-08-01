@@ -40,7 +40,7 @@ export default function Home() {
             <Image className="profile-photo" src="/hero-portrait.jpg" alt="Jessie Li on the Brooklyn Bridge at dusk" width={1200} height={1200} priority />
             <h1 className="profile-name">Hello, I&apos;m<br /><span>Jessie Li</span></h1>
             <p className="profile-role">Product manager &amp; design engineer. CS &amp; Film @ <a href="https://www.columbia.edu" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>Columbia</a>.</p>
-            <div className="avail-pill">Open to collaborations</div>
+            <div className="avail-pill">5x hackathon winner</div>
             <div className="profile-loc">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               New York, NY
@@ -126,7 +126,12 @@ export default function Home() {
                 <div className="cv-row" key={p.name}>
                   <div className="row-body">
                     <div className="row-title"><a href={p.url} target="_blank" rel="noopener">{p.name}</a></div>
-                    {p.award && <div className="row-award">{p.award}</div>}
+                    {p.award && (
+                      <div className="row-award">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                        {p.award}
+                      </div>
+                    )}
                     <div className="row-sub">{p.desc}</div>
                   </div>
                   <a className="row-right" href={p.url} target="_blank" rel="noopener">{p.link} ↗</a>
@@ -139,7 +144,7 @@ export default function Home() {
             <span className="section-chip">Education</span>
             <div className="row-list">
               <div className="cv-row">
-                <Image className="row-logo" src="/logos/columbia.png" alt="" width={34} height={34} aria-hidden />
+                <Image className="row-logo" src="/logos/columbia-crown.png" alt="" width={34} height={34} aria-hidden />
                 <div className="row-body">
                   <div className="row-title">Columbia University</div>
                   <div className="row-sub">Computer Science &amp; Film</div>
