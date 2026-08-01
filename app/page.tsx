@@ -83,15 +83,25 @@ export default function Home() {
             <span className="section-chip">About</span>
             <div className="about-text">
               <p>
-                I&apos;m a design engineer and product manager studying CS &amp; Film at Columbia. I build
-                products at the intersection of AI, film, and education — and I think a lot about how to
-                create engaging, novel digital experiences in the age of AI slop.
+                I think the most interesting design problems right now are about human experience in a
+                world increasingly shaped by AI: how we discover, learn, create, connect, and find meaning.
               </p>
               <p>
-                Right now I&apos;m building a film discovery product (stealth), conducting HCI research with
-                the <a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a>,
-                and mentoring students through <a href="https://li-tutors.figma.site/" target="_blank" rel="noopener">Li Tutors</a>,
-                the tutoring company I founded with my twin brother Ethan.
+                That belief drives most of what I build. I currently work on design and growth
+                at <a href="https://www.boldvoice.com/" target="_blank" rel="noopener">BoldVoice</a>, an
+                AI-powered accent coaching app. At Columbia, I conduct HCI research on AI perception,
+                design human-centered products for early-stage startups, and compete in hackathons where
+                my teams have built tools for AI-powered video analysis, children&apos;s visual creativity,
+                and location-based historical storytelling. I also run <a href="https://li-tutors.figma.site/" target="_blank" rel="noopener">Li Tutors</a>,
+                a tutoring company I founded with my twin brother.
+              </p>
+              <p>
+                Outside of building, I&apos;m a cinephile! I love visiting NYC&apos;s indie cinemas and think
+                a lot about how stories move people. I&apos;m hoping to extend that curiosity into spatial
+                and multimodal experiences, especially in XR.
+              </p>
+              <p>
+                I am always happy to connect and can be reached directly at jql2104 [at] columbia [dot] edu.
               </p>
             </div>
           </section>
