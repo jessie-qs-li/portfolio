@@ -187,6 +187,13 @@ a.contact-row:hover { color: var(--text); }
   transition: transform 0.3s ease, opacity 0.25s ease;
 }
 .photo-card:hover .photo-caption { transform: translateY(7px); }
+.cap-key {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat; background-size: 0% 1.5px; background-position: 0 100%;
+  padding-bottom: 1px;
+  transition: background-size 0.35s ease 0.1s;
+}
+.photo-card:hover .cap-key { background-size: 100% 1.5px; }
 @media (prefers-reduced-motion: reduce) {
   .photo-card, .photo-caption { transition: none; }
 }
