@@ -14,11 +14,11 @@ const EXPERIENCE = [
 ]
 
 const PROJECTS = [
-  { name: "TheShaft", place: "1st", desc: "3D dorm room reconstruction and ideation with WorldLabs.", award: "1st Place @ NYC Intern Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7476655026405412864/", link: "View more" },
-  { name: "SuperStore", place: "1st", desc: "AI agents to simulate shopper behavior.", award: "1st Place @ NYU EEG x Vercel Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7457816648155099136/", link: "View more" },
-  { name: "Grey Matter", place: "2nd", desc: "TRIBE V2 brain data rendered as ad insights.", award: "2nd Place @ Columbia x NYU Claude Hackathon 2026", url: "https://devpost.com/software/grey-matter-l3e4ap", link: "View more" },
-  { name: "Wonder", place: "2nd", desc: "Interactive map where kids voice-chat with AI historical figures at 50 global landmarks.", award: "2nd Place Social Impact @ Yale Hackathon (YHack) 2026", url: "https://www.yourwonder.us/", link: "View more" },
-  { name: "Noodle", place: "Best", desc: "AI drawing companion that watches kids' canvases and asks questions that spark visual creativity.", award: "Best Use of ElevenLabs @ Columbia Hackathon (DevFest) 2026", url: "https://devpost.com/software/noodle-2aotw6", link: "View more" },
+  { name: "TheShaft", desc: "3D dorm room reconstruction and ideation with WorldLabs.", award: "1st Place @ NYC Intern Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7476655026405412864/", link: "View more" },
+  { name: "SuperStore", desc: "AI agents to simulate shopper behavior.", award: "1st Place @ NYU EEG x Vercel Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7457816648155099136/", link: "View more" },
+  { name: "Grey Matter", desc: "TRIBE V2 brain data rendered as ad insights.", award: "2nd Place @ Columbia x NYU Claude Hackathon 2026", url: "https://devpost.com/software/grey-matter-l3e4ap", link: "View more" },
+  { name: "Wonder", desc: "Interactive map where kids voice-chat with AI historical figures at 50 global landmarks.", award: "2nd Place Social Impact @ Yale Hackathon (YHack) 2026", url: "https://www.yourwonder.us/", link: "View more" },
+  { name: "Noodle", desc: "AI drawing companion that watches kids' canvases and asks questions that spark visual creativity.", award: "Best Use of ElevenLabs @ Columbia Hackathon (DevFest) 2026", url: "https://devpost.com/software/noodle-2aotw6", link: "View more" },
 ]
 
 export default function Home() {
@@ -125,7 +125,9 @@ export default function Home() {
             <div className="row-list">
               {PROJECTS.map(p => (
                 <div className="cv-row" key={p.name}>
-                  <div className="win-tile" aria-hidden>{p.place}</div>
+                  <div className="win-tile" aria-hidden>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                  </div>
                   <div className="row-body">
                     <div className="row-title"><a href={p.url} target="_blank" rel="noopener">{p.name}</a></div>
                     {p.award && <div className="row-award">{p.award}</div>}
