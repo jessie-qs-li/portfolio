@@ -15,7 +15,7 @@ const EXPERIENCE = [
 ]
 
 const PHOTOS = [
-  { src: "/photos/nyu-hackathon.jpg", caption: "Winning a NYU hackathon with my amazing team" },
+  { src: "/photos/nyu-hackathon.jpg", caption: "Winning a NYU hackathon with my amazing team", pos: "100% center" },
   { src: "/photos/spectator-team.jpg", caption: "Leading a product team behind the Columbia Spectator" },
   { src: "/photos/tech-week.jpg", caption: "Presenting my HCI research tinkering at NY Tech Week" },
   { src: "/photos/boldvoice-offsite.jpg", caption: "BoldVoice team at an offsite!" },
@@ -83,7 +83,7 @@ export default function Home() {
           <div className="photo-strip fade-in">
             {PHOTOS.map(p => (
               <figure className="photo-card" key={p.src}>
-                <Image src={p.src} alt={p.caption} width={700} height={933} />
+                <Image src={p.src} alt={p.caption} width={700} height={933} style={p.pos ? { objectPosition: p.pos } : undefined} />
                 <figcaption className="photo-caption">{p.caption}</figcaption>
               </figure>
             ))}
