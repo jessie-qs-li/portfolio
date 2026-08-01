@@ -77,7 +77,7 @@ export default function Home() {
         {/* MAIN */}
         <main className="cv-main">
           <h2 className="statement fade-in">
-            Aspiring product manager, HCI nerd, <em>enemy of AI slop</em>
+            Aspiring product manager, HCI nerd, 5x hackathon winner, <em>enemy of AI slop</em>
           </h2>
 
           <section className="cv-section fade-in" id="about">
