@@ -14,6 +14,13 @@ const EXPERIENCE = [
   { role: "Research Assistant", org: "Emory Dept. of Film and Media", url: "https://filmandmedia.emory.edu/", logo: "/logos/emory-film-media.png", date: "Jan – Apr 2025" },
 ]
 
+const PHOTOS = [
+  { src: "/photos/nyu-hackathon.jpg", caption: "Winning a NYU hackathon with my amazing team" },
+  { src: "/photos/spectator-team.jpg", caption: "Leading a product team behind the Columbia Spectator" },
+  { src: "/photos/tech-week.jpg", caption: "Presenting my HCI research tinkering at NY Tech Week" },
+  { src: "/photos/boldvoice-offsite.jpg", caption: "BoldVoice team at an offsite!" },
+]
+
 const PROJECTS = [
   { name: "TheShaft", desc: "3D dorm room reconstruction and ideation with WorldLabs.", award: "1st Place @ NYC Intern Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7476655026405412864/", link: "View more" },
   { name: "SuperStore", desc: "AI agents to simulate shopper behavior.", award: "1st Place @ NYU EEG x Vercel Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7457816648155099136/", link: "View more" },
@@ -72,6 +79,15 @@ export default function Home() {
           <h2 className="statement fade-in">
             Aspiring product manager, HCI nerd, 5x hackathon winner, <em>enemy of AI slop</em>
           </h2>
+
+          <div className="photo-strip fade-in">
+            {PHOTOS.map(p => (
+              <figure className="photo-card" key={p.src}>
+                <Image src={p.src} alt={p.caption} width={700} height={933} />
+                <figcaption className="photo-caption">{p.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
 
           <section className="cv-section fade-in" id="about">
             <span className="section-chip hover-fill">About</span>
