@@ -1,5 +1,6 @@
 import Image from "next/image"
 import ClientScripts from "@/components/ClientScripts"
+import ExperienceList from "@/components/ExperienceList"
 import LetterboxdRecent from "@/components/LetterboxdRecent"
 
 const EXPERIENCE = [
@@ -112,18 +113,7 @@ export default function Home() {
 
           <section className="cv-section fade-in" id="experience">
             <span className="section-chip hover-fill">Experience</span>
-            <div className="row-list">
-              {EXPERIENCE.map(e => (
-                <div className="cv-row" key={e.role + e.org}>
-                  <Image className="row-logo" src={e.logo} alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
-                  <div className="row-body">
-                    <div className="row-title"><a href={e.url} target="_blank" rel="noopener">{e.org}</a></div>
-                    <div className="row-sub">{e.role}</div>
-                  </div>
-                  <div className="row-right">{e.date}</div>
-                </div>
-              ))}
-            </div>
+            <ExperienceList items={EXPERIENCE} />
           </section>
 
           <section className="cv-section fade-in" id="projects">
