@@ -161,7 +161,7 @@ export default function Home() {
             <span className="section-chip">Recognition</span>
             <div className="row-list">
               {RECOGNITION.map(r => (
-                <div className="cv-row" key={r.title}>
+                <div className="cv-row" key={r.title + r.org}>
                   <div className="row-body">
                     <div className="row-title">{r.title}</div>
                     <div className="row-sub">{r.org}</div>
