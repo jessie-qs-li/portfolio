@@ -87,10 +87,7 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--border-dash); border-radius: 999px;
   padding: 6px 14px; margin-bottom: 14px;
 }
-.avail-pill::before {
-  content: ''; width: 7px; height: 7px; border-radius: 50%;
-  background: var(--accent);
-}
+.avail-pill svg { width: 14px; height: 14px; color: var(--accent); flex-shrink: 0; }
 .profile-loc { display: flex; align-items: center; gap: 7px; font-size: 13.5px; color: var(--text2); }
 .profile-loc svg { width: 14px; height: 14px; color: var(--text3); }
 
