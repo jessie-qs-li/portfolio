@@ -14,6 +14,7 @@
   --chip-bg: #FFFFFF;
   --icon: #90908C;
   --accent: #7C3AED;
+  --accent-strong: #5B21B6;
   --font-body: var(--font-site), sans-serif;
   --transition: 0.2s ease;
 }
@@ -29,9 +30,9 @@
   --chip-bg: #1E1E1C;
   --icon: #6C6B67;
   --accent: #A78BFA;
+  --accent-strong: #C4B5FD;
 }
 
-html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
@@ -126,12 +127,32 @@ a.contact-row:hover { color: var(--text); }
   margin-bottom: 18px;
   position: relative;
 }
-.section-chip::after {
-  content: ''; position: absolute; left: 0; bottom: -2px;
-  width: 0; height: 2px; background: var(--accent); border-radius: 2px;
-  transition: width 0.3s ease;
+
+/* Hover option 1: color deepen + lift */
+.hover-lift { transition: color 0.25s ease, transform 0.25s ease; }
+.hover-lift:hover { color: var(--accent-strong); transform: translateY(-2px); }
+
+/* Hover option 4: ghost section number reveal */
+.hover-num::before {
+  content: attr(data-num);
+  position: absolute; right: 100%; margin-right: 10px; top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  font-size: 13px; font-weight: 600; color: var(--text3); letter-spacing: 0.04em;
+  opacity: 0; transition: opacity 0.25s ease, transform 0.25s ease;
 }
-.section-chip:hover::after { width: 100%; }
+.hover-num:hover::before { opacity: 1; transform: translateY(-50%) translateX(0); }
+
+/* Hover option 5: text fill sweep */
+.hover-fill {
+  background-image: linear-gradient(to right, var(--text), var(--text) 50%, var(--accent) 50%);
+  background-size: 200% 100%;
+  background-position: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.35s ease;
+}
+.hover-fill:hover { background-position: 0%; }
 .cv-section { display: flex; flex-direction: column; }
 
 .about-text p { font-size: 15px; color: var(--text2); line-height: 1.75; max-width: 62ch; }

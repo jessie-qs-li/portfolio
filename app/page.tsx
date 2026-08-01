@@ -77,7 +77,7 @@ export default function Home() {
         {/* MAIN */}
         <main className="cv-main">
           <section className="cv-section fade-in" id="about">
-            <span className="section-chip">About</span>
+            <span className="section-chip hover-lift">About</span>
             <div className="about-text">
               <p>
                 I think the most interesting design problems right now are about human experience in a
@@ -101,7 +101,7 @@ export default function Home() {
           </section>
 
           <section className="cv-section fade-in" id="experience">
-            <span className="section-chip">Experience</span>
+            <span className="section-chip hover-num" data-num="02">Experience</span>
             <div className="row-list">
               {EXPERIENCE.map(e => (
                 <div className="cv-row" key={e.role + e.org}>
@@ -117,7 +117,7 @@ export default function Home() {
           </section>
 
           <section className="cv-section fade-in" id="projects">
-            <span className="section-chip">Projects</span>
+            <span className="section-chip hover-lift">Projects</span>
             <div className="row-list">
               {PROJECTS.map(p => (
                 <div className="cv-row" key={p.name}>
@@ -138,7 +138,7 @@ export default function Home() {
           </section>
 
           <section className="cv-section fade-in" id="education">
-            <span className="section-chip">Education</span>
+            <span className="section-chip hover-num" data-num="04">Education</span>
             <div className="row-list">
               <div className="cv-row">
                 <Image className="row-logo" src="/logos/columbia-crown.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
@@ -152,7 +152,7 @@ export default function Home() {
           </section>
 
           <section className="cv-section fade-in" id="beyond">
-            <span className="section-chip">Beyond work</span>
+            <span className="section-chip hover-fill">Beyond work</span>
             <div className="row-list">
               <div className="cv-row">
                 <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
@@ -204,7 +204,7 @@ export default function Home() {
           </section>
 
           <section className="cv-section fade-in" id="contact">
-            <span className="section-chip">Contact</span>
+            <span className="section-chip hover-fill">Contact</span>
             <p className="contact-blurb">
               I&apos;m always happy to chat about design, film, AI, education, or whatever else is on your
               mind. If you&apos;re working on something interesting or want to build something together,
