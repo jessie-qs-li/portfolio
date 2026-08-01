@@ -77,7 +77,7 @@ export default function Home() {
         {/* MAIN */}
         <main className="cv-main">
           <section className="cv-section fade-in" id="about">
-            <span className="section-chip hover-lift">About</span>
+            <span className="section-chip hover-fill">About</span>
             <div className="about-text">
               <p>
                 I think the most interesting design problems right now are about human experience in a
@@ -101,7 +101,7 @@ export default function Home() {
           </section>
 
           <section className="cv-section fade-in" id="experience">
-            <span className="section-chip hover-num" data-num="02">Experience</span>
+            <span className="section-chip hover-fill">Experience</span>
             <div className="row-list">
               {EXPERIENCE.map(e => (
                 <div className="cv-row" key={e.role + e.org}>
@@ -117,7 +117,7 @@ export default function Home() {
           </section>
 
           <section className="cv-section fade-in" id="projects">
-            <span className="section-chip hover-lift">Projects</span>
+            <span className="section-chip hover-fill">Projects</span>
             <div className="row-list">
               {PROJECTS.map(p => (
                 <div className="cv-row" key={p.name}>
@@ -138,7 +138,7 @@ export default function Home() {
           </section>
 
           <section className="cv-section fade-in" id="education">
-            <span className="section-chip hover-num" data-num="04">Education</span>
+            <span className="section-chip hover-fill">Education</span>
             <div className="row-list">
               <div className="cv-row">
                 <Image className="row-logo" src="/logos/columbia-crown.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
