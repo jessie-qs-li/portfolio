@@ -1,18 +1,16 @@
 import type { Metadata } from "next"
-import { Syne, Outfit } from "next/font/google"
+import localFont from "next/font/local"
+import SmoothScroll from "@/components/SmoothScroll"
 import "./globals.css"
 
-const syne = Syne({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-syne",
-  display: "swap",
-})
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-outfit",
+const siteFont = localFont({
+  src: [
+    { path: "./fonts/GeneralSans-Regular.otf", weight: "400", style: "normal" },
+    { path: "./fonts/GeneralSans-Medium.otf", weight: "500", style: "normal" },
+    { path: "./fonts/GeneralSans-Semibold.otf", weight: "600", style: "normal" },
+    { path: "./fonts/GeneralSans-Bold.otf", weight: "700", style: "normal" },
+  ],
+  variable: "--font-site",
   display: "swap",
 })
 
@@ -23,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={siteFont.variable}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -31,7 +29,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className={`${syne.variable} ${outfit.variable}`}>{children}</body>
+      <body>
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   )
 }
