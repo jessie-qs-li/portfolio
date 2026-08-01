@@ -137,7 +137,7 @@ export default function Home() {
                   <div className="row-title">Columbia University</div>
                   <div className="row-sub">Computer Science &amp; Film</div>
                 </div>
-                <div className="row-right">Present</div>
+                <div className="row-right">Expected 2028</div>
               </div>
             </div>
           </section>
