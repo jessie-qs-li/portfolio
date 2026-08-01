@@ -104,6 +104,20 @@ export default function Home() {
             </div>
           </section>
 
+          <section className="cv-section fade-in" id="education">
+            <span className="section-chip hover-fill">Education</span>
+            <div className="row-list">
+              <div className="cv-row">
+                <Image className="row-logo" src="/logos/columbia-crown.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
+                <div className="row-body">
+                  <div className="row-title">Columbia University</div>
+                  <div className="row-sub">Computer Science &amp; Film</div>
+                </div>
+                <div className="row-right">Expected 2028</div>
+              </div>
+            </div>
+          </section>
+
           <section className="cv-section fade-in" id="experience">
             <span className="section-chip hover-fill">Experience</span>
             <div className="row-list">
@@ -133,20 +147,6 @@ export default function Home() {
                   <a className="row-right" href={p.url} target="_blank" rel="noopener">{p.link} ↗</a>
                 </div>
               ))}
-            </div>
-          </section>
-
-          <section className="cv-section fade-in" id="education">
-            <span className="section-chip hover-fill">Education</span>
-            <div className="row-list">
-              <div className="cv-row">
-                <Image className="row-logo" src="/logos/columbia-crown.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
-                <div className="row-body">
-                  <div className="row-title">Columbia University</div>
-                  <div className="row-sub">Computer Science &amp; Film</div>
-                </div>
-                <div className="row-right">Expected 2028</div>
-              </div>
             </div>
           </section>
 
