@@ -8,8 +8,8 @@ export default function SmoothScroll() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
 
     const lenis = new Lenis({
-      wheelMultiplier: 0.9,
-      lerp: 0.12,
+      wheelMultiplier: 1,
+      lerp: 0.16,
     })
 
     let rafId: number
