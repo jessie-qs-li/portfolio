@@ -49,7 +49,7 @@ export default function Home() {
           <div className="side-card fade-in">
             <Image className="profile-photo" src="/hero-portrait.jpg" alt="Jessie Li on the Brooklyn Bridge at dusk" width={1200} height={1200} priority />
             <h1 className="profile-name">Hello, I&apos;m<br /><span>Jessie Li</span></h1>
-            <p className="profile-role">Design engineer &amp; product manager. CS &amp; Film @ <a href="https://www.columbia.edu" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>Columbia</a>.</p>
+            <p className="profile-role">Product manager &amp; design engineer. CS &amp; Film @ <a href="https://www.columbia.edu" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>Columbia</a>.</p>
             <div className="avail-pill">Open to collaborations</div>
             <div className="profile-loc">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
