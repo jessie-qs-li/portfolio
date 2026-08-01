@@ -15,10 +15,10 @@ const EXPERIENCE = [
 ]
 
 const PHOTOS = [
-  { url: "https://boldvoice.com/", src: "/photos/boldvoice-offsite.jpg", caption: "Driving product and growth at BoldVoice (YC S21)" },
-  { url: "#projects", src: "/photos/nyu-hackathon.jpg", caption: "Winning hackathons with my amazing friends", pos: "100% center" },
-  { url: "https://apps.apple.com/us/app/columbia-spectator/id6470171397", src: "/photos/spectator-team.jpg", caption: "Leading the mobile app team at the Columbia Spectator", pos: "57% center" },
-  { url: "https://www.linkedin.com/posts/jessie-qi-shan-li_an-awesome-past-two-weeks-1-started-an-activity-7471987536232599552-t-XC", src: "/photos/tech-week.jpg", caption: "Presenting my HCI research tinkering at NY Tech Week" },
+  { url: "https://boldvoice.com/", src: "/photos/boldvoice-offsite.jpg", caption: "Driving product and growth at BoldVoice (YC S21)", grow: 3 },
+  { url: "#projects", src: "/photos/nyu-hackathon.jpg", caption: "Winning hackathons with my amazing friends", pos: "100% center", grow: 2.83 },
+  { url: "https://apps.apple.com/us/app/columbia-spectator/id6470171397", src: "/photos/spectator-team.jpg", caption: "Leading the mobile app team at the Columbia Spectator", pos: "57% center", grow: 2.4 },
+  { url: "https://www.linkedin.com/posts/jessie-qi-shan-li_an-awesome-past-two-weeks-1-started-an-activity-7471987536232599552-t-XC", src: "/photos/tech-week.jpg", caption: "Presenting my HCI research tinkering at\u00A0NY\u00A0Tech\u00A0Week", grow: 1.35, zoom: true },
 ]
 
 const PROJECTS = [
@@ -82,8 +82,15 @@ export default function Home() {
 
           <div className="photo-strip fade-in">
             {PHOTOS.map(p => (
-              <a className="photo-card" key={p.src} href={p.url} target={p.url.startsWith("#") ? undefined : "_blank"} rel={p.url.startsWith("#") ? undefined : "noopener"}>
-                <Image src={p.src} alt={p.caption} width={700} height={933} style={p.pos ? { objectPosition: p.pos } : undefined} />
+              <a
+                className={p.zoom ? "photo-card photo-card--zoom" : "photo-card"}
+                key={p.src}
+                href={p.url}
+                target={p.url.startsWith("#") ? undefined : "_blank"}
+                rel={p.url.startsWith("#") ? undefined : "noopener"}
+                style={{ "--grow": p.grow ?? 1 } as React.CSSProperties}
+              >
+                <Image src={p.src} alt={p.caption} width={700} height={933} loading="eager" style={p.pos ? { objectPosition: p.pos } : undefined} />
                 <span className="photo-caption">{p.caption}</span>
               </a>
             ))}
@@ -119,7 +126,7 @@ export default function Home() {
               <div className="cv-row">
                 <Image className="row-logo" src="/logos/columbia-crown.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
                 <div className="row-body">
-                  <div className="row-title">Columbia University</div>
+                  <div className="row-title"><a href="https://www.columbia.edu" target="_blank" rel="noopener">Columbia University</a></div>
                   <div className="row-sub">Computer Science &amp; Film</div>
                 </div>
                 <div className="row-right">Expected 2028</div>
