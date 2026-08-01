@@ -87,7 +87,7 @@ export default function Home() {
                 world increasingly shaped by AI: how we discover, learn, create, connect, and find meaning.
               </p>
               <p>
-                That belief drives most of what I build. I currently work on design and growth
+                That belief drives most of what I build. I currently work on product and growth
                 at <a href="https://www.boldvoice.com/" target="_blank" rel="noopener">BoldVoice</a>, an
                 AI-powered accent coaching app. At Columbia, I conduct HCI research on AI perception,
                 design human-centered products for early-stage startups, and compete in hackathons where
