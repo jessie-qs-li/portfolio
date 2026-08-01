@@ -152,7 +152,6 @@ a.contact-row:hover { color: var(--text); }
 .cv-row:first-child { border-top: 1px dashed var(--border-dash); }
 .row-logo {
   width: 34px; height: 34px; border-radius: 8px; object-fit: contain;
-  background: var(--card); border: 1px solid var(--border); padding: 4px;
   flex-shrink: 0;
 }
 .row-body { min-width: 0; flex: 1; }
