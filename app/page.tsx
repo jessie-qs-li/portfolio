@@ -3,12 +3,12 @@ import ClientScripts from "@/components/ClientScripts"
 import LetterboxdRecent from "@/components/LetterboxdRecent"
 
 const EXPERIENCE = [
+  { role: "Product & Growth", org: "BoldVoice", url: "https://www.boldvoice.com/", logo: "/logos/boldvoice.png", date: "2026 – Present" },
   { role: "AI/ML Fellow", org: "Break Through Tech", url: "https://www.breakthroughtech.org/", logo: "/logos/break-through-tech.png", date: "Mar 2026 – Present" },
   { role: "Undergraduate Researcher", org: "Columbia Digital Storytelling Lab", url: "https://www.digitalstorytellinglab.com/", logo: "/logos/columbia-dsl.png", date: "Jan 2026 – Present" },
-  { role: "Product Designer", org: "The Columbia Spectator", url: "https://www.columbiaspectator.com/", logo: "/logos/columbia-spectator.png", date: "Sep 2025 – Present" },
+  { role: "Product Manager", org: "The Columbia Spectator", url: "https://www.columbiaspectator.com/", logo: "/logos/columbia-spectator.png", date: "Sep 2025 – Present" },
   { role: "Founder & Head Tutor", org: "Li Tutors", url: "https://li-tutors.figma.site/", logo: "/logos/li-tutors.png", date: "Apr 2024 – Present" },
-  { role: "Product Engineering Intern", org: "Flevy", url: "https://flevy.com/", logo: "/logos/flevy.png", date: "Nov – Dec 2025" },
-  { role: "Product Research Intern", org: "Apply7.ai", url: "http://apply7.ai/", logo: "/logos/apply7.png", date: "Jul – Aug 2025" },
+  { role: "Product Manager Intern", org: "Apply7.ai", url: "http://apply7.ai/", logo: "/logos/apply7.png", date: "Jul – Aug 2025" },
   { role: "Events & Liaison Intern", org: "Shanghai International Film Festival", url: "https://www.siff.com/english/", logo: "/logos/shanghai-international-film-festival.png", date: "May – Jun 2025" },
   { role: "Research Assistant", org: "Emory Dept. of Film and Media", url: "https://filmandmedia.emory.edu/", logo: "/logos/emory-film-media.png", date: "Jan – Apr 2025" },
 ]

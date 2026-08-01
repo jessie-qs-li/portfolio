@@ -4,8 +4,10 @@ import "./globals.css"
 
 const siteFont = localFont({
   src: [
-    { path: "./fonts/LiberationSans-Regular.ttf", weight: "400", style: "normal" },
-    { path: "./fonts/LiberationSans-Bold.ttf", weight: "700", style: "normal" },
+    { path: "./fonts/GeneralSans-Regular.otf", weight: "400", style: "normal" },
+    { path: "./fonts/GeneralSans-Medium.otf", weight: "500", style: "normal" },
+    { path: "./fonts/GeneralSans-Semibold.otf", weight: "600", style: "normal" },
+    { path: "./fonts/GeneralSans-Bold.otf", weight: "700", style: "normal" },
   ],
   variable: "--font-site",
   display: "swap",
