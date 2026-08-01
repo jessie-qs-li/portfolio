@@ -158,7 +158,7 @@ export default function Home() {
                 <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
                 <div className="row-body">
                   <div className="row-title">Film</div>
-                  <div className="row-sub">I&apos;m a huge cinephile! I used to watch and review ~120 films per year.</div>
+                  <div className="row-sub">I&apos;m a huge cinephile! I used to watch and review ~120 films per year</div>
                 </div>
                 <a className="row-right" href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener">Letterboxd ↗</a>
               </div>
@@ -166,12 +166,9 @@ export default function Home() {
                 <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                 <div className="row-body">
                   <div className="row-title">Writing</div>
-                  <div className="row-sub">
-                    <a href="https://www.doubleexposurecu.com/post/panoptic-patriarchy-in-raise-the-red-lantern" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>Panoptic Patriarchy in Raise the Red Lantern</a>
-                    {" · "}
-                    <a href="https://www.doubleexposurecu.com/post/the-birth-of-a-noir-consciousness-in-the-night-of-the-hunter" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>A Noir Consciousness in The Night of the Hunter</a>
-                  </div>
+                  <div className="row-sub">Annie Hall Award winner — best undergraduate essay of the year</div>
                 </div>
+                <a className="row-right" href="https://www.doubleexposurecu.com/staff/222c987b-f150-4bb0-895f-81869462107566109/profile" target="_blank" rel="noopener">Works ↗</a>
               </div>
               <div className="cv-row">
                 <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
