@@ -15,13 +15,13 @@ const EXPERIENCE = [
 
 const PROJECTS = [
   { name: "Wonder", desc: "Location-based AI voice chats that let kids talk to famous historical figures right where history happened.", award: "2nd Place Social Impact — YHack 2026", url: "https://www.yourwonder.us/", link: "yourwonder.us" },
-  { name: "Noodle", desc: "An AI drawing buddy for kids ages 4–6 that listens, cheers them on, and asks questions that spark new ideas.", award: "Best Use of ElevenLabs — DevFest 2026", url: "https://devpost.com/software/noodle-2aotw6", link: "devpost" },
-  { name: "The Turing Gallery", desc: "A mixed-methods study probing where human judgement slips between human and AI-made media.", award: "Columbia Digital Storytelling Lab", url: "https://turing-gallery.vercel.app/", link: "view study" },
-  { name: "Imposter: A Party Game", desc: "A multiuser creative Turing test — everyone writes on a shared theme, one entry is AI. Find it.", award: "Columbia Digital Storytelling Lab", url: "https://partygame-ten.vercel.app/", link: "play" },
-  { name: "VibeLens", desc: "A self-paced web app that teaches casual moviegoers to identify camera movements in film. Built with Laura Avila.", url: "https://github.com/jessie-qs-li/uidesign-filmmovements", link: "github" },
+  { name: "Noodle", desc: "An AI drawing buddy for kids ages 4–6 that listens, cheers them on, and asks questions that spark new ideas.", award: "Best Use of ElevenLabs — DevFest 2026", url: "https://devpost.com/software/noodle-2aotw6", link: "Devpost" },
+  { name: "The Turing Gallery", desc: "A mixed-methods study probing where human judgement slips between human and AI-made media.", award: "Columbia Digital Storytelling Lab", url: "https://turing-gallery.vercel.app/", link: "View study" },
+  { name: "Imposter: A Party Game", desc: "A multiuser creative Turing test — everyone writes on a shared theme, one entry is AI. Find it.", award: "Columbia Digital Storytelling Lab", url: "https://partygame-ten.vercel.app/", link: "Play" },
+  { name: "VibeLens", desc: "A self-paced web app that teaches casual moviegoers to identify camera movements in film. Built with Laura Avila.", url: "https://github.com/jessie-qs-li/uidesign-filmmovements", link: "GitHub" },
   { name: "Liondine", desc: "Dietary filters and UI improvements for Columbia's dining platform, with The Columbia Spectator.", url: "https://apps.apple.com/us/app/columbia-spectator/id6470171397", link: "App Store" },
-  { name: "Pet Pomodoro", desc: "A focus timer with a cute avatar that turns sad whenever you break your flow.", url: "https://petpomodoro-draft.figma.site/", link: "try it" },
-  { name: "Li Tutors", desc: "Brand and website for the tutoring company I founded with my twin brother.", url: "https://li-tutors.figma.site/", link: "site" },
+  { name: "Pet Pomodoro", desc: "A focus timer with a cute avatar that turns sad whenever you break your flow.", url: "https://petpomodoro-draft.figma.site/", link: "Try it" },
+  { name: "Li Tutors", desc: "Brand and website for the tutoring company I founded with my twin brother.", url: "https://li-tutors.figma.site/", link: "Site" },
   { name: "OptiBuy", desc: "A tool that tracks prices across e-commerce platforms so you can buy at the right time.", url: "https://www.optibuy.compare/", link: "optibuy.compare" },
 ]
 
@@ -179,43 +179,43 @@ export default function Home() {
               <div className="cv-row">
                 <div className="row-body">
                   <div className="row-title">Film</div>
-                  <div className="row-sub">huge cinephile — i watch and review ~120 films per year</div>
+                  <div className="row-sub">Huge cinephile — I watch and review ~120 films per year</div>
                 </div>
-                <a className="row-right" href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener">letterboxd ↗</a>
+                <a className="row-right" href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener">Letterboxd ↗</a>
               </div>
               <div className="cv-row">
                 <div className="row-body">
                   <div className="row-title">Writing</div>
                   <div className="row-sub">
-                    <a href="https://www.doubleexposurecu.com/post/panoptic-patriarchy-in-raise-the-red-lantern" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>panoptic patriarchy in raise the red lantern</a>
+                    <a href="https://www.doubleexposurecu.com/post/panoptic-patriarchy-in-raise-the-red-lantern" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>Panoptic Patriarchy in Raise the Red Lantern</a>
                     {" · "}
-                    <a href="https://www.doubleexposurecu.com/post/the-birth-of-a-noir-consciousness-in-the-night-of-the-hunter" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>a noir consciousness in the night of the hunter</a>
+                    <a href="https://www.doubleexposurecu.com/post/the-birth-of-a-noir-consciousness-in-the-night-of-the-hunter" target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>A Noir Consciousness in The Night of the Hunter</a>
                   </div>
                 </div>
               </div>
               <div className="cv-row">
                 <div className="row-body">
                   <div className="row-title">Videography</div>
-                  <div className="row-sub">i shoot and cut in final cut pro</div>
+                  <div className="row-sub">I shoot and cut in Final Cut Pro</div>
                 </div>
-                <a className="row-right" href="https://www.youtube.com/watch?v=u2D_fjru0j0" target="_blank" rel="noopener">sample ↗</a>
+                <a className="row-right" href="https://www.youtube.com/watch?v=u2D_fjru0j0" target="_blank" rel="noopener">Sample ↗</a>
               </div>
               <div className="cv-row">
                 <div className="row-body">
                   <div className="row-title">Travel</div>
                   <div className="row-sub">5 continents and counting</div>
                 </div>
-                <a className="row-right" href="/travel">gallery ↗</a>
+                <a className="row-right" href="/travel">Gallery ↗</a>
               </div>
               <div className="cv-row">
                 <div className="row-body">
                   <div className="row-title">Mock trial</div>
-                  <div className="row-sub">competed with the #4 ranked team in the country</div>
+                  <div className="row-sub">Competed with the #4 ranked team in the country</div>
                 </div>
               </div>
             </div>
             <div className="letterboxd-block">
-              <div className="letterboxd-recent-label">recent watches</div>
+              <div className="letterboxd-recent-label">Recent watches</div>
               <LetterboxdRecent />
             </div>
           </section>
@@ -223,8 +223,8 @@ export default function Home() {
           <section className="cv-section fade-in" id="contact">
             <span className="section-chip">Contact</span>
             <p className="contact-blurb">
-              i&apos;m always happy to chat about design, film, AI, education, or whatever else is on your
-              mind. if you&apos;re working on something interesting or want to build something together,
+              I&apos;m always happy to chat about design, film, AI, education, or whatever else is on your
+              mind. If you&apos;re working on something interesting or want to build something together,
               reach out.
             </p>
             <div className="contact-actions">
