@@ -192,6 +192,7 @@ export default function Home() {
                   <div className="row-title">Mock trial</div>
                   <div className="row-sub">Competed with the #4 ranked team in the country</div>
                 </div>
+                <a className="row-right" href="https://www.instagram.com/p/DAwwBkyPLXY/" target="_blank" rel="noopener">Photos ↗</a>
               </div>
             </div>
             <div className="letterboxd-block">
