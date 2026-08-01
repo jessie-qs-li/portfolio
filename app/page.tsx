@@ -15,10 +15,10 @@ const EXPERIENCE = [
 ]
 
 const PHOTOS = [
-  { src: "/photos/nyu-hackathon.jpg", caption: "Winning a NYU hackathon with my amazing team", pos: "100% center" },
-  { src: "/photos/spectator-team.jpg", caption: "Leading a product team behind the Columbia Spectator" },
-  { src: "/photos/tech-week.jpg", caption: "Presenting my HCI research tinkering at NY Tech Week" },
-  { src: "/photos/boldvoice-offsite.jpg", caption: "BoldVoice team at an offsite!" },
+  { url: "https://www.linkedin.com/posts/audreykc_we-took-1st-place-at-the-nyu-stern-entrepreneurial-activity-7455994492211478529-C5SM", src: "/photos/nyu-hackathon.jpg", caption: "Winning a NYU hackathon with my amazing team", pos: "100% center" },
+  { url: "https://apps.apple.com/us/app/columbia-spectator/id6470171397", src: "/photos/spectator-team.jpg", caption: "Leading a product team behind the Columbia Spectator" },
+  { url: "https://www.linkedin.com/posts/jessie-qi-shan-li_an-awesome-past-two-weeks-1-started-an-activity-7471987536232599552-t-XC", src: "/photos/tech-week.jpg", caption: "Presenting my HCI research tinkering at NY Tech Week" },
+  { url: "https://boldvoice.com/", src: "/photos/boldvoice-offsite.jpg", caption: "BoldVoice team at an offsite!" },
 ]
 
 const PROJECTS = [
@@ -82,10 +82,10 @@ export default function Home() {
 
           <div className="photo-strip fade-in">
             {PHOTOS.map(p => (
-              <figure className="photo-card" key={p.src}>
+              <a className="photo-card" key={p.src} href={p.url} target="_blank" rel="noopener">
                 <Image src={p.src} alt={p.caption} width={700} height={933} style={p.pos ? { objectPosition: p.pos } : undefined} />
-                <figcaption className="photo-caption">{p.caption}</figcaption>
-              </figure>
+                <span className="photo-caption">{p.caption}</span>
+              </a>
             ))}
           </div>
 

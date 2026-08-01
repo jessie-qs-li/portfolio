@@ -150,11 +150,13 @@ a.contact-row:hover { color: var(--text); }
 /* photo strip under the statement */
 .photo-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: -8px; }
 .photo-card {
-  position: relative; margin: 0; overflow: hidden;
+  position: relative; margin: 0; overflow: hidden; display: block;
   border-radius: 14px; border: 1px solid var(--border);
   background: var(--card); box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.3s ease;
+  cursor: pointer;
 }
+.photo-caption { display: block; }
 .photo-card:hover {
   transform: translate(-6px, -8px) rotate(-1.3deg);
   box-shadow: 0 12px 28px rgba(0,0,0,0.14);
