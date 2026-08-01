@@ -14,11 +14,11 @@ const EXPERIENCE = [
 ]
 
 const PROJECTS = [
-  { name: "TheShaft", desc: "3D dorm room reconstruction and ideation with WorldLabs.", award: "1st Place @ NYC Intern Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7476655026405412864/", link: "LinkedIn" },
-  { name: "SuperStore", desc: "AI agents to simulate shopper behavior.", award: "1st Place @ NYU EEG x Vercel Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7457816648155099136/", link: "LinkedIn" },
-  { name: "Grey Matter", desc: "TRIBE V2 brain data rendered as ad insights.", award: "2nd Place @ Columbia x NYU Claude Hackathon 2026", url: "https://devpost.com/software/grey-matter-l3e4ap", link: "Devpost" },
-  { name: "Wonder", desc: "Interactive map where kids voice-chat with AI historical figures at 50 global landmarks.", award: "2nd Place Social Impact @ Yale Hackathon (YHack) 2026", url: "https://www.yourwonder.us/", link: "yourwonder.us" },
-  { name: "Noodle", desc: "AI drawing companion that watches kids' canvases and asks questions that spark visual creativity.", award: "Best Use of ElevenLabs @ Columbia Hackathon (DevFest) 2026", url: "https://devpost.com/software/noodle-2aotw6", link: "Devpost" },
+  { name: "TheShaft", desc: "3D dorm room reconstruction and ideation with WorldLabs.", award: "1st Place @ NYC Intern Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7476655026405412864/", link: "View more" },
+  { name: "SuperStore", desc: "AI agents to simulate shopper behavior.", award: "1st Place @ NYU EEG x Vercel Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7457816648155099136/", link: "View more" },
+  { name: "Grey Matter", desc: "TRIBE V2 brain data rendered as ad insights.", award: "2nd Place @ Columbia x NYU Claude Hackathon 2026", url: "https://devpost.com/software/grey-matter-l3e4ap", link: "View more" },
+  { name: "Wonder", desc: "Interactive map where kids voice-chat with AI historical figures at 50 global landmarks.", award: "2nd Place Social Impact @ Yale Hackathon (YHack) 2026", url: "https://www.yourwonder.us/", link: "View more" },
+  { name: "Noodle", desc: "AI drawing companion that watches kids' canvases and asks questions that spark visual creativity.", award: "Best Use of ElevenLabs @ Columbia Hackathon (DevFest) 2026", url: "https://devpost.com/software/noodle-2aotw6", link: "View more" },
 ]
 
 const SKILLS = [
