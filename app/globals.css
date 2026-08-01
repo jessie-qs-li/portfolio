@@ -13,7 +13,7 @@
   --border-dash: rgba(10, 10, 8, 0.16);
   --chip-bg: #FFFFFF;
   --accent: #7C3AED;
-  --font-body: var(--font-inter), sans-serif;
+  --font-body: var(--font-creato), sans-serif;
   --transition: 0.2s ease;
 }
 
@@ -122,7 +122,7 @@ a.contact-row:hover { color: var(--text); }
 
 .section-chip {
   display: inline-block; align-self: flex-start;
-  font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--text2); background: var(--chip-bg);
   border: 1px solid var(--border); border-radius: 8px;
   padding: 5px 12px; margin-bottom: 18px;
