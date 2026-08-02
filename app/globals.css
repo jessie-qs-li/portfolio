@@ -73,7 +73,10 @@ a, button, [role="button"], select, summary { cursor: pointer; }
 .theme-toggle:hover { color: var(--text); }
 
 /* ========== SIDEBAR ========== */
-.cv-side { position: sticky; top: 48px; display: flex; flex-direction: column; gap: 16px; }
+/* Sticky offset: 890px = sidebar height (776) + space below main content (114).
+   The max() pushes the sidebar down on tall viewports so its bottom lines up with
+   the end of the main column at full scroll. Retune if sidebar content changes. */
+.cv-side { position: sticky; top: max(48px, calc(100vh - 890px)); display: flex; flex-direction: column; gap: 16px; }
 .side-card {
   background: var(--card); border: 1px solid var(--border);
   border-radius: 16px; padding: 20px;
@@ -316,4 +319,116 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
   .cv-side { position: static; }
   .profile-photo { max-width: 220px; }
   .cv-footer { flex-direction: column; align-items: flex-start; }
+}
+
+/* ========== ASK JESSIE CHAT ========== */
+.ask-fab {
+  position: fixed; right: 22px; bottom: 22px; z-index: 60;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 18px; border-radius: 999px;
+  background: var(--text); color: var(--bg);
+  font-family: var(--font-body); font-size: 13.5px; font-weight: 600; letter-spacing: 0.01em;
+  border: 1px solid transparent; box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+.ask-fab:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.22); }
+.ask-fab svg { width: 15px; height: 15px; }
+.ask-fab--hidden { opacity: 0; pointer-events: none; transform: scale(0.9); }
+
+.ask-panel {
+  position: fixed; right: 22px; bottom: 22px; z-index: 61;
+  width: min(370px, calc(100vw - 32px));
+  height: min(520px, calc(100dvh - 48px));
+  display: flex; flex-direction: column;
+  background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+  box-shadow: 0 18px 48px rgba(0,0,0,0.22);
+  overflow: hidden;
+  transform-origin: calc(100% - 34px) calc(100% - 34px);
+  animation: ask-open 0.38s cubic-bezier(0.22, 1.1, 0.3, 1);
+}
+.ask-panel--closing { animation: ask-shut 0.19s cubic-bezier(0.4, 0, 1, 1) forwards; }
+@keyframes ask-open {
+  from { opacity: 0; transform: translateY(14px) scale(0.88); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes ask-shut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(10px) scale(0.94); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ask-panel, .ask-panel--closing { animation: none; }
+}
+
+.ask-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: 16px 18px 14px; border-bottom: 1px solid var(--border);
+}
+.ask-title { font-size: 15px; font-weight: 600; }
+.ask-sub { font-size: 12px; color: var(--text3); margin-top: 2px; }
+.ask-close {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 8px; color: var(--text3);
+  transition: all var(--transition);
+}
+.ask-close:hover { color: var(--text); background: var(--bg); }
+.ask-close svg { width: 15px; height: 15px; }
+
+.ask-scroll { flex: 1; overflow-y: auto; padding: 16px 16px 8px; display: flex; flex-direction: column; gap: 10px; }
+
+.ask-starters { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.ask-starter {
+  font-family: var(--font-body); font-size: 12.5px; font-weight: 500; text-align: left;
+  color: var(--text2); background: var(--bg);
+  border: 1px solid var(--border); border-radius: 999px; padding: 7px 13px;
+  transition: all var(--transition);
+}
+.ask-starter:hover { color: var(--text); border-color: var(--border-dash); }
+
+.ask-msg {
+  align-self: stretch;
+  font-size: 13.5px; line-height: 1.55; color: var(--text);
+  padding: 0 2px 12px; border-bottom: 1px dashed var(--border-dash);
+  white-space: pre-wrap; overflow-wrap: break-word;
+}
+.ask-msg::before {
+  content: "JessieBot"; display: block;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text3); margin-bottom: 4px;
+}
+.ask-msg--user::before { content: "You"; }
+.ask-msg:last-child { border-bottom: none; }
+
+.ask-typing { display: inline-flex; gap: 4px; padding: 3px 0; }
+.ask-typing i {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--text3);
+  animation: ask-bounce 1.1s infinite;
+}
+.ask-typing i:nth-child(2) { animation-delay: 0.15s; }
+.ask-typing i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes ask-bounce { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-4px); opacity: 1; } }
+
+.ask-inputrow {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 18px 14px; border-top: 1px solid var(--border);
+}
+.ask-input {
+  flex: 1; min-width: 0; font-family: var(--font-body); font-size: 13.5px; color: var(--text);
+  background: transparent; border: none; border-bottom: 1px dashed var(--border-dash);
+  border-radius: 0; padding: 9px 2px; outline: none; transition: border-color var(--transition);
+  cursor: text;
+}
+.ask-input:focus { border-bottom: 1px solid var(--text); }
+.ask-input::placeholder { color: var(--text3); }
+.ask-send {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: transparent; color: var(--text2); transition: color var(--transition), opacity var(--transition);
+}
+.ask-send:hover:not(:disabled) { color: var(--text); }
+.ask-send:disabled { opacity: 0.35; cursor: default; }
+.ask-send svg { width: 15px; height: 15px; }
+
+@media (max-width: 520px) {
+  .ask-fab { right: 16px; bottom: 16px; }
+  .ask-panel { right: 16px; bottom: 16px; height: min(480px, calc(100dvh - 32px)); }
 }

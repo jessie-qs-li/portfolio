@@ -1,10 +1,11 @@
 import Image from "next/image"
+import AskJessie from "@/components/AskJessie"
 import ClientScripts from "@/components/ClientScripts"
 import ExperienceList from "@/components/ExperienceList"
 import LetterboxdRecent from "@/components/LetterboxdRecent"
 
 const EXPERIENCE = [
-  { role: "Product & Growth", org: "BoldVoice (YC S21)", url: "https://www.boldvoice.com/", logo: "/logos/boldvoice-tile.png", date: "2026 – Present" },
+  { role: "Product & Growth", org: "BoldVoice (YC S21)", url: "https://www.boldvoice.com/", logo: "/logos/boldvoice-tile.png", date: "Jun – Aug 2026" },
   { role: "AI/ML Fellow", org: "Break Through Tech", url: "https://www.breakthroughtech.org/", logo: "/logos/break-through-tech.png", date: "Mar 2026 – Present" },
   { role: "Undergraduate Researcher", org: "Columbia Digital Storytelling Lab", url: "https://www.digitalstorytellinglab.com/", logo: "/logos/columbia-dsl.png", date: "Jan 2026 – May 2026" },
   { role: "Product Manager", org: "The Columbia Spectator", url: "https://www.columbiaspectator.com/", logo: "/logos/columbia-spectator.png", date: "Sep 2025 – Present" },
@@ -242,6 +243,7 @@ export default function Home() {
         </div>
       </footer>
 
+      <AskJessie />
       <ClientScripts />
     </>
   )
