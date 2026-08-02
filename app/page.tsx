@@ -18,7 +18,7 @@ const EXPERIENCE = [
 const PHOTOS = [
   { url: "https://boldvoice.com/", src: "/photos/boldvoice-offsite.jpg", caption: "Driving product and growth at BoldVoice (YC S21)", keyPhrase: "BoldVoice", grow: 3 },
   { url: "#projects", src: "/photos/nyu-hackathon.jpg", caption: "Winning hackathons with my amazing friends", keyPhrase: "hackathons", pos: "100% center", grow: 2.83 },
-  { url: "https://apps.apple.com/us/app/columbia-spectator/id6470171397", src: "/photos/spectator-team.jpg", caption: "Leading the mobile app team at the Columbia Spectator", keyPhrase: "mobile app", pos: "57% center", grow: 2.4 },
+  { url: "https://apps.apple.com/us/app/columbia-spectator/id6470171397", src: "/photos/spectator-team.jpg", caption: "Leading the mobile app team at the Columbia Spectator", keyPhrase: "mobile app", pos: "57% center", grow: 2.4, zoom: true, zoomScale: 1.3, zoomOrigin: "53% 78%" },
   { url: "https://www.linkedin.com/posts/jessie-qi-shan-li_were-all-used-to-ai-doing-chores-like-writing-activity-7465092904781516801-PdOS", src: "/photos/tech-week.jpg", caption: "Presenting my HCI research tinkering at\u00A0NY\u00A0Tech\u00A0Week", keyPhrase: "HCI research", grow: 1.35, zoom: true },
 ]
 
@@ -89,7 +89,11 @@ export default function Home() {
                 href={p.url}
                 target={p.url.startsWith("#") ? undefined : "_blank"}
                 rel={p.url.startsWith("#") ? undefined : "noopener"}
-                style={{ "--grow": p.grow ?? 1 } as React.CSSProperties}
+                style={{
+                  "--grow": p.grow ?? 1,
+                  ...("zoomScale" in p && p.zoomScale ? { "--zoom-scale": p.zoomScale } : {}),
+                  ...("zoomOrigin" in p && p.zoomOrigin ? { "--zoom-origin": p.zoomOrigin } : {}),
+                } as React.CSSProperties}
               >
                 <Image src={p.src} alt={p.caption} width={700} height={933} loading="eager" style={p.pos ? { objectPosition: p.pos } : undefined} />
                 <span className="photo-caption">

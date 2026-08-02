@@ -180,7 +180,7 @@ a.contact-row:hover { color: var(--text); }
 .photo-strip:hover .photo-card:not(:hover) .photo-caption,
 .photo-strip:hover .photo-card:not(:hover)::before { opacity: 0; }
 .photo-card img { transition: transform 0.45s cubic-bezier(0.33, 1, 0.68, 1); }
-.photo-card--zoom:hover img { transform: scale(1.12); }
+.photo-card--zoom:hover img { transform: scale(var(--zoom-scale, 1.12)); transform-origin: var(--zoom-origin, center); }
 .photo-caption {
   position: absolute; left: 0; top: 0; display: block; z-index: 2;
   padding: 10px 12px 0;
