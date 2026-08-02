@@ -333,6 +333,23 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
 }
 .ask-fab:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.22); }
 .ask-fab svg { width: 15px; height: 15px; }
+.ask-fab-icon { position: relative; display: inline-flex; }
+.ask-live-dot {
+  position: absolute; right: -3px; top: -3px; width: 8px; height: 8px;
+  border-radius: 50%; background: #34C759;
+  box-shadow: 0 0 0 2px var(--text);
+}
+.ask-live-dot::after {
+  content: ''; position: absolute; inset: -3px; border-radius: 50%;
+  border: 1.5px solid #34C759;
+  animation: ask-live-pulse 2.2s ease-out infinite;
+}
+@keyframes ask-live-pulse {
+  0% { transform: scale(0.5); opacity: 0.9; }
+  70% { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .ask-live-dot::after { animation: none; opacity: 0; } }
 .ask-fab--hidden { opacity: 0; pointer-events: none; transform: scale(0.9); }
 
 .ask-panel {
