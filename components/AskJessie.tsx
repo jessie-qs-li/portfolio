@@ -23,6 +23,9 @@ export default function AskJessie() {
   const [busy, setBusy] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
+
+  const isSheet = () => window.matchMedia("(max-width: 600px)").matches
 
   const close = () => {
     setClosing(true)
@@ -37,8 +40,45 @@ export default function AskJessie() {
     if (el) el.scrollTop = el.scrollHeight
   }, [messages, busy])
 
+  // Desktop only: auto-focus would pop the keyboard over the starters on mobile.
   useEffect(() => {
-    if (open) inputRef.current?.focus()
+    if (open && !isSheet()) inputRef.current?.focus()
+  }, [open])
+
+  // Mobile sheet: lock the page scroll behind the panel.
+  useEffect(() => {
+    if (!open || !isSheet()) return
+    const prev = document.documentElement.style.overflow
+    document.documentElement.style.overflow = "hidden"
+    return () => {
+      document.documentElement.style.overflow = prev
+    }
+  }, [open])
+
+  // Mobile sheet: size the panel to the visual viewport so the iOS keyboard
+  // resizes the chat instead of covering the input.
+  useEffect(() => {
+    if (!open) return
+    const vv = window.visualViewport
+    if (!vv) return
+    const update = () => {
+      const el = panelRef.current
+      if (!el) return
+      if (!isSheet()) {
+        el.style.height = ""
+        el.style.top = ""
+        return
+      }
+      el.style.height = `${vv.height}px`
+      el.style.top = `${vv.offsetTop}px`
+    }
+    update()
+    vv.addEventListener("resize", update)
+    vv.addEventListener("scroll", update)
+    return () => {
+      vv.removeEventListener("resize", update)
+      vv.removeEventListener("scroll", update)
+    }
   }, [open])
 
   const send = async (text: string) => {
@@ -95,7 +135,7 @@ export default function AskJessie() {
       </button>
 
       {open && (
-        <div className={closing ? "ask-panel ask-panel--closing" : "ask-panel"} role="dialog" aria-label="JessieBot chat">
+        <div ref={panelRef} className={closing ? "ask-panel ask-panel--closing" : "ask-panel"} role="dialog" aria-label="JessieBot chat">
           <div className="ask-head">
             <div>
               <div className="ask-title">JessieBot</div>
