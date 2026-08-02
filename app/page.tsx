@@ -191,7 +191,7 @@ export default function Home() {
                 <svg className="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
                 <div className="row-body">
                   <div className="row-title">I&apos;m a videographer</div>
-                  <div className="row-sub">I shoot and cut in Final Cut Pro</div>
+                  <div className="row-sub">I shoot and cut in CapCut and Final Cut Pro</div>
                 </div>
                 <a className="row-right" href="https://www.youtube.com/watch?v=u2D_fjru0j0" target="_blank" rel="noopener">Sample<svg className="arrow-ne" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
               </div>
