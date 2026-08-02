@@ -2,10 +2,17 @@
 
 import { useEffect, useRef, useState } from "react"
 
-const STARTERS = [
+// Suggestion pool: the first three are the opening starters; after each answer
+// the next unasked ones surface so there is always a suggested follow-up.
+const SUGGESTIONS = [
   "What does Jessie do at BoldVoice?",
   "Tell me about her hackathon wins",
   "What is she like outside of work?",
+  "What has she shipped at the Spectator?",
+  "What is her HCI research about?",
+  "Tell me a fun fact about her",
+  "What is her favorite movie?",
+  "How do I get in touch with her?",
 ]
 
 const GREETING =
@@ -150,20 +157,24 @@ export default function AskJessie() {
 
           <div className="ask-scroll" ref={scrollRef} data-lenis-prevent>
             <div className="ask-msg">{GREETING}</div>
-            {messages.length === 0 && (
-              <div className="ask-starters">
-                {STARTERS.map(s => (
-                  <button key={s} type="button" className="ask-starter" onClick={() => send(s)}>
-                    {s}
-                  </button>
-                ))}
-              </div>
-            )}
             {messages.map((m, i) => (
               <div key={i} className={m.role === "user" ? "ask-msg ask-msg--user" : "ask-msg"}>
                 {m.content || <span className="ask-typing" aria-label="Thinking"><i /><i /><i /></span>}
               </div>
             ))}
+            {!busy && (() => {
+              const asked = new Set(messages.filter(m => m.role === "user").map(m => m.content))
+              const remaining = SUGGESTIONS.filter(s => !asked.has(s)).slice(0, 3)
+              return remaining.length > 0 && (
+                <div className="ask-starters">
+                  {remaining.map(s => (
+                    <button key={s} type="button" className="ask-starter" onClick={() => send(s)}>
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              )
+            })()}
           </div>
 
           <form

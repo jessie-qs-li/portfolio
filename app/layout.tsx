@@ -15,8 +15,8 @@ const siteFont = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "Jessie Li — Design Engineer",
-  description: "Design engineer building at the intersection of AI and storytelling. CS & Film @ Columbia.",
+  title: "Jessie Li",
+  description: "Aspiring product manager, HCI nerd, 5x hackathon winner. CS & Film @ Columbia.",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
