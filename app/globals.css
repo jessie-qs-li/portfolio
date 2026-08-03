@@ -553,6 +553,22 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
   .demo-reveal { max-height: 12rem; }
   .demo-desc { opacity: 1; }
   .demo-arrow { opacity: 1; transform: translate(0, 0); }
+
+  /* Touch has no way to un-hover: a tap latches :hover and the effect stays
+     stuck until you tap somewhere else, which reads as a glitch. Neutralise
+     every hover-driven state in both galleries. */
+  .demo-grid:hover .demo-card:not(:hover) { opacity: 1; filter: none; }
+  .demo-card:hover {
+    transform: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    border-color: var(--border);
+  }
+  .photo-card:hover { flex-grow: 1; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .photo-card--zoom:hover img { transform: none; }
+  .photo-card:hover .photo-caption { transform: none; }
+  .photo-card:hover .cap-key { background-size: 0% 1.5px; }
+  .photo-strip:hover .photo-card:not(:hover) .photo-caption,
+  .photo-strip:hover .photo-card:not(:hover)::before { opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .demo-reveal { transition: none; }
