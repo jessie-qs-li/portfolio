@@ -20,7 +20,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "TheShaft",
-    desc: "3D dorm room reconstruction and ideation with WorldLabs.",
+    desc: "3D dorm room reconstruction and ideation with WorldLabs. Built with Ashlee Chae, Audrey Chan, Sunny Liu, and Lynsey Overturf.",
     award: "1st Place @ NYC Intern Hackathon 2026",
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7476655026405412864/",
     link: "View more",
@@ -29,7 +29,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "Wonder",
-    desc: "Interactive map where kids voice-chat with AI historical figures at 50 global landmarks.",
+    desc: "Interactive map where kids voice-chat with AI historical figures at 50 global landmarks. Built with Ashlee Chae.",
     award: "2nd Place Social Impact @ Yale Hackathon (YHack) 2026",
     url: "https://www.yourwonder.us/",
     link: "View more",
@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "Grey Matter",
-    desc: "TRIBE V2 brain data rendered as ad insights.",
+    desc: "TRIBE V2 brain data rendered as ad insights. Built with Ashlee Chae, Audrey Chan, and Sunny Liu.",
     award: "2nd Place @ Columbia x NYU Claude Hackathon 2026",
     url: "https://devpost.com/software/grey-matter-l3e4ap",
     link: "View more",
@@ -47,7 +47,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "Noodle",
-    desc: "AI drawing companion that watches kids' canvases and asks questions that spark visual creativity.",
+    desc: "AI drawing companion that watches kids' canvases and asks questions that spark visual creativity. Built with Ashlee Chae, Amelie Dequito, and Jenny Xie.",
     award: "Best Use of ElevenLabs @ Columbia Hackathon (DevFest) 2026",
     url: "https://noodle-draw.pages.dev",
     link: "View more",
@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "SuperStore",
-    desc: "AI agents to simulate shopper behavior.",
+    desc: "AI agents to simulate shopper behavior. Built with Ashlee Chae, Audrey Chan, Sunny Liu, and Lynsey Overturf.",
     award: "1st Place @ NYU EEG x Vercel Hackathon 2026",
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7457816648155099136/",
     link: "View more",

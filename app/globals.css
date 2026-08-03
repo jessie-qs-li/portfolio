@@ -527,14 +527,15 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
 .demo-desc { font-size: 13.5px; line-height: 1.55; color: var(--text2); }
 
 /* Description stays folded away until hover. max-height is the ceiling the
-   animation runs to; descriptions are a few lines, so 9rem clears the longest
-   while keeping the motion tight. */
+   animation runs to. Descriptions now carry collaborator credits, so this
+   clears the longest one even in the narrow band where the sidebar is still
+   shown and the columns get tight. */
 .demo-reveal {
   display: block; overflow: hidden; max-height: 0;
   transition: max-height 0.42s cubic-bezier(0.33, 1, 0.68, 1);
 }
 .demo-desc { opacity: 0; transition: opacity 0.3s ease 0.06s; }
-.demo-card:hover .demo-reveal { max-height: 9rem; }
+.demo-card:hover .demo-reveal { max-height: 12rem; }
 .demo-card:hover .demo-desc { opacity: 1; }
 
 @media (max-width: 720px) {
@@ -543,7 +544,7 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
 }
 /* No hover on touch, so never hide the descriptions there */
 @media (hover: none) {
-  .demo-reveal { max-height: 9rem; }
+  .demo-reveal { max-height: 12rem; }
   .demo-desc { opacity: 1; }
   .demo-arrow { opacity: 1; transform: translate(0, 0); }
 }
