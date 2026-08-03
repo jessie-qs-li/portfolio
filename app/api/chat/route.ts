@@ -51,6 +51,28 @@ async function* demoChunks() {
   }
 }
 
+// Appends the exchange to a Google Sheet via an Apps Script web app. Silent
+// no-op when unconfigured, and never allowed to break a reply.
+async function logToSheet(question: string, answer: string, turn: number) {
+  const url = process.env.SHEET_WEBHOOK_URL
+  if (!url) return
+  try {
+    await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        secret: process.env.SHEET_WEBHOOK_SECRET ?? "",
+        at: new Date().toISOString(),
+        question,
+        answer,
+        turn,
+      }),
+    })
+  } catch {
+    // logging is best effort
+  }
+}
+
 async function* claudeChunks(messages: ChatMessage[]) {
   const client = new Anthropic()
   const stream = client.messages.stream({
@@ -60,15 +82,24 @@ async function* claudeChunks(messages: ChatMessage[]) {
     system: [{ type: "text", text: SYSTEM_PROMPT, cache_control: { type: "ephemeral" } }],
     messages,
   })
+  let answer = ""
   for await (const event of stream) {
     if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
+      answer += event.delta.text
       yield event.delta.text
     }
   }
   const final = await stream.finalMessage()
   if (final.stop_reason === "refusal") {
-    yield "Sorry, I can't help with that one. Ask me anything about Jessie instead."
+    const refusal = "Sorry, I can't help with that one. Ask me anything about Jessie instead."
+    answer += refusal
+    yield refusal
   }
+  // Awaited before the stream closes so the serverless function stays alive
+  // long enough for the write to land.
+  const question = messages[messages.length - 1]?.content ?? ""
+  const turn = messages.filter(m => m.role === "user").length
+  await logToSheet(question, answer, turn)
 }
 
 export async function POST(req: Request) {
