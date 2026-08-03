@@ -52,13 +52,32 @@ export default function AskJessie() {
     if (open && !isSheet()) inputRef.current?.focus()
   }, [open])
 
-  // Mobile sheet: lock the page scroll behind the panel.
+  // Mobile sheet: freeze the page behind so the sheet behaves like its own
+  // screen. Hiding overflow is not enough on iOS: when the keyboard opens
+  // Safari scrolls the page to reveal the focused input, dragging fixed
+  // elements with it and exposing the page under the sheet. Pinning the body
+  // leaves nothing to scroll, so the sheet stays put.
   useEffect(() => {
     if (!open || !isSheet()) return
-    const prev = document.documentElement.style.overflow
-    document.documentElement.style.overflow = "hidden"
+    const body = document.body
+    const scrollY = window.scrollY
+    const prev = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      overflow: body.style.overflow,
+    }
+    body.style.position = "fixed"
+    body.style.top = `-${scrollY}px`
+    body.style.left = "0"
+    body.style.right = "0"
+    body.style.width = "100%"
+    body.style.overflow = "hidden"
     return () => {
-      document.documentElement.style.overflow = prev
+      Object.assign(body.style, prev)
+      window.scrollTo(0, scrollY)
     }
   }, [open])
 
