@@ -62,8 +62,11 @@ export default function AskJessie() {
     }
   }, [open])
 
-  // Mobile sheet: size the panel to the visual viewport so the iOS keyboard
-  // resizes the chat instead of covering the input.
+  // Mobile sheet: the sheet always covers the whole layout viewport, because a
+  // fixed element is positioned against that viewport, not the visual one that
+  // the keyboard shrinks. Trying to resize it to the visual viewport leaves the
+  // page showing through beneath. Instead pad the sheet's bottom by exactly the
+  // height the keyboard covers, which lifts the input to sit on top of it.
   useEffect(() => {
     if (!open) return
     const vv = window.visualViewport
@@ -72,16 +75,15 @@ export default function AskJessie() {
       const el = panelRef.current
       if (!el) return
       if (!isSheet()) {
-        el.style.height = ""
-        el.style.top = ""
+        el.style.paddingBottom = ""
         el.classList.remove("ask-panel--kb")
         return
       }
-      el.style.height = `${vv.height}px`
-      el.style.top = `${vv.offsetTop}px`
-      // With the keyboard up it covers the home indicator, so the safe-area
-      // padding under the input becomes dead space. Drop it while it's open.
-      el.classList.toggle("ask-panel--kb", window.innerHeight - vv.height > 120)
+      const covered = Math.max(0, window.innerHeight - vv.height - vv.offsetTop)
+      el.style.paddingBottom = covered > 0 ? `${covered}px` : ""
+      // The keyboard covers the home indicator, so the safe-area padding under
+      // the input is dead space while it is up.
+      el.classList.toggle("ask-panel--kb", covered > 120)
     }
     update()
     vv.addEventListener("resize", update)
