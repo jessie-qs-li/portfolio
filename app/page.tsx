@@ -1,6 +1,7 @@
 import Image from "next/image"
 import AskJessie from "@/components/AskJessie"
 import ClientScripts from "@/components/ClientScripts"
+import { PROJECTS } from "@/lib/projects"
 import ExperienceList from "@/components/ExperienceList"
 import LetterboxdRecent from "@/components/LetterboxdRecent"
 
@@ -22,13 +23,6 @@ const PHOTOS = [
   { url: "https://www.linkedin.com/posts/jessie-qi-shan-li_were-all-used-to-ai-doing-chores-like-writing-activity-7465092904781516801-PdOS", src: "/photos/tech-week.jpg", caption: "Presenting my HCI research tinkering at\u00A0NY\u00A0Tech\u00A0Week", keyPhrase: "HCI research", grow: 1.35, zoom: true },
 ]
 
-const PROJECTS = [
-  { name: "TheShaft", desc: "3D dorm room reconstruction and ideation with WorldLabs.", award: "1st Place @ NYC Intern Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7476655026405412864/", link: "View more" },
-  { name: "SuperStore", desc: "AI agents to simulate shopper behavior.", award: "1st Place @ NYU EEG x Vercel Hackathon 2026", url: "https://www.linkedin.com/feed/update/urn:li:activity:7457816648155099136/", link: "View more" },
-  { name: "Grey Matter", desc: "TRIBE V2 brain data rendered as ad insights.", award: "2nd Place @ Columbia x NYU Claude Hackathon 2026", url: "https://devpost.com/software/grey-matter-l3e4ap", link: "View more" },
-  { name: "Wonder", desc: "Interactive map where kids voice-chat with AI historical figures at 50 global landmarks.", award: "2nd Place Social Impact @ Yale Hackathon (YHack) 2026", url: "https://www.yourwonder.us/", link: "View more" },
-  { name: "Noodle", desc: "AI drawing companion that watches kids' canvases and asks questions that spark visual creativity.", award: "Best Use of ElevenLabs @ Columbia Hackathon (DevFest) 2026", url: "https://devpost.com/software/noodle-2aotw6", link: "View more" },
-]
 
 export default function Home() {
   return (
@@ -154,15 +148,34 @@ export default function Home() {
 
           <section className="cv-section fade-in" id="projects">
             <span className="section-chip hover-fill">Projects</span>
-            <div className="row-list">
-              {PROJECTS.map(p => (
-                <div className="cv-row" key={p.name}>
-                  <div className="row-body">
-                    <div className="row-title"><a href={p.url} target="_blank" rel="noopener">{p.name}</a></div>
-                    {p.award && <div className="row-award">{p.award}</div>}
-                    <div className="row-sub">{p.desc}</div>
-                  </div>
-                  <a className="row-right" href={p.url} target="_blank" rel="noopener">{p.link}<svg className="arrow-ne" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+            {/* Two independent columns rather than a row grid, so an expanding
+                card only pushes the cards beneath it in its own column. The
+                `order` values keep the original sequence when this collapses
+                to one column on mobile. */}
+            <div className="demo-grid">
+              {[0, 1].map(col => (
+                <div className="demo-col" key={col}>
+                  {PROJECTS.map((p, i) => ({ p, i })).filter(({ i }) => i % 2 === col).map(({ p, i }) => (
+                    <a className="demo-card" key={p.name} href={p.url} target="_blank" rel="noopener" style={{ order: i }}>
+                      {p.video ? (
+                        <span className="demo-media">
+                          <video src={p.video} poster={p.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden />
+                        </span>
+                      ) : (
+                        <span className="demo-media demo-media--empty"><span>{p.name}</span></span>
+                      )}
+                      <span className="demo-body">
+                        <span className="demo-name">
+                          {p.name}
+                          <svg className="demo-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </span>
+                        {p.award && <span className="row-award">{p.award}</span>}
+                        <span className="demo-reveal">
+                          <span className="demo-desc">{p.desc}</span>
+                        </span>
+                      </span>
+                    </a>
+                  ))}
                 </div>
               ))}
             </div>

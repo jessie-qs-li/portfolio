@@ -32,7 +32,20 @@ export default function ClientScripts() {
     )
     document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el))
 
-    return () => observer.disconnect()
+    // Demo videos: only play while on screen, so four autoplaying clips don't
+    // burn cycles off-screen. Also re-triggers play if autoplay was blocked.
+    const videos = document.querySelectorAll<HTMLVideoElement>(".demo-media video")
+    const videoObserver = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        const v = e.target as HTMLVideoElement
+        if (e.isIntersecting) v.play().catch(() => {})
+        else v.pause()
+      }),
+      { threshold: 0.25 }
+    )
+    videos.forEach((v) => videoObserver.observe(v))
+
+    return () => { observer.disconnect(); videoObserver.disconnect() }
   }, [])
 
   return null

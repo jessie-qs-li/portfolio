@@ -471,3 +471,87 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
   from { transform: translateY(0); }
   to { transform: translateY(100%); }
 }
+
+/* ========== PROJECT DEMO CARDS ========== */
+.demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+.demo-col { display: flex; flex-direction: column; gap: 20px; }
+.demo-card {
+  display: flex; flex-direction: column;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.4s ease,
+              opacity 0.35s ease, filter 0.35s ease, border-color var(--transition);
+}
+/* Gallery focus: hovering one card pulls it forward and lets the rest recede,
+   echoing the photo strip at the top of the page. */
+.demo-grid:hover .demo-card:not(:hover) { opacity: 0.6; filter: saturate(0.65); }
+.demo-card:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.18);
+  border-color: var(--border-dash);
+}
+.demo-media {
+  display: block; position: relative;
+  aspect-ratio: 1000 / 640; background: #000; overflow: hidden;
+}
+.demo-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Card without a demo: typographic panel instead of an empty hole */
+.demo-media--empty {
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(150deg, var(--bg), var(--card));
+  border-bottom: 1px solid var(--border);
+}
+.demo-media--empty span {
+  font-size: clamp(20px, 3.2vw, 30px); font-weight: 600;
+  letter-spacing: -0.02em; color: var(--text3);
+}
+
+.demo-body { display: flex; flex-direction: column; padding: 14px 16px 15px; }
+.demo-name {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 15.5px; font-weight: 600; letter-spacing: -0.01em; color: var(--text);
+}
+/* Arrow pinned to the right edge so it lands in the same spot on every card,
+   regardless of how long the project name is. */
+.demo-name .demo-arrow { margin-left: auto; }
+/* Arrow is the only affordance that the card is a link, so it appears on hover
+   and settles up-and-right into place. */
+.demo-arrow {
+  width: 14px; height: 14px; flex-shrink: 0; color: var(--text2);
+  opacity: 0; transform: translate(-4px, 4px);
+  transition: opacity 0.28s ease, transform 0.36s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.demo-card:hover .demo-arrow { opacity: 1; transform: translate(0, 0); color: var(--text); }
+.demo-desc { font-size: 13.5px; line-height: 1.55; color: var(--text2); }
+
+/* Description stays folded away until hover. max-height is the ceiling the
+   animation runs to; descriptions are a few lines, so 9rem clears the longest
+   while keeping the motion tight. */
+.demo-reveal {
+  display: block; overflow: hidden; max-height: 0;
+  transition: max-height 0.42s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.demo-desc { opacity: 0; transition: opacity 0.3s ease 0.06s; }
+.demo-card:hover .demo-reveal { max-height: 9rem; }
+.demo-card:hover .demo-desc { opacity: 1; }
+
+@media (max-width: 720px) {
+  .demo-grid { display: flex; flex-direction: column; gap: 16px; }
+  .demo-col { display: contents; }
+}
+/* No hover on touch, so never hide the descriptions there */
+@media (hover: none) {
+  .demo-reveal { max-height: 9rem; }
+  .demo-desc { opacity: 1; }
+  .demo-arrow { opacity: 1; transform: translate(0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo-reveal { transition: none; }
+  .demo-desc { transition: none; }
+  .demo-arrow { transition: none; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo-card, .demo-card:hover { transform: none; transition: none; }
+}
