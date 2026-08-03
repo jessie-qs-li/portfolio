@@ -34,11 +34,18 @@ export default function AskJessie() {
 
   const isSheet = () => window.matchMedia("(max-width: 600px)").matches
 
+  const closingRef = useRef(false)
+
   const close = () => {
+    if (closingRef.current) return
+    closingRef.current = true
+    // Dismiss the keyboard ourselves; otherwise iOS spends the tap doing it.
+    ;(document.activeElement as HTMLElement | null)?.blur?.()
     setClosing(true)
     setTimeout(() => {
       setOpen(false)
       setClosing(false)
+      closingRef.current = false
     }, 190)
   }
 
@@ -173,7 +180,15 @@ export default function AskJessie() {
               <div className="ask-title">JessieBot</div>
               <div className="ask-sub">Answers about Jessie, from her real experience</div>
             </div>
-            <button type="button" className="ask-close" onClick={close} aria-label="Close chat">
+            {/* pointerdown, not click: a tap that follows an input focus is
+                spent dismissing the keyboard on iOS and the click never lands */}
+            <button
+              type="button"
+              className="ask-close"
+              onPointerDown={e => { e.preventDefault(); close() }}
+              onClick={close}
+              aria-label="Close chat"
+            >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                 <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
               </svg>

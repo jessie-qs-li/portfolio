@@ -464,7 +464,8 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
      padding would just leave a gap between the input and the keyboard. */
   .ask-panel--kb .ask-inputrow { padding-bottom: 12px; }
   .ask-input { font-size: 16px; }  /* under 16px triggers iOS focus zoom */
-  .ask-close, .ask-send { width: 44px; height: 44px; }
+  /* manipulation drops the double-tap-zoom wait, so the tap registers at once */
+  .ask-close, .ask-send { width: 44px; height: 44px; touch-action: manipulation; }
   .ask-close svg { width: 18px; height: 18px; }
   .ask-send svg { width: 17px; height: 17px; }
 }
