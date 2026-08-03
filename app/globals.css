@@ -458,6 +458,9 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
   .ask-panel--closing { animation: ask-sheet-down 0.19s cubic-bezier(0.4, 0, 1, 1) forwards; }
   .ask-head { padding-top: calc(16px + env(safe-area-inset-top)); }
   .ask-inputrow { padding-bottom: calc(14px + env(safe-area-inset-bottom)); }
+  /* Keyboard open: it already covers the home indicator, so the safe-area
+     padding would just leave a gap between the input and the keyboard. */
+  .ask-panel--kb .ask-inputrow { padding-bottom: 12px; }
   .ask-input { font-size: 16px; }  /* under 16px triggers iOS focus zoom */
   .ask-close, .ask-send { width: 44px; height: 44px; }
   .ask-close svg { width: 18px; height: 18px; }

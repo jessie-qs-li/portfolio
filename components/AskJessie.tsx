@@ -74,10 +74,14 @@ export default function AskJessie() {
       if (!isSheet()) {
         el.style.height = ""
         el.style.top = ""
+        el.classList.remove("ask-panel--kb")
         return
       }
       el.style.height = `${vv.height}px`
       el.style.top = `${vv.offsetTop}px`
+      // With the keyboard up it covers the home indicator, so the safe-area
+      // padding under the input becomes dead space. Drop it while it's open.
+      el.classList.toggle("ask-panel--kb", window.innerHeight - vv.height > 120)
     }
     update()
     vv.addEventListener("resize", update)
