@@ -2,6 +2,7 @@ import Image from "next/image"
 import AskJessie from "@/components/AskJessie"
 import ClientScripts from "@/components/ClientScripts"
 import { PROJECTS } from "@/lib/projects"
+import ProjectGrid from "@/components/ProjectGrid"
 import ExperienceList from "@/components/ExperienceList"
 import LetterboxdRecent from "@/components/LetterboxdRecent"
 
@@ -148,37 +149,7 @@ export default function Home() {
 
           <section className="cv-section fade-in" id="projects">
             <span className="section-chip hover-fill">Projects</span>
-            {/* Two independent columns rather than a row grid, so an expanding
-                card only pushes the cards beneath it in its own column. The
-                `order` values keep the original sequence when this collapses
-                to one column on mobile. */}
-            <div className="demo-grid">
-              {[0, 1].map(col => (
-                <div className="demo-col" key={col}>
-                  {PROJECTS.map((p, i) => ({ p, i })).filter(({ i }) => i % 2 === col).map(({ p, i }) => (
-                    <a className="demo-card" key={p.name} href={p.url} target="_blank" rel="noopener" style={{ order: i }}>
-                      {p.video ? (
-                        <span className="demo-media">
-                          <video src={p.video} poster={p.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden />
-                        </span>
-                      ) : (
-                        <span className="demo-media demo-media--empty"><span>{p.name}</span></span>
-                      )}
-                      <span className="demo-body">
-                        <span className="demo-name">
-                          {p.name}
-                          <svg className="demo-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                        </span>
-                        {p.award && <span className="row-award">{p.award}</span>}
-                        <span className="demo-reveal">
-                          <span className="demo-desc">{p.desc}</span>
-                        </span>
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              ))}
-            </div>
+            <ProjectGrid items={PROJECTS} />
           </section>
 
           <section className="cv-section fade-in" id="beyond">

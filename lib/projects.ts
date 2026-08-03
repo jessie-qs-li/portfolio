@@ -37,15 +37,6 @@ export const PROJECTS: Project[] = [
     poster: "/demos/wonder-poster.jpg",
   },
   {
-    name: "Grey Matter",
-    desc: "TRIBE V2 brain data rendered as ad insights. Built with Ashlee Chae, Audrey Chan, and Sunny Liu.",
-    award: "2nd Place @ Columbia x NYU Claude Hackathon 2026",
-    url: "https://devpost.com/software/grey-matter-l3e4ap",
-    link: "View more",
-    video: "/demos/greymatter-demo.mp4",
-    poster: "/demos/greymatter-poster.jpg",
-  },
-  {
     name: "Noodle",
     desc: "AI drawing companion that watches kids' canvases and asks questions that spark visual creativity. Built with Ashlee Chae, Amelie Dequito, and Jenny Xie.",
     award: "Best Use of ElevenLabs @ Columbia Hackathon (DevFest) 2026",
@@ -53,6 +44,15 @@ export const PROJECTS: Project[] = [
     link: "View more",
     video: "/demos/noodle-demo.mp4",
     poster: "/demos/noodle-poster.jpg",
+  },
+  {
+    name: "Grey Matter",
+    desc: "TRIBE V2 brain data rendered as ad insights. Built with Ashlee Chae, Audrey Chan, and Sunny Liu.",
+    award: "2nd Place @ Columbia x NYU Claude Hackathon 2026",
+    url: "https://devpost.com/software/grey-matter-l3e4ap",
+    link: "View more",
+    video: "/demos/greymatter-demo.mp4",
+    poster: "/demos/greymatter-poster.jpg",
   },
   {
     name: "SuperStore",
