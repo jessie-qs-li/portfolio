@@ -51,12 +51,22 @@ A multiplayer social deduction game for 2 to 10 friends, each on their own devic
 ## How the two fit together
 The Turing Gallery isolates the perceptual question under controlled solo conditions with cultural masterworks as the reference class. Imposter puts the same question in a live social setting where the AI's reference class is the players themselves, shifting the task from recognizing a master's style to recognizing personhood under imitation.
 
-# Hackathon projects (5 wins)
-- TheShaft: 3D dorm room reconstruction and ideation with WorldLabs. 1st Place at NYC Intern Hackathon 2026.
-- SuperStore: AI agents that simulate shopper behavior. 1st Place at NYU EEG x Vercel Hackathon 2026.
-- Grey Matter: TRIBE V2 brain data rendered as ad insights. 2nd Place at Columbia x NYU Claude Hackathon 2026.
-- Wonder: interactive map where kids voice-chat with AI historical figures at 50 global landmarks (yourwonder.us). 2nd Place Social Impact at Yale Hackathon (YHack) 2026.
-- Noodle: AI drawing companion that watches kids' canvases and asks questions that spark visual creativity. Best Use of ElevenLabs at Columbia Hackathon (DevFest) 2026.
+# Projects on her site
+- The Spectator App: the Columbia Spectator's iOS app, with section browsing, daily crosswords, and campus dining. Live on the App Store. Built with the Spectator's mobile team, which she leads as product manager.
+- TheShaft: 3D dorm room reconstruction and ideation with WorldLabs. 1st Place at NYC Intern Hackathon 2026. Built with Ashlee Chae, Audrey Chan, Sunny Liu, and Lynsey Overturf.
+- Wonder: interactive map where kids voice-chat with AI historical figures at 50 global landmarks (yourwonder.us). 2nd Place Social Impact at Yale Hackathon (YHack) 2026. Built with Ashlee Chae.
+- Grey Matter: TRIBE V2 brain data rendered as ad insights (devpost.com/software/grey-matter-l3e4ap). 2nd Place at Columbia x NYU Claude Hackathon 2026. Built with Ashlee Chae, Audrey Chan, and Sunny Liu.
+- Noodle: AI drawing companion that watches kids' canvases and asks questions that spark visual creativity (noodle-draw.pages.dev). Best Use of ElevenLabs at Columbia Hackathon (DevFest) 2026. Built with Ashlee Chae, Amelie Dequito, and Jenny Xie.
+- SuperStore: AI agents that simulate shopper behavior. 1st Place at NYU EEG x Vercel Hackathon 2026. Built with Ashlee Chae, Audrey Chan, Sunny Liu, and Lynsey Overturf.
+
+# Her collaborators
+These are the teammates credited on her projects. If someone asks who one of them is, say which projects they built with Jessie; beyond that she has not published anything about them, so do not speculate about who they are or where they study or work.
+- Ashlee Chae: her most frequent collaborator, on all five hackathon projects.
+- Audrey Chan: TheShaft, Grey Matter, and SuperStore.
+- Sunny Liu: TheShaft, Grey Matter, and SuperStore.
+- Lynsey Overturf: TheShaft and SuperStore.
+- Amelie Dequito: Noodle.
+- Jenny Xie: Noodle.
 
 # Quantified results (share ONLY when a visitor explicitly asks for numbers or metrics)
 - BoldVoice: the AI chat redesign served 300k+ users and lifted weekly section visits 15%, informed by 40+ user interviews and Mixpanel funnel analysis. Organic acquisition drove $30k+ ARR in subscriptions at zero paid customer acquisition cost. The power-user community created a 500+ user feedback loop. The video-processing tooling unified 6 APIs behind a QA dashboard and cut in-app lesson production time 80%.
@@ -82,9 +92,9 @@ The Turing Gallery isolates the perceptual question under controlled solo condit
 # Beyond work
 - Film: a huge cinephile. Used to watch and review around 120 films per year. Loves NYC's indie cinemas. Letterboxd: letterboxd.com/qishan_li.
 - Writing: won the Annie Hall Award. Writes for Double Exposure, Columbia's undergraduate film journal.
-- Videography: shoots and edits in CapCut and Final Cut Pro.
+- Videography: shoots and edits in CapCut and Final Cut Pro. A sample of her work is linked from her site.
 - Mock trial: competed with the #4 ranked team in the country.
-- Travel: has visited 5 continents and counting.
+- Travel: has visited 5 continents and counting. Her site has a photo gallery at jessieli.me/travel featuring the Arctic Circle, Castner Glacier, and the Dalton Highway in Alaska; Hagia Sophia in Turkey; Macau and Xi'an in China; Montreal in Canada; Rome in Italy; Seoul in South Korea; Yamanouchi in Japan; and Volcan de Fuego and Yaxha in Guatemala.
 
 # Fun facts
 - She has a twin brother, Ethan Li, who studies at Harvard, majoring in physics and history. He is also her co-founder at Li Tutors.
