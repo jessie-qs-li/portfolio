@@ -73,18 +73,25 @@ a, button, [role="button"], select, summary { cursor: pointer; }
 .theme-toggle:hover { color: var(--text); }
 
 /* ========== SIDEBAR ========== */
-/* Sticky offset: 890px = sidebar height (776) + space below main content (114).
+/* Sticky offset: 841px = sidebar height (727) + space below main content (114).
    The max() pushes the sidebar down on tall viewports so its bottom lines up with
    the end of the main column at full scroll. Retune if sidebar content changes. */
-.cv-side { position: sticky; top: max(48px, calc(100vh - 890px)); display: flex; flex-direction: column; gap: 16px; }
+.cv-side { position: sticky; top: max(48px, calc(100vh - 841px)); display: flex; flex-direction: column; gap: 16px; }
 .side-card {
   background: var(--card); border: 1px solid var(--border);
   border-radius: 16px; padding: 20px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
+/* The profile card runs its photo to the card edges, so the padding moves
+   from the card onto an inner body wrapper. */
+.side-card--profile { padding: 0; overflow: hidden; }
+.side-card-body { padding: 18px 20px 20px; }
+.side-card--profile .btn { margin-top: 14px; }
+.side-card--profile .contact-list { margin-bottom: 0; }
+.side-rule { border: none; border-top: 1px solid var(--border); margin: 18px 0 14px; }
 .profile-photo {
-  width: 100%; height: auto; border-radius: 12px; margin-bottom: 18px;
-  display: block; object-fit: cover; aspect-ratio: 1 / 1;
+  width: 100%; height: auto; margin: 0;
+  display: block; object-fit: cover; aspect-ratio: 4 / 5;
 }
 .profile-name { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 8px; color: var(--text3); }
 .profile-name span { color: var(--text); }
@@ -317,7 +324,6 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
 @media (max-width: 860px) {
   .cv-shell { grid-template-columns: 1fr; padding-top: 24px; }
   .cv-side { position: static; }
-  .profile-photo { max-width: 220px; }
   .cv-footer { flex-direction: column; align-items: flex-start; }
 }
 
