@@ -73,10 +73,9 @@ a, button, [role="button"], select, summary { cursor: pointer; }
 .theme-toggle:hover { color: var(--text); }
 
 /* ========== SIDEBAR ========== */
-/* Sticky offset: 744px = sidebar height (630) + space below main content (114).
-   The max() pushes the sidebar down on tall viewports so its bottom lines up with
-   the end of the main column at full scroll. Retune if sidebar content changes. */
-.cv-side { position: sticky; top: max(48px, calc(100vh - 744px)); display: flex; flex-direction: column; gap: 16px; }
+/* Sticks at the same offset as the shell's top padding, so the card's top edge
+   starts level with the statement heading in the main column. */
+.cv-side { position: sticky; top: 48px; display: flex; flex-direction: column; gap: 16px; }
 .side-card {
   background: var(--card); border: 1px solid var(--border);
   border-radius: 16px; padding: 20px;
@@ -89,30 +88,9 @@ a, button, [role="button"], select, summary { cursor: pointer; }
 .side-card--profile .btn { margin-top: 14px; }
 .side-card--profile .contact-list { margin-bottom: 0; }
 .side-rule { border: none; border-top: 1px solid var(--border); margin: 18px 0 14px; }
-/* Hero rotation: frames are stacked and cross-faded. Cycle = 4 frames * 0.8s;
-   each frame holds ~0.7s and fades over ~0.1s. Keep 3.2s in sync with
-   HERO_PHOTOS in page.tsx. */
 .profile-photo {
-  position: relative; width: 100%; margin: 0;
-  display: block; aspect-ratio: 4 / 5; overflow: hidden;
-  background: var(--chip-bg);
-}
-.profile-frame {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  opacity: 0;
-  animation: heroCycle 3.2s linear infinite;
-}
-@keyframes heroCycle {
-  0%     { opacity: 1; }
-  21.87% { opacity: 1; }
-  25%    { opacity: 0; }
-  96.87% { opacity: 0; }
-  100%   { opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .profile-frame { animation: none; }
-  .profile-frame:first-child { opacity: 1; }
+  width: 100%; height: auto; margin: 0;
+  display: block; object-fit: cover; aspect-ratio: 4 / 5;
 }
 .profile-name { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 8px; color: var(--text3); }
 .profile-name span { color: var(--text); }
@@ -148,7 +126,7 @@ a.contact-row:hover { color: var(--text); }
 .btn-light:hover { border-color: var(--border-dash); }
 
 /* ========== MAIN COLUMN ========== */
-.cv-main { display: flex; flex-direction: column; gap: 44px; padding-top: 8px; min-width: 0; }
+.cv-main { display: flex; flex-direction: column; gap: 44px; min-width: 0; }
 
 .statement {
   font-size: clamp(26px, 3.4vw, 34px);
