@@ -73,10 +73,10 @@ a, button, [role="button"], select, summary { cursor: pointer; }
 .theme-toggle:hover { color: var(--text); }
 
 /* ========== SIDEBAR ========== */
-/* Sticky offset: 841px = sidebar height (727) + space below main content (114).
+/* Sticky offset: 744px = sidebar height (630) + space below main content (114).
    The max() pushes the sidebar down on tall viewports so its bottom lines up with
    the end of the main column at full scroll. Retune if sidebar content changes. */
-.cv-side { position: sticky; top: max(48px, calc(100vh - 841px)); display: flex; flex-direction: column; gap: 16px; }
+.cv-side { position: sticky; top: max(48px, calc(100vh - 744px)); display: flex; flex-direction: column; gap: 16px; }
 .side-card {
   background: var(--card); border: 1px solid var(--border);
   border-radius: 16px; padding: 20px;
@@ -89,22 +89,40 @@ a, button, [role="button"], select, summary { cursor: pointer; }
 .side-card--profile .btn { margin-top: 14px; }
 .side-card--profile .contact-list { margin-bottom: 0; }
 .side-rule { border: none; border-top: 1px solid var(--border); margin: 18px 0 14px; }
+/* Hero rotation: frames are stacked and cross-faded. Cycle = 4 frames * 0.8s;
+   each frame holds ~0.7s and fades over ~0.1s. Keep 3.2s in sync with
+   HERO_PHOTOS in page.tsx. */
 .profile-photo {
-  width: 100%; height: auto; margin: 0;
-  display: block; object-fit: cover; aspect-ratio: 4 / 5;
+  position: relative; width: 100%; margin: 0;
+  display: block; aspect-ratio: 4 / 5; overflow: hidden;
+  background: var(--chip-bg);
+}
+.profile-frame {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  opacity: 0;
+  animation: heroCycle 3.2s linear infinite;
+}
+@keyframes heroCycle {
+  0%     { opacity: 1; }
+  21.87% { opacity: 1; }
+  25%    { opacity: 0; }
+  96.87% { opacity: 0; }
+  100%   { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-frame { animation: none; }
+  .profile-frame:first-child { opacity: 1; }
 }
 .profile-name { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 8px; color: var(--text3); }
 .profile-name span { color: var(--text); }
-.profile-facts { display: flex; flex-direction: column; margin-top: 4px; }
-.fact-row {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 14px; color: var(--text2); line-height: 1.5;
-  padding: 7px 0; border-bottom: 1px dashed var(--border-dash);
-}
-.fact-row:last-child { border-bottom: none; padding-bottom: 0; }
-.fact-row svg { width: 15px; height: 15px; color: var(--icon); flex-shrink: 0; }
-.fact-row a { text-decoration: underline; text-decoration-color: var(--text3); text-underline-offset: 3px; }
-.fact-row a:hover { color: var(--text); text-decoration-color: var(--text); }
+/* Name and location share one baseline, location pushed to the right edge. */
+.profile-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.profile-head .profile-name { margin-bottom: 0; }
+.profile-loc { font-size: 14px; color: var(--text2); line-height: 1.5; white-space: nowrap; flex-shrink: 0; }
+/* display:inline-block overrides Tailwind preflight's `svg { display: block }`,
+   which would otherwise put the pin on its own line. */
+.profile-loc svg { display: inline-block; width: 15px; height: 15px; color: var(--icon); vertical-align: -2px; margin-right: 5px; }
 
 .contact-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 16px; }
 .contact-row {

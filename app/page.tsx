@@ -17,6 +17,15 @@ const EXPERIENCE = [
   { role: "Research Assistant", org: "Emory Dept. of Film and Media", url: "https://filmandmedia.emory.edu/", logo: "/logos/emory-film-media.png", date: "Jan – Apr 2025" },
 ]
 
+// Sidebar hero. Each frame holds for 0.8s; the CSS cycle length below must stay
+// in sync with this list (frames * 0.8s) or the rotation drifts.
+const HERO_PHOTOS = [
+  { src: "/hero-1.jpg", where: "in Torres del Paine, Patagonia" },
+  { src: "/hero-2.jpg", where: "on the Brooklyn Bridge at dusk" },
+  { src: "/hero-3.jpg", where: "on the Bund in Shanghai" },
+  { src: "/hero-4.jpg", where: "at a temple in China" },
+]
+
 const PHOTOS = [
   { url: "https://boldvoice.com/", src: "/photos/boldvoice-offsite.jpg", caption: "Driving product and growth at BoldVoice (YC S21)", keyPhrase: "BoldVoice", grow: 3, zoom: true, zoomScale: 1.14, zoomOrigin: "53% 62%" },
   { url: "#projects", src: "/photos/nyu-hackathon.jpg", caption: "Winning hackathons with my amazing friends", keyPhrase: "hackathons", pos: "100% center", grow: 2.83 },
@@ -36,17 +45,30 @@ export default function Home() {
         {/* SIDEBAR */}
         <aside className="cv-side">
           <div className="side-card side-card--profile fade-in">
-            <Image className="profile-photo" src="/hero-portrait.jpg" alt="Jessie Li on the Brooklyn Bridge at dusk" width={1200} height={1500} sizes="(max-width: 860px) 100vw, 330px" priority />
+            <div className="profile-photo">
+              {HERO_PHOTOS.map((p, i) => (
+                <Image
+                  key={p.src}
+                  className="profile-frame"
+                  src={p.src}
+                  alt={i === 0 ? `Jessie Li ${p.where}` : ""}
+                  aria-hidden={i > 0}
+                  width={1200}
+                  height={1200}
+                  sizes="(max-width: 860px) 100vw, 330px"
+                  style={{ animationDelay: `${i * 0.8}s` }}
+                  priority
+                />
+              ))}
+            </div>
             <div className="side-card-body">
-              <h1 className="profile-name"><span>Jessie Li</span></h1>
-              <div className="profile-facts">
-                <div className="fact-row">
+              <div className="profile-head">
+                <h1 className="profile-name"><span>Jessie Li</span></h1>
+                <p className="profile-loc">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                   New York, NY
-                </div>
+                </p>
               </div>
-
-              <a href="mailto:jql2104@columbia.edu" className="btn btn-dark">Contact me</a>
               <hr className="side-rule" />
 
               <div className="contact-list">
