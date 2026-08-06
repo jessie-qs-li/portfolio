@@ -58,7 +58,9 @@ a, button, [role="button"], select, summary { cursor: pointer; }
   display: grid;
   grid-template-columns: 330px 1fr;
   gap: 28px;
-  align-items: start;
+  /* stretch, not start: the sidebar column must fill the row to act as the
+     sticky track for .cv-side-inner */
+  align-items: stretch;
 }
 
 /* ========== THEME TOGGLE ========== */
@@ -73,9 +75,13 @@ a, button, [role="button"], select, summary { cursor: pointer; }
 .theme-toggle:hover { color: var(--text); }
 
 /* ========== SIDEBAR ========== */
-/* Sticks at the same offset as the shell's top padding, so the card's top edge
-   starts level with the statement heading in the main column. */
-.cv-side { position: sticky; top: 48px; display: flex; flex-direction: column; gap: 16px; }
+/* The column stretches to the full grid row and acts as the sticky track. The
+   card starts level with the statement heading, pins at 48px through the
+   scroll, then the track's own bottom edge pushes it up at the end so it
+   finishes near the main column instead of hovering. No constant to retune
+   when the card's height changes. */
+.cv-side { min-width: 0; }
+.cv-side-inner { position: sticky; top: 48px; display: flex; flex-direction: column; gap: 16px; }
 .side-card {
   background: var(--card); border: 1px solid var(--border);
   border-radius: 16px; padding: 20px;
@@ -319,7 +325,7 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
 /* ========== RESPONSIVE ========== */
 @media (max-width: 860px) {
   .cv-shell { grid-template-columns: 1fr; padding-top: 24px; }
-  .cv-side { position: static; }
+  .cv-side-inner { position: static; }
   .cv-footer { flex-direction: column; align-items: flex-start; }
 }
 
