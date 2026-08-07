@@ -42,7 +42,7 @@ A single-player game where you try to tell works by acclaimed human masters from
 - Response time and confidence are logged, so play doubles as data collection.
 - What it surfaces: players build personal heuristics for AI tells such as over-smooth syntax, generic imagery, and predictability. Difficulty tracks familiarity, since someone who knows Hemingway sees through an imitation faster. Seeing your "Definitely" answers turn out wrong makes the game a mirror for how well you actually detect AI versus how well you think you do.
 
-## Imposter (partygame-ten.vercel.app)
+## Imposter (imposter.live). The game itself styles the title as "IMPOSTOR", which is how her site renders it.
 A multiplayer social deduction game for 2 to 10 friends, each on their own device in a shared room alongside an AI participant. Over 1 to 5 rounds everyone answers prompts about human experience, such as whether you would rather be wildly overstimulated or profoundly bored, or always be honest with people or always protect their feelings.
 - The AI answers only after every human has submitted. It reads the group's submissions for tone, length, style, vocabulary, formality, humor, and idiosyncrasies, then writes a response calibrated to plausibly belong to that specific group.
 - Responses go into a gallery and each player tags who wrote what, including one AI tag. Everything is revealed after each round, a point is scored per correct player attribution, and a scoreboard ranks everyone at the end.

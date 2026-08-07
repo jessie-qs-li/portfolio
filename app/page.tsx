@@ -7,6 +7,7 @@ import ExperienceList from "@/components/ExperienceList"
 import LetterboxdRecent from "@/components/LetterboxdRecent"
 import GithubGarden from "@/components/GithubGarden"
 import CardCurrently from "@/components/CardCurrently"
+import DecryptText from "@/components/DecryptText"
 
 const EXPERIENCE = [
   { role: "Product & Growth", org: "BoldVoice (YC S21)", url: "https://www.boldvoice.com/", logo: "/logos/boldvoice-tile.png", date: "Jun – Aug 2026" },
@@ -17,6 +18,26 @@ const EXPERIENCE = [
   { role: "Product Manager Intern", org: "Apply7.ai", url: "http://apply7.ai/", logo: "/logos/apply7.png", date: "Jul – Aug 2025" },
   { role: "Events & Liaison Intern", org: "Shanghai International Film Festival", url: "https://www.siff.com/english/", logo: "/logos/shanghai-international-film-festival.png", date: "May – Jun 2025" },
   { role: "Research Assistant", org: "Emory Dept. of Film and Media", url: "https://filmandmedia.emory.edu/", logo: "/logos/emory-film-media.png", date: "Jan – Apr 2025" },
+]
+
+// Digital Storytelling Lab games. Each title is set in that project's own type:
+// The Turing Gallery in JetBrains Mono with its decrypt effect, Imposter in
+// VT323 with the red drop shadow from its hero.
+const RESEARCH = [
+  {
+    name: "The Turing Gallery",
+    host: "theturinggallery.com",
+    url: "https://theturinggallery.com",
+    decrypt: true,
+    desc: "A single-player game where you try to tell works by acclaimed human masters from AI imitations, across literature, visual art, and music.",
+  },
+  {
+    name: "IMPOSTOR",
+    host: "imposter.live",
+    url: "https://www.imposter.live/",
+    decrypt: false,
+    desc: "A social deduction game for 2 to 10 friends, each on their own device, alongside an AI player that reads the room's tone and writes an answer calibrated to belong.",
+  },
 ]
 
 const PHOTOS = [
@@ -151,6 +172,23 @@ export default function Home() {
           <section className="cv-section fade-in" id="experience">
             <span className="section-chip hover-fill">Experience</span>
             <ExperienceList items={EXPERIENCE} />
+          </section>
+
+          <section className="cv-section fade-in" id="research">
+            <span className="section-chip hover-fill">Research</span>
+            {RESEARCH.map(r => (
+              <a className="rr" key={r.name} href={r.url} target="_blank" rel="noopener">
+                <div className="rr-body">
+                  <div className="rr-top">
+                    {r.decrypt
+                      ? <DecryptText className="tg-title">{r.name}</DecryptText>
+                      : <span className="im-title">{r.name}</span>}
+                    <span className="rr-meta">{r.host} ↗</span>
+                  </div>
+                  <p className="rr-desc">{r.desc}</p>
+                </div>
+              </a>
+            ))}
           </section>
 
           <section className="cv-section fade-in" id="projects">

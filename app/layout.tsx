@@ -1,7 +1,13 @@
 import type { Metadata } from "next"
 import localFont from "next/font/local"
+import { JetBrains_Mono, VT323 } from "next/font/google"
 import SmoothScroll from "@/components/SmoothScroll"
 import "./globals.css"
+
+// Each research project's own typeface, used only for its title in the
+// Research section: The Turing Gallery ships JetBrains Mono, Imposter VT323.
+const tgMono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--tg-mono", display: "swap" })
+const imPixel = VT323({ subsets: ["latin"], weight: ["400"], variable: "--im-pixel", display: "swap" })
 
 const siteFont = localFont({
   src: [
@@ -21,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={siteFont.variable}>
+    <html lang="en" suppressHydrationWarning className={`${siteFont.variable} ${tgMono.variable} ${imPixel.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
