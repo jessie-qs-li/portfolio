@@ -6,6 +6,7 @@ import ProjectGrid from "@/components/ProjectGrid"
 import ExperienceList from "@/components/ExperienceList"
 import LetterboxdRecent from "@/components/LetterboxdRecent"
 import GithubGarden from "@/components/GithubGarden"
+import CardCurrently from "@/components/CardCurrently"
 
 const EXPERIENCE = [
   { role: "Product & Growth", org: "BoldVoice (YC S21)", url: "https://www.boldvoice.com/", logo: "/logos/boldvoice-tile.png", date: "Jun – Aug 2026" },
@@ -66,6 +67,10 @@ export default function Home() {
 
                 <hr className="side-rule" />
                 <GithubGarden weeks={26} cell={8} />
+
+                <hr className="side-rule" />
+                <div className="card-block-head">Currently</div>
+                <CardCurrently />
               </div>
             </div>
           </div>

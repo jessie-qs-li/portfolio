@@ -296,6 +296,22 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
 .garden--accent { --lvl0: #ebedf0; --lvl1: #ddd0fb; --lvl2: #b799f6; --lvl3: #8b5cf6; --lvl4: #6d28d9; }
 [data-theme="dark"] .garden--accent { --lvl0: #21262d; --lvl1: #2e1f52; --lvl2: #4c2f96; --lvl3: #7c4ddb; --lvl4: #a78bfa; }
 
+/* shared card embeds: heading + compact two-column rows */
+.card-block-head {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text3); margin-bottom: 8px;
+}
+.mini-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 3px; }
+.mini-list a { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 4px 2px; }
+.mini-list a:hover .mini-title { color: var(--text); }
+.mini-title {
+  font-size: 13px; font-weight: 500; color: var(--text2); line-height: 1.35;
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  transition: color var(--transition);
+}
+.mini-title--right { text-align: right; }
+.mini-label { font-size: 11.5px; color: var(--text3); flex-shrink: 0; }
+
 /* letterboxd (kept from previous design) */
 .letterboxd-block { margin-top: 20px; }
 .letterboxd-recent-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text3); margin-bottom: 8px; }
