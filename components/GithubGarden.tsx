@@ -11,9 +11,7 @@ export type GardenProps = {
   weeks?: number
   /** "green" is GitHub's palette, "accent" borrows the site's purple */
   tone?: "green" | "accent"
-  /** cell edge in px; the grid sizes itself from this */
-  cell?: number
-  /** gap in px. weeks*(cell+gap) - gap must stay under the card's 288px body */
+  /** gap between cells, in px */
   gap?: number
   label?: boolean
 }
@@ -54,7 +52,6 @@ async function fetchDays(): Promise<Day[] | null> {
 export default async function GithubGarden({
   weeks = 53,
   tone = "green",
-  cell = 9,
   gap = 2,
   label = true,
 }: GardenProps) {
@@ -66,6 +63,10 @@ export default async function GithubGarden({
   // GitHub's calendar starts on a Sunday; pad if a slice lands mid-week so the
   // weekday rows stay aligned.
   const lead = new Date(days[0].date + "T00:00:00").getDay()
+  // The padding cells can push the slice into an extra column, so derive the
+  // count rather than assuming it equals `weeks`. The grid divides the card's
+  // width by this, so getting it wrong would misalign every row.
+  const cols = Math.ceil((lead + days.length) / 7)
 
   return (
     <div className={`garden garden--${tone}`}>
@@ -75,7 +76,7 @@ export default async function GithubGarden({
           <span className="garden-range">last {weeks >= 52 ? "year" : `${weeks} weeks`}</span>
         </div>
       )}
-      <div className="garden-grid" style={{ "--cell": `${cell}px`, "--gap": `${gap}px` } as React.CSSProperties}>
+      <div className="garden-grid" style={{ "--cols": cols, "--gap": `${gap}px` } as React.CSSProperties}>
         {Array.from({ length: lead }).map((_, i) => (
           <i key={`pad-${i}`} className="garden-pad" aria-hidden />
         ))}

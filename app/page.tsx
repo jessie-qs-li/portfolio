@@ -6,7 +6,6 @@ import ProjectGrid from "@/components/ProjectGrid"
 import ExperienceList from "@/components/ExperienceList"
 import LetterboxdRecent from "@/components/LetterboxdRecent"
 import GithubGarden from "@/components/GithubGarden"
-import CardCurrently from "@/components/CardCurrently"
 import DecryptText from "@/components/DecryptText"
 
 const EXPERIENCE = [
@@ -87,11 +86,7 @@ export default function Home() {
                 </div>
 
                 <hr className="side-rule" />
-                <GithubGarden weeks={26} cell={8} />
-
-                <hr className="side-rule" />
-                <div className="card-block-head">Currently</div>
-                <CardCurrently />
+                <GithubGarden weeks={26} />
               </div>
             </div>
           </div>
@@ -183,7 +178,10 @@ export default function Home() {
                     {r.decrypt
                       ? <DecryptText className="tg-title">{r.name}</DecryptText>
                       : <span className="im-title">{r.name}</span>}
-                    <span className="rr-meta">{r.host} ↗</span>
+                    <span className="rr-meta">
+                      {r.host}
+                      <svg className="arrow-ne" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                    </span>
                   </div>
                   <p className="rr-desc">{r.desc}</p>
                 </div>
