@@ -31,7 +31,7 @@ export const PROJECTS: Project[] = [
     name: "Wonder",
     desc: "Interactive map where kids voice-chat with AI historical figures at 50 global landmarks. Built with Ashlee Chae.",
     award: "2nd Place Social Impact @ Yale Hackathon (YHack) 2026",
-    url: "https://www.yourwonder.us/",
+    url: "https://www.wonder-explore.com/",
     link: "View more",
     video: "/demos/wonder-demo.mp4",
     poster: "/demos/wonder-poster.jpg",
