@@ -10,6 +10,15 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    name: "The Marquee",
+    desc: "Listings board for every indie cinema screening in NYC and Boston. Built with Audrey Chan and Wilson Cheung.",
+    award: "HackMIT 2026",
+    url: "https://the-marquee-hackmit.vercel.app",
+    link: "View more",
+    video: "/demos/marquee-demo.mp4",
+    poster: "/demos/marquee-poster.jpg",
+  },
+  {
     name: "The Spectator App",
     desc: "iOS app for Columbia's student newspaper. Built with the Spectator's mobile team.",
     award: "Live on the App Store",

@@ -576,7 +576,7 @@ a.row-right:hover, .row-right a:hover { color: var(--text); }
   display: block; position: relative;
   aspect-ratio: 1000 / 640; background: #000; overflow: hidden;
 }
-.demo-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.demo-media video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; display: block; }
 
 /* Card without a demo: typographic panel instead of an empty hole */
 .demo-media--empty {
