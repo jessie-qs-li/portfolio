@@ -9,7 +9,7 @@ import GithubGarden from "@/components/GithubGarden"
 import DecryptText from "@/components/DecryptText"
 
 const EXPERIENCE = [
-  { role: "Research Assistant", org: "Design Tools Lab", url: "https://designtoolslab.org/", logo: "/logos/design-tools-lab.svg", date: "Sep 2026 – Present" },
+  { role: "Research Assistant", org: "Columbia Design Tools Lab", url: "https://designtoolslab.org/", logo: "/logos/design-tools-lab.svg", date: "Sep 2026 – Present" },
   { role: "Product & Growth", org: "BoldVoice (YC S21)", url: "https://www.boldvoice.com/", logo: "/logos/boldvoice-tile.png", date: "Jun – Aug 2026" },
   { role: "AI/ML Fellow", org: "Break Through Tech", url: "https://www.breakthroughtech.org/", logo: "/logos/break-through-tech.png", date: "Mar 2026 – Present" },
   { role: "Undergraduate Researcher", org: "Columbia Digital Storytelling Lab", url: "https://www.digitalstorytellinglab.com/", logo: "/logos/columbia-dsl.png", date: "Jan 2026 – May 2026" },
