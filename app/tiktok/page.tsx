@@ -1,10 +1,12 @@
 import type { Metadata } from "next"
+import localFont from "next/font/local"
 import Image from "next/image"
 import Deck from "@/components/Deck"
 import DemoCard from "@/components/DemoCard"
 import TikTokLogo from "@/components/TikTokLogo"
 import DecryptText from "@/components/DecryptText"
 import ClientScripts from "@/components/ClientScripts"
+import MoreDetails from "@/components/MoreDetails"
 import { PROJECTS } from "@/lib/projects"
 import "./deck.css"
 
@@ -14,6 +16,20 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
+// TikTok Sans (OFL, licence in app/fonts) replaces the site font on this page only.
+const tiktokSans = localFont({
+  src: [
+    { path: "../fonts/TikTokSans-Light.ttf", weight: "300", style: "normal" },
+    { path: "../fonts/TikTokSans-Regular.ttf", weight: "400", style: "normal" },
+    { path: "../fonts/TikTokSans-Medium.ttf", weight: "500", style: "normal" },
+    { path: "../fonts/TikTokSans-SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "../fonts/TikTokSans-Bold.ttf", weight: "700", style: "normal" },
+    { path: "../fonts/TikTokSans-ExtraBold.ttf", weight: "800", style: "normal" },
+  ],
+  variable: "--font-tiktok",
+  display: "swap",
+})
+
 const project = (name: string) => PROJECTS.find(p => p.name === name)!
 
 const Arrow = () => (
@@ -21,7 +37,35 @@ const Arrow = () => (
 )
 
 
-const HACKATHONS = PROJECTS.filter(p => /place|best use/i.test(p.award))
+// Deck-only Spectator caption; the homepage tile keeps the short one.
+const SPECTATOR_DESC =
+  "I am the PM for the iOS app of our campus newspaper, the Columbia Spectator."
+// Fuller Grey Matter description for the deck; the homepage tile keeps the short one.
+const GREY_MATTER_DESC =
+  "Grey Matter uses Meta’s TRIBE V2 model to predict brain responses to video ads, then translates those predictions into editing recommendations."
+
+// The Microsoft win has no demo clip, so it lives here rather than in the homepage grid.
+// Tools from my projects and work, grouped for the creative & media tech slide.
+const TOOLING = [
+  { label: "AI", tools: ["Claude API", "Claude Agent SDK", "Claude Code", "Gemini API", "Google Flow", "Meta TRIBE V2"] },
+  { label: "Video & audio", tools: ["ElevenLabs", "FFmpeg", "MediaPipe", "Parakeet MLX", "CapCut", "Final Cut Pro"] },
+  { label: "3D, AR & canvas", tools: ["World Labs", "Snap Camera Kit", "Google Street View API", "Leaflet", "tldraw", "Fabric.js"] },
+  { label: "Growth & design", tools: ["TikTok Ads Manager", "Meta Ads", "Figma MCP", "Mixpanel", "GrowthBook"] },
+  { label: "Build stack", tools: ["Next.js", "React", "Vite", "Tailwind", "FastAPI", "Supabase", "PostgreSQL", "Vercel", "GCP", "AWS"] },
+]
+
+// Deck version of The Marquee's description: the purpose line replaces the team credit.
+const MARQUEE_DESC =
+  "Listings board for every indie cinema screening in NYC and Boston. Built to help indie film lovers like me find better screenings."
+
+const HACKATHONS = [
+  ...PROJECTS.filter(p => /place|best use/i.test(p.award)),
+  {
+    name: "Mastercard Outreach Discovery System",
+    award: "2nd Place + Best Presentation @ Microsoft NYC Hackathon 2026",
+    url: "https://docs.google.com/presentation/d/1yJGcSW7rdbCeZPLTEhX1sagU3Qfem_Omd5zCiyU9FCg/edit?usp=sharing",
+  },
+]
 
 // ByteDance's ByteStyle values, each paired with where it shows up in my work.
 const BYTESTYLE = [
@@ -35,12 +79,12 @@ const BYTESTYLE = [
 
 export default function TikTokDeck() {
   return (
-    <>
+    <div className={`${tiktokSans.variable} tt-font`}>
       <button className="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
         <span id="theme-icon"></span>
       </button>
 
-      <Deck corner={<><span>Jessie Li</span><span className="deck-corner-x">×</span><TikTokLogo className="deck-corner-logo" /></>}>
+      <Deck topLeft="jessieli.me/tiktok" corner={<><span>Jessie Li</span><span className="deck-corner-x">×</span><TikTokLogo className="deck-corner-logo" /></>}>
         {/* COVER */}
         <section className="slide slide--cover">
           <div className="side-card side-card--profile cover-card">
@@ -54,11 +98,11 @@ export default function TikTokDeck() {
           </div>
           <div className="cover-main">
             <h2 className="statement">
-              Builder, researcher, and cinephile exploring <em>how creative work finds its audience</em>
+              I&apos;m a PM, builder, and researcher exploring <em>how creative work finds its audience</em>
             </h2>
             <div className="row-list cover-agenda">
               <div className="cv-row">
-                <Image className="row-logo" src="/logos/columbia-crown.png" alt="" width={34} height={34} unoptimized aria-hidden />
+                <Image className="row-logo" src="/logos/columbia-crown.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
                 <div className="row-body"><div className="row-title">
                   CS &amp; Film @ <a href="https://www.columbia.edu" target="_blank" rel="noopener">Columbia</a>, 3.9 GPA
                 </div></div>
@@ -72,17 +116,19 @@ export default function TikTokDeck() {
                 </div></div>
               </div>
               <div className="cv-row">
-                <span className="row-logo-pair">
-                  <Image className="row-logo" src="/logos/columbia-dsl.png" alt="" width={34} height={34} unoptimized aria-hidden />
-                  <Image className="row-logo" src="/logos/design-tools-lab.svg" alt="" width={34} height={34} unoptimized aria-hidden />
-                </span>
+                <Image className="row-logo" src="/logos/columbia-dsl.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
                 <div className="row-body"><div className="row-title">
-                  Researcher at the <a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a> and{" "}
-                  <a href="https://designtoolslab.org/" target="_blank" rel="noopener">Columbia Design Tools Lab</a>
+                  Researcher @ <a href="https://www.digitalstorytellinglab.com/" target="_blank" rel="noopener">Columbia Digital Storytelling Lab</a>
                 </div></div>
               </div>
               <div className="cv-row">
-                <Image className="row-logo" src="/logos/boldvoice-tile.png" alt="" width={34} height={34} unoptimized aria-hidden />
+                <Image className="row-logo" src="/logos/design-tools-lab.svg" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
+                <div className="row-body"><div className="row-title">
+                  Researcher @ <a href="https://designtoolslab.org/" target="_blank" rel="noopener">Columbia Design Tools Lab</a>
+                </div></div>
+              </div>
+              <div className="cv-row">
+                <Image className="row-logo" src="/logos/boldvoice-tile.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
                 <div className="row-body"><div className="row-title">
                   Former Product Manager Intern @ <a href="https://www.boldvoice.com/" target="_blank" rel="noopener">BoldVoice</a> (YC 2021)
                 </div></div>
@@ -91,30 +137,28 @@ export default function TikTokDeck() {
           </div>
         </section>
 
-        {/* 01 CREATIVE WORK */}
+        {/* 02 CREATIVE WORK */}
         <section className="slide">
           <header className="slide-head">
-            <span className="section-chip hover-fill">01 · Creative work</span>
+            <span className="section-chip hover-fill">02 · Creative work</span>
             <h2 className="statement">I&apos;ve built products and run research to understand <em>what makes creative work land</em></h2>
           </header>
           <div className="slide-grid">
             <div className="slide-col">
-              <DemoCard p={project("Grey Matter")} open />
+              <DemoCard p={{ ...project("Grey Matter"), desc: GREY_MATTER_DESC }} open />
             </div>
 
             <div className="slide-col">
               <div className="panel">
                 <div className="panel-head">
-                  <Image className="row-logo" src="/logos/columbia-dsl.png" alt="" width={34} height={34} unoptimized aria-hidden />
+                  <Image className="row-logo" src="/logos/columbia-dsl.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
                   <div className="row-body">
                     <div className="row-title">Columbia Digital Storytelling Lab</div>
                     <div className="row-sub">Undergraduate Researcher</div>
                   </div>
                 </div>
                 <p className="panel-text">
-                  Through game simulations, I studied whether AI can meaningfully imitate the work of acknowledged masters,
-                  and whether it can mimic having had human experience: can people tell, and what gives it away? I
-                  presented the findings at NY Tech Week.
+                  Presented at NY Tech Week
                 </p>
                 <a className="rr" href="https://theturinggallery.com" target="_blank" rel="noopener">
                   <div className="rr-body">
@@ -128,45 +172,35 @@ export default function TikTokDeck() {
                     <p className="rr-desc">A party game where an AI player mimics your friends&apos; voices.</p>
                   </div>
                 </a>
-                <p className="panel-foot">100+ trials</p>
               </div>
             </div>
 
             <div className="slide-col">
               <div className="panel">
                 <div className="panel-head">
-                  <Image className="row-logo" src="/logos/boldvoice-tile.png" alt="" width={34} height={34} unoptimized aria-hidden />
+                  <Image className="row-logo" src="/logos/boldvoice-tile.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
                   <div className="row-body">
                     <div className="row-title">BoldVoice (YC S21)</div>
                     <div className="row-sub">Product &amp; Growth</div>
                   </div>
                 </div>
                 <div className="metric-row">
-                  <div className="metric"><span className="metric-num">3x</span><span className="metric-label">organic content output with auto-generated assets</span></div>
-                  <div className="metric"><span className="metric-num">$30k+</span><span className="metric-label">ARR from organic social at zero CAC</span></div>
+                  <div className="metric"><span className="metric-num">3x</span><span className="metric-label">I scaled organic content output by building an asset auto-generation pipeline</span></div>
+                  <div className="metric"><span className="metric-num">$30k+</span><span className="metric-label">I drove in ARR from organic social at zero CAC</span></div>
                 </div>
                 <ul className="panel-list">
-                  <li>Wrote push and social content, and tracked what performed</li>
-                  <li>Ran TikTok Ads campaigns and owned organic social strategy</li>
+                  <li>I wrote push and social content for an audience of 500k+</li>
+                  <li>I ran AI-assisted analyses of our Instagram organic social campaigns</li>
                 </ul>
-              </div>
-              <div className="panel">
-                <div className="panel-label">Why I care</div>
-                <div className="skill-chips">
-                  <span className="skill-chip">Film Studies minor</span>
-                  <a className="skill-chip" href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener">Letterboxd reviewer</a>
-                  <span className="skill-chip">Writer, Double Exposure film journal</span>
-                  <span className="skill-chip skill-chip--hl">Annie Hall Prize winner</span>
-                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 02 BUILDER */}
+        {/* 03 BUILDER */}
         <section className="slide">
           <header className="slide-head">
-            <span className="section-chip hover-fill">02 · Builder</span>
+            <span className="section-chip hover-fill">03 · Builder</span>
             <h2 className="statement">I build well with AI, <em>especially AI and video</em>, and I&apos;ve shipped to real customers</h2>
           </header>
           <div className="slide-grid">
@@ -174,12 +208,11 @@ export default function TikTokDeck() {
               <div className="panel">
                 <div className="stat">7x</div>
                 <div className="row-title">hackathon winner</div>
-                <div className="panel-label stat-label">A few of them</div>
                 <div className="row-list stat-list">
                   {HACKATHONS.map(p => (
                     <div className="cv-row" key={p.name}>
                       <div className="row-body">
-                        <div className="row-title">{p.name}</div>
+                        <div className="row-title"><a href={p.url} target="_blank" rel="noopener">{p.name}</a></div>
                         <div className="row-sub">{p.award}</div>
                       </div>
                     </div>
@@ -191,84 +224,148 @@ export default function TikTokDeck() {
             <div className="slide-col">
               <div className="panel">
                 <div className="panel-head">
-                  <Image className="row-logo" src="/logos/boldvoice-tile.png" alt="" width={34} height={34} unoptimized aria-hidden />
+                  <Image className="row-logo" src="/logos/boldvoice-tile.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
                   <div className="row-body">
                     <div className="row-title">BoldVoice video pipeline</div>
-                    <div className="row-sub">Internal tooling for lesson production</div>
+                    <div className="row-sub">Internal tooling for video post-production</div>
                   </div>
                 </div>
                 <p className="panel-text">
-                  Built internal tooling that automated video processing and made lesson production
+                  Built internal tooling that automated video processing and made video post-production
                   substantially faster.
                 </p>
                 <div className="metric-row">
                   <div className="metric"><span className="metric-num">6</span><span className="metric-label">APIs unified behind one QA dashboard</span></div>
                   <div className="metric"><span className="metric-num">80%</span><span className="metric-label">less time to produce a lesson</span></div>
                 </div>
+                <MoreDetails title="BoldVoice video pipeline: how it works">
+                  <ul className="panel-list">
+                    <li>Directed CMS, Skiv/Muse, Google Docs and Sheets API integrations, plus Adobe speech enhancement and HLS hosting</li>
+                    <li>Parakeet MLX for local word-level transcripts; ~40s silence-aligned chunks fixed timestamp drift</li>
+                    <li>MediaPipe Face Mesh mouth framing, zoom capped at 2× to stay sharp</li>
+                    <li>One-pass FFmpeg: trim, mouth crop, 3D LUT, −16 LUFS, 10ms fades, H.264</li>
+                    <li>Keyboard-driven coach review with ~2s recuts; alternate takes replaced 20 of 27 rejected clips</li>
+                  </ul>
+                </MoreDetails>
               </div>
             </div>
 
             <div className="slide-col">
-              <DemoCard p={project("The Spectator App")} />
-              <p className="slide-note">I lead the Spectator&apos;s mobile team as PM. Our dining filters drove 5x growth in section visits.</p>
+              <DemoCard
+                p={{ ...project("The Spectator App"), desc: SPECTATOR_DESC }}
+                open
+                footer={
+                  <MoreDetails title="The Spectator App: more of my work">
+                    <ul className="panel-list">
+                      <li>Shipped iOS dietary-restriction filters for campus menus after usability testing, driving 5x section visits</li>
+                      <li>Scoped New Student Mode with 20+ interviews and affinity mapping across users, internal teams and admins; Figma prototype greenlit for build</li>
+                    </ul>
+                  </MoreDetails>
+                }
+              />
             </div>
           </div>
         </section>
 
-        {/* 03 CREATIVE + MEDIA TECH */}
+        {/* 04 CREATIVE + MEDIA TECH */}
         <section className="slide">
           <header className="slide-head">
-            <span className="section-chip hover-fill">03 · Creative &amp; media tech</span>
+            <span className="section-chip hover-fill">04 · Creative &amp; media tech</span>
             <h2 className="statement">I&apos;ve shown real interest in creative and media technology, <em>and a good understanding of the industry</em></h2>
           </header>
           <div className="slide-grid">
             <div className="slide-col">
-              <DemoCard p={project("The Marquee")} />
-              <p className="slide-note">Built to help indie film lovers like me find better screenings.</p>
-            </div>
-
-            <div className="slide-col">
-              <div className="panel">
-                <div className="panel-label">Creative tooling I&apos;ve built with</div>
-                <div className="row-list">
-                  <div className="cv-row">
-                    <div className="row-body"><div className="row-title">ElevenLabs</div><div className="row-sub">150 voice agents of historical figures in Wonder</div></div>
-                  </div>
-                  <div className="cv-row">
-                    <div className="row-body"><div className="row-title">World Labs</div><div className="row-sub">3D dorm room reconstruction in TheShaft</div></div>
-                  </div>
-                  <div className="cv-row">
-                    <div className="row-body"><div className="row-title">tldraw</div><div className="row-sub">Research at the Columbia Design Tools Lab</div></div>
-                  </div>
-                </div>
-              </div>
+              <DemoCard p={{ ...project("The Marquee"), desc: MARQUEE_DESC }} open />
             </div>
 
             <div className="slide-col">
               <div className="panel">
                 <div className="panel-label">In the room</div>
                 <ul className="panel-list">
-                  <li>Google DeepMind filmmaking event</li>
-                  <li>Volunteered at the Shanghai International Film Festival</li>
+                  <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7454862076730159106/" target="_blank" rel="noopener">I helped organize the Global AI Film Hack at MIT</a></li>
+                  <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7452975612475961344/" target="_blank" rel="noopener">I was selected for a masterclass with Google DeepMind Creative Lab</a></li>
                 </ul>
+                <div className="room-photos">
+                  <Image src="/photos/ai-film-hack-mit.jpg" alt="Organizers and participants of the Global AI Film Hack at MIT" width={1280} height={853} sizes="320px" loading="eager" />
+                  <Image src="/photos/creative-frontier-masterclass.jpg" alt="A speaker presenting at the Creative Frontier masterclass" width={1280} height={960} sizes="320px" loading="eager" style={{ objectPosition: "55% 62%" }} />
+                </div>
               </div>
+            </div>
+
+            <div className="slide-col">
               <div className="panel">
-                <div className="panel-label">Coffee chats with people in creative tech</div>
+                <div className="panel-label">People I learn from</div>
+                <p className="panel-text">
+                  I regularly talk with people building in creative tech: <a href="https://www.linkedin.com/in/z0ey/" target="_blank" rel="noopener">Zoey Zhang</a>, founder
+                  of Flick (YC 2026), an AI filmmaking platform; <a href="https://www.linkedin.com/in/kaiwenli/" target="_blank" rel="noopener">Kaiwen Li</a>, CEO of ChatCut, an
+                  agentic video editor; <a href="https://www.linkedin.com/in/rithik-kundu/" target="_blank" rel="noopener">Rithik Kundu</a>, a VC and Google Flow Resident;
+                  and <a href="https://www.linkedin.com/in/khushihora/" target="_blank" rel="noopener">Khushi Hora</a>, an award-winning AI filmmaker.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 05 TOOLKIT */}
+        <section className="slide">
+          <header className="slide-head">
+            <span className="section-chip hover-fill">05 · Toolkit</span>
+            <h2 className="statement">Tooling I&apos;ve built with, <em>from AI models to video, 3D and growth</em></h2>
+          </header>
+          <div className="tool-grid">
+            {TOOLING.map(g => (
+              <div className="panel tool-group" key={g.label}>
+                <div className="panel-label">{g.label}</div>
                 <div className="skill-chips">
-                  <span className="skill-chip">Khushi Hora</span>
-                  <span className="skill-chip">Zoey Zhou</span>
-                  <span className="skill-chip">Rithik Kundu</span>
-                  <span className="skill-chip">ChatCut</span>
+                  {g.tools.map(t => <span className="skill-chip" key={t}>{t}</span>)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 06 WHY I CARE */}
+        <section className="slide">
+          <header className="slide-head">
+            <span className="section-chip hover-fill">06 · Why I care</span>
+            <h2 className="statement">Creative isn&apos;t just a market to me, <em>it&apos;s what I love</em></h2>
+          </header>
+          <div className="why-grid">
+            <div className="panel">
+              <div className="row-list">
+                <div className="cv-row">
+                  <Image className="row-logo" src="/logos/columbia-crown.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
+                  <div className="row-body"><div className="row-title">I minor in Film Studies at Columbia</div></div>
+                </div>
+                <div className="cv-row">
+                  <Image className="row-logo" src="/logos/shanghai-international-film-festival.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
+                  <div className="row-body"><div className="row-title">I worked events at the <a href="https://www.siff.com/english/" target="_blank" rel="noopener">Shanghai International Film Festival</a></div></div>
+                </div>
+                <div className="cv-row">
+                  <span className="row-logo row-logo--icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                  </span>
+                  <div className="row-body"><div className="row-title">I shoot and edit video in CapCut (<a href="https://www.youtube.com/watch?v=u2D_fjru0j0" target="_blank" rel="noopener">sample</a>)</div></div>
+                </div>
+                <div className="cv-row">
+                  <Image className="row-logo" src="/logos/emory-film-media.png" alt="" width={34} height={34} unoptimized loading="eager" aria-hidden />
+                  <div className="row-body"><div className="row-title">I won the <span className="hl-accent">Annie Hall Award</span> for <a href="https://www.doubleexposurecu.com/post/panoptic-patriarchy-in-raise-the-red-lantern" target="_blank" rel="noopener">best undergrad film essay</a></div></div>
+                </div>
+                <div className="cv-row">
+                  <span className="row-logo row-logo--icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+                  </span>
+                  <div className="row-body"><div className="row-title">I&apos;ve rated 800+ movies on <a href="https://letterboxd.com/qishan_li/" target="_blank" rel="noopener">Letterboxd</a></div></div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 04 BYTESTYLE */}
+        {/* 07 BYTESTYLE */}
         <section className="slide">
           <header className="slide-head">
-            <span className="section-chip hover-fill">04 · ByteStyle</span>
+            <span className="section-chip hover-fill">07 · ByteStyle</span>
             <h2 className="statement">How what I&apos;ve done <em>maps to ByteStyle</em></h2>
           </header>
           <div className="byte-grid">
@@ -283,6 +380,6 @@ export default function TikTokDeck() {
       </Deck>
 
       <ClientScripts />
-    </>
+    </div>
   )
 }

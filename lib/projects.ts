@@ -58,7 +58,7 @@ export const PROJECTS: Project[] = [
     name: "Noodle",
     desc: "AI drawing companion that watches kids' canvases and asks questions that spark visual creativity. Built with Ashlee Chae, Amelie Dequito, and Jenny Xie.",
     award: "Best Use of ElevenLabs @ Columbia Hackathon (DevFest) 2026",
-    url: "https://noodle-draw.pages.dev",
+    url: "https://noodledraw.pages.dev/",
     link: "View more",
     video: "/demos/noodle-demo.mp4",
     poster: "/demos/noodle-poster.jpg",

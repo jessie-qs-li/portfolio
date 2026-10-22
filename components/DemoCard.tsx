@@ -1,12 +1,15 @@
-import type { CSSProperties } from "react"
+import type { CSSProperties, ReactNode } from "react"
 import type { Project } from "@/lib/projects"
 
 // One project tile: demo clip on top, name, award, and the description that
 // unfolds on hover. Shared by the homepage grid and the /tiktok deck.
 // `open` keeps the description unfolded instead of waiting for hover.
-export default function DemoCard({ p, style, open }: { p: Project; style?: CSSProperties; open?: boolean }) {
-  return (
-    <a className={open ? "demo-card demo-card--open" : "demo-card"} href={p.url} target="_blank" rel="noopener" style={style}>
+// `footer` adds content inside the card but below the link, for controls such
+// as an expand toggle that can't sit inside an <a>.
+export default function DemoCard({ p, style, open, footer }: { p: Project; style?: CSSProperties; open?: boolean; footer?: ReactNode }) {
+  const className = open ? "demo-card demo-card--open" : "demo-card"
+  const body = (
+    <>
       {p.video ? (
         <span className="demo-media">
           <video src={p.video} poster={p.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden />
@@ -24,6 +27,16 @@ export default function DemoCard({ p, style, open }: { p: Project; style?: CSSPr
           <span className="demo-desc">{p.desc}</span>
         </span>
       </span>
-    </a>
+    </>
+  )
+
+  if (!footer) {
+    return <a className={className} href={p.url} target="_blank" rel="noopener" style={style}>{body}</a>
+  }
+  return (
+    <div className={className} style={style}>
+      <a className="demo-card-link" href={p.url} target="_blank" rel="noopener">{body}</a>
+      <div className="demo-footer">{footer}</div>
+    </div>
   )
 }

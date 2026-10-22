@@ -2,22 +2,45 @@
    Built from the homepage's own pieces (cards, chips, rows, demo tiles);
    only the slide frame and a few panel helpers are new here. */
 
+/* TikTok palette: the logo's red (#FF004F) takes the accent role, its cyan
+   (#00F2EA) a second accent, on TikTok's black and off-white grounds. Only
+   the colour tokens change; everything else is the homepage's styling. */
+html.deck-mode {
+  --bg: #F1F1F2;
+  --card: #FFFFFF;
+  --text: rgba(22, 24, 35, 0.96);
+  --text2: rgba(22, 24, 35, 0.64);
+  --text3: rgba(22, 24, 35, 0.44);
+  --border: rgba(22, 24, 35, 0.10);
+  --border-dash: rgba(22, 24, 35, 0.16);
+  --chip-bg: #FFFFFF;
+  --icon: #8A8B91;
+  --accent: #FF004F;
+  --accent2: #00A9A3; /* cyan darkened enough to read on white */
+}
+html.deck-mode[data-theme="dark"] {
+  --bg: #000000;
+  --card: #121212;
+  --text: rgba(255, 255, 255, 0.95);
+  --text2: rgba(255, 255, 255, 0.62);
+  --text3: rgba(255, 255, 255, 0.42);
+  --border: rgba(255, 255, 255, 0.11);
+  --border-dash: rgba(255, 255, 255, 0.18);
+  --chip-bg: #1E1E1E;
+  --icon: #75757A;
+  --accent: #FF004F;
+  --accent2: #00F2EA;
+}
+
 html.deck-mode, html.deck-mode body { height: 100%; overflow: hidden; }
 
 .deck { position: fixed; inset: 0; display: flex; flex-direction: column; }
 .deck-viewport { flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .deck-stage { position: relative; flex-shrink: 0; transform-origin: center center; }
 
-.deck-slide {
-  position: absolute; inset: 0;
-  opacity: 0; visibility: hidden; transform: translateY(14px);
-  transition: opacity 0.45s ease-out, transform 0.45s ease-out, visibility 0s linear 0.45s;
-}
-.deck-slide--on {
-  opacity: 1; visibility: visible; transform: none;
-  transition: opacity 0.45s ease-out, transform 0.45s ease-out, visibility 0s;
-}
-@media (prefers-reduced-motion: reduce) { .deck-slide, .deck-slide--on { transition: none; transform: none; } }
+/* slides switch instantly: no transition between them */
+.deck-slide { position: absolute; inset: 0; visibility: hidden; }
+.deck-slide--on { visibility: visible; }
 
 .deck-nav {
   height: 64px; flex-shrink: 0;
@@ -32,7 +55,7 @@ html.deck-mode, html.deck-mode body { height: 100%; overflow: hidden; }
 .slide { height: 100%; padding: 40px 48px 36px; display: flex; flex-direction: column; gap: 26px; }
 .slide-head { display: flex; flex-direction: column; }
 .slide-head .section-chip { margin-bottom: 10px; }
-.slide .statement { margin-bottom: 0; font-size: 32px; max-width: 38ch; }
+.slide .statement { margin-bottom: 0; font-size: 32px; max-width: 38ch; font-weight: 700; }
 
 .slide-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
 .slide-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
@@ -43,12 +66,12 @@ html.deck-mode, html.deck-mode body { height: 100%; overflow: hidden; }
   background: var(--card); border: 1px solid var(--border);
   border-radius: 16px; padding: 18px 18px 16px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  display: flex; flex-direction: column; gap: 12px;
+  display: flex; flex-direction: column; gap: 10px;
 }
 .panel-head { display: flex; align-items: center; gap: 12px; }
 .panel-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text3); }
 .panel-text { font-size: 13.5px; line-height: 1.6; color: var(--text2); }
-.panel-foot { font-size: 12px; font-weight: 600; color: var(--accent); }
+.panel-foot { font-size: 12px; font-weight: 600; color: var(--accent2); }
 .panel-list { list-style: none; display: flex; flex-direction: column; }
 .panel-list li {
   font-size: 13.5px; line-height: 1.5; color: var(--text2);
@@ -64,17 +87,17 @@ html.deck-mode, html.deck-mode body { height: 100%; overflow: hidden; }
 .panel .tg-title { font-size: 19px; }
 .panel .im-title { font-size: 26px; }
 .panel .cv-row { padding: 11px 2px; }
-.panel .skill-chips { gap: 8px; }
+.panel .skill-chips { gap: 6px; }
 .panel .skill-chip { padding: 6px 12px; font-size: 13px; }
 
 /* ---------- builder slide ---------- */
-.stat { font-size: 64px; font-weight: 600; letter-spacing: -0.04em; line-height: 1; color: var(--accent); }
+.stat { font-size: 64px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--accent2); }
 .stat + .row-title { font-size: 16px; margin-top: -6px; }
 .stat-label { margin-top: 6px; }
 .stat-list .cv-row { padding: 8px 2px; }
 .metric-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .metric { border: 1px dashed var(--border-dash); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 4px; }
-.metric-num { font-size: 30px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; color: var(--accent); }
+.metric-num { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--accent2); }
 .metric-label { font-size: 12.5px; line-height: 1.45; color: var(--text2); }
 
 /* ---------- bytestyle slide ---------- */
@@ -85,21 +108,20 @@ html.deck-mode, html.deck-mode body { height: 100%; overflow: hidden; }
 .slide--cover { flex-direction: row; align-items: center; gap: 48px; padding: 56px 72px; }
 .cover-card { width: 300px; flex-shrink: 0; }
 .cover-main { flex: 1; display: flex; flex-direction: column; }
-.cover-main .statement { font-size: 38px; max-width: 22ch; }
+.cover-main .statement { max-width: 22ch; }
 .cover-agenda { margin-top: 32px; }
 .agenda-num { font-size: 13px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; width: 22px; }
 .cover-card .profile-head { flex-direction: column; gap: 2px; }
 .cover-card .profile-name { white-space: nowrap; }
-.byte-grid .panel { padding: 24px 24px 22px; gap: 14px; justify-content: center; }
+.byte-grid .panel { padding: 24px 24px 22px; gap: 14px; justify-content: flex-start; }
 .byte-grid .byte-name { font-size: 22px; }
-.byte-grid .panel-text { font-size: 16px; line-height: 1.6; }
-/* until the deck has placed itself: no stage, and no transitions to replay */
+.byte-grid .panel-text { font-size: 17.5px; }
+/* until the deck has placed itself on the right slide */
 .deck:not(.deck--ready) .deck-stage { visibility: hidden; }
-.deck:not(.deck--ready) .deck-slide { transition: none; }
 
 /* "Jessie Li × TikTok" mark, top-right of every slide */
 .deck-corner {
-  position: absolute; top: 40px; right: 48px; z-index: 2;
+  position: absolute; top: 18px; right: 48px; z-index: 2; height: 28px;
   display: flex; align-items: center; gap: 8px;
   font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--text);
   pointer-events: none;
@@ -121,11 +143,179 @@ a.skill-chip:hover { color: var(--text); border-color: var(--border-dash); }
 .cover-agenda .row-title a:hover { text-decoration-color: var(--text); }
 .row-logo--icon { display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); background: var(--card); color: var(--accent); }
 .row-logo--icon svg { width: 18px; height: 18px; }
-.row-logo-pair { display: flex; flex-shrink: 0; }
-.row-logo-pair { gap: 6px; }
-.row-logo-pair .row-logo { background: #fff; }
 
 /* A card pinned open shows its description and arrow without hover */
 .demo-card--open .demo-reveal { max-height: 12rem; }
 .demo-card--open .demo-desc { opacity: 1; }
 .demo-card--open .demo-arrow { opacity: 1; transform: translate(0, 0); }
+
+/* TikTok Sans for everything on this page. Rules that name --font-body
+   (buttons, inputs) pick it up too. The research titles keep their own
+   project typefaces. */
+.tt-font { --font-body: var(--font-tiktok), sans-serif; font-family: var(--font-body); font-weight: 300; }
+
+/* page URL, top-left, sharing the corner mark's line */
+.deck-topleft {
+  position: absolute; top: 18px; left: 40px; z-index: 31; height: 28px;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 400; color: var(--text3); letter-spacing: 0.01em;
+  pointer-events: none;
+}
+/* room for that header line: content starts lower and the bottom margin
+   tightens, keeping the full gap under each heading */
+.slide { padding-top: 52px; padding-bottom: 24px; gap: 26px; }
+.slide--cover { padding-top: 56px; gap: 64px; }  /* photo-to-text buffer; the gap above is for the other slides */
+
+/* hairline on the cover logos so the black lab logo holds its edge on the
+   dark slide */
+.cover-agenda .row-logo { box-shadow: 0 0 0 1px var(--border); }
+.hl-accent { color: var(--accent); font-weight: 600; }
+
+/* Why I care slide: same grid, card, row and text sizes as the Creative work
+   slide. The card spans two of the three columns and keeps its natural height. */
+.why-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+.why-grid > .panel { grid-column: span 2; }
+.why-grid .row-list .cv-row:first-child { border-top: none; }
+.why-grid .row-list .cv-row:last-child { border-bottom: none; }
+.why-grid .row-title { font-size: 13.5px; font-weight: 300; line-height: 1.5; color: var(--text2); }
+.why-grid .row-title a { text-decoration: underline; text-decoration-color: var(--text3); text-underline-offset: 3px; }
+.why-grid .row-title a:hover { color: var(--text); }
+.why-grid .row-logo { box-shadow: 0 0 0 1px var(--border); }
+.why-grid img.row-logo { background: #fff; }
+/* "Expand" toggle and the details sheet it opens over the slide */
+.more-toggle {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 6px;
+  background: none; border: none; padding: 0;
+  font-family: var(--font-body); font-size: 17.5px; font-weight: 600; color: var(--accent2);
+}
+.more-toggle svg { width: 16px; height: 16px; }
+.more-toggle:hover { color: var(--text); }
+.more-overlay {
+  position: absolute; inset: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, 0.55); padding: 72px 120px;
+}
+.more-sheet { width: 100%; max-height: 100%; overflow-y: auto; padding: 24px 28px; gap: 14px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+.more-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.more-head .row-title { font-size: 22px; font-weight: 600; }
+.more-close {
+  display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;
+  background: none; border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px;
+  font-family: var(--font-body); font-size: 17.5px; font-weight: 500; color: var(--text2);
+}
+.more-close svg { width: 15px; height: 15px; }
+.more-close:hover { color: var(--text); border-color: var(--border-dash); }
+.more-sheet .panel-list li { font-size: 17.5px; line-height: 1.5; padding: 10px 2px; }
+.stat-list .row-title a { text-decoration: underline; text-decoration-color: var(--text3); text-underline-offset: 3px; }
+.stat-list .row-title a:hover { text-decoration-color: var(--text); }
+/* a tile with a footer: the link covers media and text, the toggle sits under
+   it inside the same card */
+.demo-card-link { display: flex; flex-direction: column; color: inherit; }
+.demo-footer { padding: 0 16px 14px; margin-top: -4px; }
+.panel-text a { text-decoration: underline; text-decoration-color: var(--text3); text-underline-offset: 3px; }
+.panel-text a:hover { color: var(--text); }
+
+/* "In the room": short linked lines, then two photos side by side */
+.panel-list li a { text-decoration: underline; text-decoration-color: var(--text3); text-underline-offset: 3px; }
+.room-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.room-photos img { width: 100%; height: 120px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); }
+
+/* tooling card: small grouped chips */
+.tool-group { display: flex; flex-direction: column; gap: 4px; }
+.panel:has(.tool-group) { gap: 8px; }
+.tool-label { font-size: 12px; font-weight: 600; color: var(--text); }
+.tool-group .skill-chips { gap: 4px; }
+.tool-group .skill-chip { font-size: 11.5px; font-weight: 400; padding: 2px 8px; border-radius: 7px; box-shadow: none; }
+
+/* Body text 30% larger across the deck (headings, names, labels and chips keep
+   their size). Placed last so it wins over the per-slide sizes above. */
+.deck .panel-text,
+.deck .panel-list li,
+.deck .demo-desc,
+.deck .metric-label,
+.deck .row-sub,
+.deck .slide-note,
+.deck .why-grid .row-title { font-size: 17.5px; }
+.deck .rr-desc { font-size: 17.5px; }
+.deck .panel .rr-desc { font-size: 16.25px; }
+.deck .cover-agenda .row-title { font-size: 20px; }
+
+/* With the larger body text, each content slide gives its tallest column more
+   width so it fits without cutting anything. */
+.slide-grid:has(.tg-title) { grid-template-columns: 0.88fr 1.2fr 1.02fr; }
+.slide-grid:has(.stat) { grid-template-columns: 1.4fr 0.85fr 0.85fr; }
+.stat-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; }
+.stat-list .cv-row:nth-child(2) { border-top: 1px dashed var(--border-dash); }
+.slide-grid:has(.room-photos) { grid-template-columns: 1fr 1fr 1fr; }
+.deck .room-photos img { height: 78px; }
+
+/* Nothing in the deck is smaller than the 17.5px body text. Names and titles
+   sit one step above it so they still read as titles. */
+.deck .panel-label,
+.deck .tool-label,
+.deck .skill-chip,
+.deck .row-award,
+.deck .rr-desc,
+.deck .panel .rr-desc,
+.deck .profile-loc,
+.deck .deck-topleft,
+.deck .deck-corner,
+.deck .deck-count { font-size: 17.5px; }
+.deck .row-title,
+.deck .demo-name,
+.deck .stat-list .row-title { font-size: 18.5px; }
+.deck .panel-label { letter-spacing: 0.04em; }
+
+/* Toolkit slide: one card per group, side by side */
+.tool-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; align-items: start; }
+.tool-grid .skill-chips { gap: 6px; }
+.tool-grid .skill-chip { padding: 4px 11px; }
+
+/* slide menu: button beside the top-left label, list of slides below it */
+.deck-menu-btn {
+  pointer-events: auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 8px; margin-left: -4px;
+  background: none; border: 1px solid transparent; color: var(--text2);
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+.deck-menu-btn svg { width: 20px; height: 20px; }
+.deck-menu-btn:hover, .deck-menu-btn[aria-expanded="true"] { color: var(--text); border-color: var(--border); background: var(--card); }
+.deck-menu-backdrop { position: absolute; inset: 0; z-index: 29; }
+.deck-menu {
+  position: absolute; top: 54px; left: 36px; z-index: 30; min-width: 320px;
+  padding: 8px; gap: 2px; box-shadow: 0 18px 44px rgba(0,0,0,0.28);
+}
+.deck-menu-item {
+  display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+  background: none; border: none; border-radius: 10px; padding: 9px 12px;
+  font-family: var(--font-body); font-size: 17.5px; font-weight: 500; color: var(--text2);
+}
+.deck-menu-item:hover { background: var(--bg); color: var(--text); }
+.deck-menu-item--on { color: var(--accent); }
+.deck-menu-num { width: 20px; color: var(--text3); font-variant-numeric: tabular-nums; }
+.deck-menu-item--on .deck-menu-num { color: var(--accent); }
+
+/* No hover motion on cards in the deck: project tiles and research cards stay
+   put, and the other tiles don't dim while one is hovered. */
+.deck .demo-card,
+.deck .demo-card:hover,
+.deck .rr,
+.deck .rr:hover { transform: none; transition: none; box-shadow: 0 1px 3px rgba(0,0,0,0.04); border-color: var(--border); }
+.deck .demo-grid:hover .demo-card:not(:hover) { opacity: 1; filter: none; }
+/* hackathon list: entries start at the top of their row, not centered */
+.stat-list .cv-row { align-items: flex-start; }
+/* "Jessie Li × TikTok" mark, 10% larger */
+.deck .deck-corner { font-size: 19.25px; gap: 9px; height: 31px; top: 16.5px; }
+.deck .deck-corner-logo { height: 24.2px; }
+.deck .stat-list .cv-row { padding: 6px 2px; }
+.panel:has(.stat-list) { gap: 8px; }
+
+/* No dashed dividers anywhere in the deck */
+.deck .cv-row,
+.deck .cv-row:first-child,
+.deck .panel-list li,
+.deck .panel-list li:first-child,
+.deck .stat-list .cv-row:nth-child(2),
+.deck .metric,
+.deck .why-list li + li { border-top: none; border-bottom: none; border-left: none; }
+.deck .metric { border: 1px solid var(--border); }
