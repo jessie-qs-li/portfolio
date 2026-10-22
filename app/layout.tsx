@@ -22,7 +22,7 @@ const siteFont = localFont({
 
 export const metadata: Metadata = {
   title: "Jessie Li",
-  description: "Aspiring product manager, HCI nerd, 5x hackathon winner. CS & Film @ Columbia.",
+  description: "Aspiring product manager, HCI nerd, 7x hackathon winner. CS & Film @ Columbia.",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
